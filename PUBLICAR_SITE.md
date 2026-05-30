@@ -14,8 +14,8 @@ Use estas URLs nas lojas enquanto não houver domínio próprio:
 - Índice geral de termos: `https://arabeco.github.io/termos.html`
 - Glyph privacidade: `https://arabeco.github.io/privacidade-glyph.html`
 - Glyph termos: `https://arabeco.github.io/termos-glyph.html`
-- Elite 2050 privacidade: `https://arabeco.github.io/privacidade-elite-2050.html`
-- Elite 2050 termos: `https://arabeco.github.io/termos-elite-2050.html`
+- Elite50 privacidade: `https://arabeco.github.io/privacidade-elite50.html`
+- Elite50 termos: `https://arabeco.github.io/termos-elite50.html`
 - KingsWorld privacidade: `https://arabeco.github.io/privacidade-kingsworld.html`
 - KingsWorld termos: `https://arabeco.github.io/termos-kingsworld.html`
 - Mind Practice privacidade: `https://arabeco.github.io/privacidade-mind-practice.html`

@@ -364,7 +364,7 @@ const projects = [
   },
   {
     id: "elite-50",
-    title: "Elite 50",
+    title: "Elite50",
     githubUrl: "",
     siteUrl: "",
     level: 4,
@@ -2399,7 +2399,7 @@ function projectLegalSlug(project) {
     glyph: "glyph",
     kingsworld: "kingsworld",
     "mind-practice": "mind-practice",
-    "elite-50": "elite-2050",
+    "elite-50": "elite50",
     scoretrader: "scoretrader",
   };
   return slugs[id] || "";
