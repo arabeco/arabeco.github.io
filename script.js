@@ -2143,6 +2143,8 @@ function renderProjectLinks(project) {
       ${renderLinkChip("github", "GitHub", links.github)}
       ${renderLinkChip("site", "Site", links.site)}
       ${playStoreChip}
+      ${links.privacy ? renderLinkChip("privacy", "Privacidade", links.privacy) : ""}
+      ${links.terms ? renderLinkChip("terms", "Termos", links.terms) : ""}
     </div>
   `;
 }
@@ -2381,11 +2383,26 @@ function projectStateMap(project) {
 }
 
 function projectLinkSet(project) {
+  const legalSlug = projectLegalSlug(project);
   return {
     github: project.githubUrl || "",
     site: project.siteUrl || project.link || "",
     playStore: project.playStoreUrl || "",
+    privacy: legalSlug ? `privacidade-${legalSlug}.html` : "",
+    terms: legalSlug ? `termos-${legalSlug}.html` : "",
   };
+}
+
+function projectLegalSlug(project) {
+  const id = projectMetaId(project);
+  const slugs = {
+    glyph: "glyph",
+    kingsworld: "kingsworld",
+    "mind-practice": "mind-practice",
+    "elite-50": "elite-2050",
+    scoretrader: "scoretrader",
+  };
+  return slugs[id] || "";
 }
 
 function renderLinkChip(kind, label, href, extraClass = "") {
@@ -2516,6 +2533,8 @@ function renderSystemCycleSlide(project) {
         ${renderLinkChip("github", "GitHub", links.github, "slide-link-chip")}
         ${renderLinkChip("site", "Site", links.site, "slide-link-chip")}
         ${"playStoreUrl" in project ? renderLinkChip("playstore", "Play Store", links.playStore, "slide-link-chip") : ""}
+        ${links.privacy ? renderLinkChip("privacy", "Privacidade", links.privacy, "slide-link-chip") : ""}
+        ${links.terms ? renderLinkChip("terms", "Termos", links.terms, "slide-link-chip") : ""}
       </div>
       <button class="primary-action" type="button" data-open-support-from-slide>
         <span>Apoiar</span>

@@ -10,13 +10,18 @@ Como o repositório é `arabeco/arabeco.github.io`, a URL pública padrão do Gi
 
 Use estas URLs nas lojas enquanto não houver domínio próprio:
 
-- Política geral de privacidade: `https://arabeco.github.io/privacidade.html`
-- Termos gerais: `https://arabeco.github.io/termos.html`
-- Glyph: `https://arabeco.github.io/privacidade.html#glyph`
-- Elite 2050: `https://arabeco.github.io/privacidade.html#elite-2050`
-- KingsWorld: `https://arabeco.github.io/privacidade.html#kingsworld`
-- Mind Practice: `https://arabeco.github.io/privacidade.html#mind-practice`
-- ScoreTrader: `https://arabeco.github.io/privacidade.html#scoretrader`
+- Índice geral de privacidade: `https://arabeco.github.io/privacidade.html`
+- Índice geral de termos: `https://arabeco.github.io/termos.html`
+- Glyph privacidade: `https://arabeco.github.io/privacidade-glyph.html`
+- Glyph termos: `https://arabeco.github.io/termos-glyph.html`
+- Elite 2050 privacidade: `https://arabeco.github.io/privacidade-elite-2050.html`
+- Elite 2050 termos: `https://arabeco.github.io/termos-elite-2050.html`
+- KingsWorld privacidade: `https://arabeco.github.io/privacidade-kingsworld.html`
+- KingsWorld termos: `https://arabeco.github.io/termos-kingsworld.html`
+- Mind Practice privacidade: `https://arabeco.github.io/privacidade-mind-practice.html`
+- Mind Practice termos: `https://arabeco.github.io/termos-mind-practice.html`
+- ScoreTrader privacidade: `https://arabeco.github.io/privacidade-scoretrader.html`
+- ScoreTrader termos: `https://arabeco.github.io/termos-scoretrader.html`
 
 ## Caminho rápido com GitHub Pages
 
