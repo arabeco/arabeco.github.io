@@ -1,0 +1,44 @@
+Slide 1 — Resumo
+O Spectre é a nova engine automatizada de day trade do ScoreTrader para mini índice. Ele monitora o mercado em tempo real, identifica setups da estratégia V35 e executa operações com regras objetivas de entrada, stop, alvo e proteção de risco.
+
+O sistema roda em um terminal Python conectado ao MetaTrader 5, com operação autorizada manualmente pelo usuário. A proposta é transformar leitura técnica, zonas de preço, VWAP, volume e gestão de banca em uma rotina repetível, auditável e controlada.
+
+Slide 2 — Visão
+O Spectre foi desenhado para operar contextos específicos do índice: rompimento de abertura, pullback em tendência, rejeição na VWAP e sinais defensivos do núcleo V35.
+
+A lógica atual busca equilibrar precisão, frequência útil por dia e risco conhecido. O foco não é operar qualquer movimento, mas agir quando o mercado oferece estrutura suficiente para uma entrada com stop curto, alvo objetivo e execução controlada.
+
+Slide 3 — Sistema
+O sistema combina leitura de VWAP, tendência, abertura, rompimento, pullback, rejeição e volume. A entrada não depende de um único indicador, mas de famílias de setups que representam comportamentos diferentes do mercado.
+
+Entre os motores analisados estão V26B Core, OR Break, EMA Pullback e VWAP Reject. Cada família possui critérios próprios de entrada, direção, horário, stop e target. O Spectre não trata todo trade igual: cada oportunidade nasce com sua própria lógica de risco.
+
+Slide 4 — Gestão
+Depois da entrada, o Spectre usa gestão objetiva da posição. A lógica trabalha com stop no servidor, alvo fixo por engine, limite diário de perda e bloqueio automático quando o risco sai do planejado.
+
+A operação também inclui alocação diária de banca, comando manual de ligar/desligar, validação do MT5, logs de execução, magic number próprio, arquivos separados de controle e registro de trades para auditoria posterior.
+
+Slide 5 — Estado
+Nível 1 — Ideia: fechado
+Nível 2 — Infraestrutura: fechado
+Nível 3 — Design: fechado
+Nível 4 — Fluxo: fechado
+Nível 5 — Engine V35: fechado
+Nível 6 — Persistência: fechado
+Nível 7 — Conexão MT5: fechado
+Nível 8 — Robô Spectre: em validação
+Nível 9 — Paper live e auditoria: próximo gate
+Nível 10 — Produto vivo: pendente
+
+Como Usar
+O uso segue uma rotina simples: preparar o ambiente, conferir os dados principais, autorizar a execução e acompanhar os resultados. Nada começa automaticamente sem validação humana.
+
+01 — Defina a Banca: antes de operar, defina a banca inicial ou rastreada para o ciclo do Spectre. O número de contratos é calculado automaticamente a partir desse valor.
+
+02 — Conecte ao MT5: confirme a conexão com o MetaTrader 5, verifique o ativo selecionado e valide o AutoTrading habilitado na plataforma.
+
+03 — Inicie o Spectre: execute o terminal Python do robô e confira magic number, arquivos de controle, stop, alvo e limite diário antes de liberar qualquer operação.
+
+04 — Autorize Manualmente: use o comando LIGAR para permitir novas entradas. O robô permanece bloqueado até essa autorização. Sem o LIGAR, nenhuma ordem é enviada.
+
+05 — Acompanhe e Audite: durante o uso, acompanhe logs, trades salvos, PnL, stops e alvos. Use DESLIGAR para bloquear novas entradas ou DESLIGAR_FECHAR para encerrar tudo em modo de emergência.

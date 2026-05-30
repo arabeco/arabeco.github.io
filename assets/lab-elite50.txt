@@ -1,0 +1,31 @@
+Slide 1 — Resumo
+Elite50 é um manager game mobile-first de futebol futurista em tempo real. Ele organiza mundo, clube, elenco, tática, treino, mercado, notícias e partidas dentro de um loop contínuo de temporada, onde o jogador toma decisões de técnico e vê o impacto delas no desempenho do time.
+
+O sistema roda como um app conectado a estado local e backend, transformando gestão esportiva, leitura de elenco, score, progressão de atletas e calendário em uma experiência repetível, mensurável e persistente.
+
+Slide 2 — Visão
+O Elite50 foi lapidado para fazer o jogador sentir que comanda um clube vivo, e não apenas uma coleção de telas. A proposta é unir rotina curta, atmosfera forte, identidade premium e consequência real em elenco, score, tática, timing e progresso de carreira.
+
+A lógica foi refinada para equilibrar clareza, profundidade e retenção. O objetivo é manter o app fácil de entender no começo, sem perder densidade suficiente para sustentar apego ao clube, leitura do mundo e retorno diário.
+
+Slide 3 — Sistema
+O sistema combina montagem de elenco, teto de score, posições, lineup, ranking de atletas, draft, mercado, clubes, notícias, calendário e temporadas contínuas. A força do time não depende de um único número, mas da confluência entre qualidade individual, encaixe do elenco, escolhas do treinador e momento do mundo.
+
+Entre os elementos analisados estão score total, posição de cada atleta, distribuição do elenco, lineup mínimo, tática, treino, progressão de jogador, propostas de clube, janela de entrada, ranking global, ranking de clubes, radar de oportunidades e leitura de fase da temporada.
+
+Slide 4 — Sistema Parte 2
+Depois de montar a base, o Elite50 entra no loop vivo da temporada. A lógica busca fazer cada partida devolver informação útil ao jogador, sem quebrar o ritmo do mundo nem transformar a gestão em microgerenciamento confuso.
+
+A gestão combina match engine, peso de atributos, influência de posição, química, treino, entendimento tático, relatórios de jogo, notícias dinâmicas, progressão, propostas para técnicos, modo sem clube, transição automática de temporada e persistência de mundo.
+
+Slide 5 — Estado
+Nível 1 — Ideia: fechado
+Nível 2 — Infraestrutura: fechado
+Nível 3 — Design: fechado
+Nível 4 — Fluxo: em fechamento
+Nível 5 — Engine: fechado
+Nível 6 — Persistência: em fechamento
+Nível 7 — Conexão: próximo gate
+Nível 8 — Refino: pendente
+Nível 9 — Marketing e testes: pendente
+Nível 10 — Produto vivo: pendente

@@ -1,0 +1,31 @@
+Slide 1 — Resumo
+GLYPH é um app de evolução pessoal gamificada que transforma objetivos, rotina e identidade em uma jornada estruturada. O usuário cria arenas da vida, executa ações, atravessa ciclos, desbloqueia campanhas, registra história e constrói legado.
+
+O sistema conecta Planner, Painel Diário, Ciclos, Relatórios, Histórico, Eras, Legado, Oráculo, Mundo Social, Clãs, Loja, Arsenal e Perfil Soberano em uma experiência única: viver a própria evolução como um jogo sério, mensurável e simbólico.
+
+Slide 2 — Visão
+O GLYPH foi lapidado para não ser apenas uma lista de tarefas. Ele organiza a vida como uma arquitetura de manifestação: campanhas dão direção, arenas definem campos de batalha, ações viram execução concreta e ciclos transformam esforço em leitura de fase.
+
+A visão do produto é criar um sistema onde progresso não desaparece. Cada decisão, tarefa, campanha, vínculo, conquista e ciclo encerrado pode virar histórico, era, título, skin, relatório, imagem compartilhável ou peça do legado do usuário.
+
+Slide 3 — Sistema
+O sistema combina execução diária, progressão, identidade, social e narrativa pessoal. A entrada do usuário passa por arenas, ações, Planner e SITREP; depois ganha profundidade em ciclos, relatórios, histórico, eras e legado.
+
+Entre os módulos centrais estão Campanhas, Codex e Mentoria, Arenas, Ações, Planner, Painel Diário, Deep Focus, Descanso, Ciclos, Relatórios, Histórico, Eras e Legado. Essa espinha transforma meta abstrata em caminho visível, jogável e auditável.
+
+Slide 4 — Sistema Parte 2
+Ao redor da espinha principal, o GLYPH adiciona camadas de inteligência, status, economia e comunidade. O Oráculo orienta, interpreta e conecta momentos importantes; Maestria e Quiz calibram leitura de maturidade; Loja, Forja, Arsenal, Patentes e Perfil Soberano constroem identidade.
+
+O Mundo Social amplia a experiência com vínculos, amigos, mentoria, parceria, competição, clãs, missões coletivas e quests de temporada. O app não vende apenas produtividade: vende pertencimento, trajetória, símbolo, conquista e construção de uma versão mais forte de si.
+
+Slide 5 — Estado
+Nível 1 — Ideia: fechado
+Nível 2 — Infraestrutura: fechado
+Nível 3 — Design: fechado
+Nível 4 — Fluxo: fechado
+Nível 5 — Engine: fechado
+Nível 6 — Persistência: fechado
+Nível 7 — Conexão: fechado
+Nível 8 — Refino: fechado
+Nível 9 — Marketing e testes: em andamento
+Nível 10 — Produto vivo: pendente

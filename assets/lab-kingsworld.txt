@@ -1,0 +1,31 @@
+Slide 1 — Resumo
+KingsWorld é um jogo mobile de estratégia em mundos sazonais. Cada jogador lidera um reino, escolhe um rei, desenvolve cidades, recruta heróis, explora o mapa e tenta acumular influência suficiente para atravessar o Portal Central antes do fim da temporada.
+
+A proposta é unir guerra, política, expansão e sobrevivência em uma experiência mais clara que jogos tradicionais de aldeias. O foco não é controlar dezenas de telas repetitivas, mas tomar boas decisões sobre crescimento, defesa, sociedade e legado.
+
+Slide 2 — Visão
+O jogo gira em torno de uma campanha com começo, meio e fim. Cada mundo avança por dias, cria pressão de tempo e força o jogador a escolher entre fundar, anexar, conquistar, proteger ou investir melhor nas cidades que já possui.
+
+A vitória não vem apenas de ter mais tropas. O jogador precisa construir um império estável, influente e capaz de resistir até o encerramento do mundo. A influência é o grande objetivo: um score soberano formado por infraestrutura, governo, militar, sociedade e legado.
+
+Slide 3 — Sistema
+Cada cidade evolui por 5 frentes principais: Governo, Produção, Sociedade, Quartel e Muralha. O nível de cada frente nasce diretamente das skills investidas nela, sem botão genérico de upgrade separado.
+
+Essas escolhas definem produção, defesa, população, tropas, estabilidade, capacidade de expansão e ritmo de crescimento. A cidade deixa de ser apenas um número e passa a refletir a build real escolhida pelo jogador.
+
+Slide 4 — Sistema Parte 2
+O mapa funciona por exploração, território conhecido e risco progressivo. O jogador descobre cidades, regiões vazias, oportunidades, inimigos, saqueadores, demônios, ruínas e eventos especiais ao longo da campanha.
+
+Expandir aumenta poder, mas também exposição. Uma cidade nova pode acelerar a produção e ampliar influência, mas também pode abrir novas frentes de defesa. O desafio é crescer sem perder controle político, militar e social.
+
+Slide 5 — Estado
+Nível 1 — Ideia: fechado
+Nível 2 — Infraestrutura: fechado
+Nível 3 — Design: fechado
+Nível 4 — Fluxo: fechado
+Nível 5 — Engine: fechado
+Nível 6 — Persistência: fechado
+Nível 7 — Conexão: próximo gate
+Nível 8 — Refino: pendente
+Nível 9 — Marketing e testes: pendente
+Nível 10 — Produto vivo: pendente
