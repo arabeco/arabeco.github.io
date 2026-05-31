@@ -26,6 +26,40 @@ Use estas URLs nas lojas enquanto não houver domínio próprio:
 - ScoreTrader privacidade: `https://arabeco.github.io/privacidade-scoretrader.html`
 - ScoreTrader termos: `https://arabeco.github.io/termos-scoretrader.html`
 
+## Exclusão de conta web
+
+Antes de criar tabela em qualquer Supabase, verificar se já existe algo como `account_deletion_requests`,
+`account_deletion_web_requests` ou equivalente. Se a tabela existente for de fluxo autenticado interno do app e exigir
+`user_id`, `metadata`, `requested_at` ou campos parecidos, criar uma tabela separada para o fluxo público web.
+
+Schema recomendado para as páginas `exclusao.html`:
+
+```sql
+create table if not exists public.account_deletion_web_requests (
+  id uuid primary key default gen_random_uuid(),
+  app_slug text not null,
+  email text not null,
+  nickname text,
+  identifier text,
+  reason text not null,
+  status text not null default 'pending',
+  created_at timestamptz not null default now(),
+  processed_at timestamptz,
+  notes text
+);
+
+alter table public.account_deletion_web_requests enable row level security;
+
+create policy "account_deletion_web_requests_insert_anon"
+on public.account_deletion_web_requests
+for insert
+to anon
+with check (true);
+```
+
+O JavaScript público envia `app_slug`, `email`, `nickname`, `identifier`, `reason` e `status` para essa tabela quando
+`window.BECOSLAB_DELETION_SUPABASE` estiver configurado com `url`, `anonKey` e `table`.
+
 ## Caminho rápido com GitHub Pages
 
 1. Usar o repositório `arabeco/arabeco.github.io`.

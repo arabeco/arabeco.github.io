@@ -51,8 +51,12 @@
             <input name="nickname" type="text" autocomplete="nickname" placeholder="Opcional" />
           </label>
           <label>
+            Identificador da conta
+            <input name="identifier" type="text" placeholder="ID, login ou outro identificador opcional" />
+          </label>
+          <label>
             Motivo
-            <textarea name="reason" rows="5" placeholder="Opcional"></textarea>
+            <textarea name="reason" rows="5" required placeholder="Explique brevemente o motivo da solicitação"></textarea>
           </label>
           <label class="deletion-check">
             <input name="confirm_delete" type="checkbox" required />
@@ -74,8 +78,8 @@
             contestação de compra ou exigência operacional.
           </p>
           <p>
-            Esta página está preparada para registrar pedidos na tabela Supabase
-            <code>account_deletion_requests</code> usando o campo <code>app_slug</code> como <code>mind-practice</code>.
+            Esta página está preparada para registrar pedidos na tabela pública web do Supabase
+            <code>account_deletion_web_requests</code> usando o campo <code>app_slug</code> como <code>mind-practice</code>.
           </p>
           <div class="deletion-links">
             <a href="../privacidade-mind-practice.html">Privacidade</a>

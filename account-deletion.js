@@ -1,7 +1,7 @@
 const DELETION_SUPABASE_CONFIG = window.BECOSLAB_DELETION_SUPABASE || {
   url: "",
   anonKey: "",
-  table: "account_deletion_requests",
+  table: "account_deletion_web_requests",
   supportEmail: "",
 };
 
@@ -19,7 +19,8 @@ document.querySelectorAll("[data-account-deletion-form]").forEach((form) => {
       app_slug: String(data.app_slug || "").trim(),
       email: String(data.email || "").trim(),
       nickname: String(data.nickname || "").trim() || null,
-      reason: String(data.reason || "").trim() || null,
+      identifier: String(data.identifier || "").trim() || null,
+      reason: String(data.reason || "").trim(),
       status: "pending",
     };
 
@@ -30,6 +31,11 @@ document.querySelectorAll("[data-account-deletion-form]").forEach((form) => {
 
     if (data.confirm_delete !== "on") {
       setDeletionStatus(status, "Confirme que deseja solicitar a exclusão da conta.", "error");
+      return;
+    }
+
+    if (!payload.reason) {
+      setDeletionStatus(status, "Informe o motivo da solicitação para registrar o pedido web.", "error");
       return;
     }
 
@@ -73,7 +79,7 @@ function hasSupabaseConfig() {
 
 async function sendDeletionRequestToSupabase(payload) {
   const url = DELETION_SUPABASE_CONFIG.url.replace(/\/$/, "");
-  const table = DELETION_SUPABASE_CONFIG.table || "account_deletion_requests";
+  const table = DELETION_SUPABASE_CONFIG.table || "account_deletion_web_requests";
   const response = await fetch(`${url}/rest/v1/${table}`, {
     method: "POST",
     headers: {
@@ -98,6 +104,7 @@ function openDeletionMailFallback(payload) {
     `App: ${payload.app_slug}`,
     `Email da conta: ${payload.email}`,
     `Nickname: ${payload.nickname || "não informado"}`,
+    `Identificador: ${payload.identifier || "não informado"}`,
     `Motivo: ${payload.reason || "não informado"}`,
     "",
     "Confirmo que desejo solicitar a exclusão da minha conta e dados associados, conforme a política do app.",
