@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Solicitação de exclusão de conta e dados do KingsWorld, app do Beco's Lab."
+    />
+    <title>Exclusão de conta do KingsWorld · Beco's Lab</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="static-page deletion-page app-kingsworld">
+    <header class="site-header" aria-label="Navegação principal">
+      <a class="site-brand" href="../index.html">
+        <span class="site-brand-mark"><img src="../assets/becoslab.jpg" alt="" /></span>
+        <span class="site-brand-copy"><strong>Beco's Lab</strong></span>
+      </a>
+      <nav class="site-nav" aria-label="Links legais do KingsWorld">
+        <a href="../index.html">Home</a>
+        <a href="../privacidade-kingsworld.html">Privacidade</a>
+        <a href="../termos-kingsworld.html">Termos</a>
+        <a href="../index.html#contactSection">Suporte</a>
+      </nav>
+    </header>
+
+    <main class="deletion-shell" aria-label="Exclusão de conta do KingsWorld">
+      <section class="deletion-hero">
+        <div class="deletion-copy">
+          <p class="section-kicker">Conta e dados · KingsWorld</p>
+          <h1>Exclusão de conta do KingsWorld.</h1>
+          <p>
+            O caminho principal para excluir a conta fica dentro do app KingsWorld, nas configurações da conta. Use esta
+            página se você perdeu acesso ao app, ao login ou ao email usado na conta.
+          </p>
+        </div>
+        <figure class="deletion-media">
+          <img src="../assets/kingsworld.jpg" alt="" />
+        </figure>
+      </section>
+
+      <section class="deletion-grid">
+        <form class="deletion-form" data-account-deletion-form>
+          <input type="hidden" name="app_slug" value="kingsworld" />
+          <label>
+            Email da conta
+            <input name="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+          </label>
+          <label>
+            Nickname
+            <input name="nickname" type="text" autocomplete="nickname" placeholder="Opcional" />
+          </label>
+          <label>
+            Motivo
+            <textarea name="reason" rows="5" placeholder="Opcional"></textarea>
+          </label>
+          <label class="deletion-check">
+            <input name="confirm_delete" type="checkbox" required />
+            <span>Confirmo que desejo solicitar a exclusão da minha conta KingsWorld e dos dados associados.</span>
+          </label>
+          <button class="deletion-submit" type="submit">Solicitar exclusão</button>
+          <p class="deletion-status" data-deletion-status aria-live="polite"></p>
+        </form>
+
+        <article class="deletion-info">
+          <h2>Como o pedido é tratado</h2>
+          <p>
+            A solicitação será analisada para localizar a conta correta e processar a exclusão ou anonimização de dados
+            do KingsWorld, incluindo perfil, mundo, cidades, recursos, tropas, decisões, eventos, progresso e registros
+            operacionais ligados à conta.
+          </p>
+          <p>
+            Alguns dados mínimos podem ser retidos quando houver obrigação legal, segurança, prevenção a fraude,
+            contestação de compra ou exigência operacional.
+          </p>
+          <p>
+            Esta página está preparada para registrar pedidos na tabela Supabase
+            <code>account_deletion_requests</code> usando o campo <code>app_slug</code> como <code>kingsworld</code>.
+          </p>
+          <div class="deletion-links">
+            <a href="../privacidade-kingsworld.html">Privacidade</a>
+            <a href="../termos-kingsworld.html">Termos</a>
+            <a href="../index.html#contactSection">Suporte</a>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="../account-deletion.js"></script>
+  </body>
+</html>

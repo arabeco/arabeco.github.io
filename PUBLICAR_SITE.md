@@ -16,10 +16,13 @@ Use estas URLs nas lojas enquanto não houver domínio próprio:
 - Glyph termos: `https://arabeco.github.io/termos-glyph.html`
 - Elite50 privacidade: `https://arabeco.github.io/privacidade-elite50.html`
 - Elite50 termos: `https://arabeco.github.io/termos-elite50.html`
+- Elite50 exclusão de conta: `https://arabeco.github.io/elite50/exclusao.html`
 - KingsWorld privacidade: `https://arabeco.github.io/privacidade-kingsworld.html`
 - KingsWorld termos: `https://arabeco.github.io/termos-kingsworld.html`
+- KingsWorld exclusão de conta: `https://arabeco.github.io/kingsworld/exclusao.html`
 - Mind Practice privacidade: `https://arabeco.github.io/privacidade-mind-practice.html`
 - Mind Practice termos: `https://arabeco.github.io/termos-mind-practice.html`
+- Mind Practice exclusão de conta: `https://arabeco.github.io/mind-practice/exclusao.html`
 - ScoreTrader privacidade: `https://arabeco.github.io/privacidade-scoretrader.html`
 - ScoreTrader termos: `https://arabeco.github.io/termos-scoretrader.html`
 

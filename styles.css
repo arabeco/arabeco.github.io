@@ -4745,6 +4745,249 @@ body {
   margin: 0;
 }
 
+.deletion-page {
+  --app-accent: var(--gold);
+  --app-accent-soft: rgba(216, 183, 106, 0.18);
+  background:
+    radial-gradient(circle at 82% 18%, var(--app-accent-soft), transparent 24rem),
+    radial-gradient(circle at 14% 74%, rgba(102, 231, 205, 0.08), transparent 24rem),
+    linear-gradient(135deg, #030407 0%, #090817 48%, #071421 100%);
+}
+
+.deletion-page.app-elite50 {
+  --app-accent: #ff7a95;
+  --app-accent-soft: rgba(255, 122, 149, 0.2);
+}
+
+.deletion-page.app-kingsworld {
+  --app-accent: #f6a15f;
+  --app-accent-soft: rgba(246, 161, 95, 0.2);
+}
+
+.deletion-page.app-mind-practice {
+  --app-accent: #8aa4ff;
+  --app-accent-soft: rgba(138, 164, 255, 0.2);
+}
+
+.deletion-shell {
+  display: grid;
+  gap: 18px;
+  width: min(1120px, calc(100vw - 24px));
+  margin: 0 auto;
+  padding: 104px 0 32px;
+}
+
+.deletion-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.deletion-copy,
+.deletion-form,
+.deletion-info,
+.deletion-media {
+  min-width: 0;
+  background:
+    radial-gradient(circle at 12% 0%, var(--app-accent-soft), transparent 15rem),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid color-mix(in srgb, var(--app-accent) 34%, transparent);
+  border-radius: 8px;
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+.deletion-copy {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: clamp(22px, 5vw, 44px);
+}
+
+.deletion-copy h1 {
+  max-width: 13ch;
+  margin: 0;
+  color: rgba(246, 239, 225, 0.96);
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  line-height: 0.92;
+}
+
+.deletion-copy p:not(.section-kicker) {
+  max-width: 64ch;
+  margin: 0;
+  color: rgba(246, 239, 225, 0.7);
+  font-size: 1rem;
+  line-height: 1.58;
+}
+
+.deletion-media {
+  position: relative;
+  min-height: 300px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.deletion-media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(5, 6, 16, 0.02), rgba(5, 6, 16, 0.48)),
+    radial-gradient(circle at 50% 0%, transparent 0 32%, rgba(5, 6, 16, 0.4) 100%);
+}
+
+.deletion-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.deletion-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.68fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.deletion-form,
+.deletion-info {
+  display: grid;
+  gap: 14px;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.deletion-form label {
+  display: grid;
+  gap: 8px;
+  color: rgba(216, 183, 106, 0.82);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+}
+
+.deletion-form input,
+.deletion-form textarea {
+  width: 100%;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.98rem;
+  text-transform: none;
+  background: rgba(4, 6, 16, 0.58);
+  border: 1px solid rgba(216, 183, 106, 0.18);
+  border-radius: 8px;
+  outline: none;
+}
+
+.deletion-form input {
+  min-height: 46px;
+  padding: 0 13px;
+}
+
+.deletion-form textarea {
+  min-height: 128px;
+  padding: 12px 13px;
+  resize: vertical;
+}
+
+.deletion-form input:focus,
+.deletion-form textarea:focus {
+  border-color: color-mix(in srgb, var(--app-accent) 76%, white 8%);
+  box-shadow: 0 0 0 3px var(--app-accent-soft);
+}
+
+.deletion-check {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  color: rgba(246, 239, 225, 0.72) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.45;
+  text-transform: none !important;
+}
+
+.deletion-check input {
+  width: 18px;
+  min-height: 18px;
+  margin-top: 2px;
+  accent-color: var(--app-accent);
+}
+
+.deletion-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  color: #090a12;
+  cursor: pointer;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--app-accent) 82%, white 18%), var(--gold));
+  border-radius: 8px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+.deletion-submit:disabled {
+  cursor: wait;
+  opacity: 0.66;
+}
+
+.deletion-status {
+  min-height: 24px;
+  margin: 0;
+  color: rgba(246, 239, 225, 0.68);
+  line-height: 1.45;
+}
+
+.deletion-status[data-state="success"] {
+  color: rgba(102, 231, 205, 0.92);
+}
+
+.deletion-status[data-state="error"] {
+  color: rgba(255, 122, 149, 0.95);
+}
+
+.deletion-info h2 {
+  margin: 0;
+  color: rgba(246, 239, 225, 0.9);
+  font-size: 1.4rem;
+}
+
+.deletion-info p {
+  margin: 0;
+  color: rgba(246, 239, 225, 0.68);
+  line-height: 1.56;
+}
+
+.deletion-info code {
+  color: rgba(246, 239, 225, 0.88);
+  overflow-wrap: anywhere;
+}
+
+.deletion-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.deletion-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
+  color: rgba(246, 239, 225, 0.82);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(216, 183, 106, 0.18);
+  border-radius: 999px;
+}
+
+.deletion-links a:hover,
+.deletion-links a:focus-visible {
+  color: #fff;
+  border-color: color-mix(in srgb, var(--app-accent) 62%, transparent);
+}
+
 /* --- Site systems: interaction hub, logs, method, editor --- */
 
 .constellation-bg {
@@ -5080,6 +5323,35 @@ body {
   .static-card h1 {
     font-size: 1.58rem;
     text-align: left;
+  }
+
+  .deletion-shell {
+    width: calc(100vw - 20px);
+    max-width: 760px;
+    padding-top: 122px;
+  }
+
+  .deletion-hero,
+  .deletion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deletion-copy {
+    padding: 18px;
+  }
+
+  .deletion-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 13vw, 3.15rem);
+  }
+
+  .deletion-media {
+    min-height: 220px;
+  }
+
+  .deletion-form,
+  .deletion-info {
+    padding: 18px;
   }
 
   .method-phase-grid {
