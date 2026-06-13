@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Prot&oacute;tipo local de landing page do Beco's Lab." />
+    <title>Beco's Lab &middot; Experimento local</title>
+    <link rel="stylesheet" href="landing-experimento.css" />
+  </head>
+  <body>
+    <div class="lab-noise" aria-hidden="true">
+      <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain)" />
+      </svg>
+    </div>
+
+    <main class="experiment-shell">
+      <section class="lab-stage snap-screen" aria-labelledby="heroTitle">
+        <header class="stage-topline">
+          <a class="experiment-brand" href="landing-experimento.html" aria-label="Beco's Lab">
+            <span class="brand-orb"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Beco's Lab</span>
+          </a>
+          <nav class="experiment-nav" aria-label="Caminhos do Lab">
+            <a href="news.html">News</a>
+            <a href="metodo.html">M&eacute;todo</a>
+            <a href="index.html?scene=parcerias">Parcerias</a>
+          </nav>
+        </header>
+
+        <div class="stage-copy">
+          <p class="section-kicker">Prot&oacute;tipo local &middot; landing v2</p>
+          <h1 id="heroTitle">Beco's Lab</h1>
+          <p class="desktop-line">Um sistema vivo de apps, jogos, m&eacute;todos e produtos autorais.</p>
+          <p class="mobile-line">Apps, jogos e m&eacute;todos autorais.</p>
+        </div>
+
+        <div class="door-tabs" role="tablist" aria-label="Portas do Lab">
+          <button class="door-tab" type="button" role="tab" aria-selected="false" data-track="apps">
+            <span class="door-mark mark-apps" aria-hidden="true"></span>
+            <strong>Apps</strong>
+            <small>Produtos digitais e experi&ecirc;ncias mobile.</small>
+          </button>
+          <button class="door-tab" type="button" role="tab" aria-selected="false" data-track="studio">
+            <span class="door-mark mark-systems" aria-hidden="true"></span>
+            <strong>Studio</strong>
+            <small>Design, parcerias e produ&ccedil;&atilde;o do Lab.</small>
+          </button>
+          <button class="door-tab" type="button" role="tab" aria-selected="false" data-track="info">
+            <span class="door-mark mark-methods" aria-hidden="true"></span>
+            <strong>Infoprodutos</strong>
+            <small>Sa&uacute;de, organiza&ccedil;&atilde;o e curso.</small>
+          </button>
+        </div>
+
+        <div class="lab-system" aria-label="Mapa visual do Beco's Lab">
+          <span class="system-line line-a" aria-hidden="true"></span>
+          <span class="system-line line-b" aria-hidden="true"></span>
+          <button class="project-back-orb" type="button" data-project-back hidden>
+            <span class="mini-becos" aria-hidden="true"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Voltar</span>
+          </button>
+          <button class="core-orb" type="button" data-reset-lab aria-label="Beco's Lab">
+            <span class="orb-image becoslab-zoom"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Beco's Lab</span>
+          </button>
+
+          <button class="project-orb orb-glyph" type="button" data-orb-track="apps" data-project="glyph" aria-label="Glyph">
+            <span class="orb-image"><img src="assets/glyph.jpg" alt="" /></span>
+            <span>Glyph</span>
+          </button>
+          <button class="project-orb orb-mind" type="button" data-orb-track="apps" data-project="mind" aria-label="Mind Practice">
+            <span class="orb-image"><img src="assets/mindpractice.jpg" alt="" /></span>
+            <span>Mind</span>
+          </button>
+          <button class="project-orb orb-elite" type="button" data-orb-track="apps" data-project="elite50" aria-label="Elite50">
+            <span class="orb-image"><img src="assets/elite50.jpg" alt="" /></span>
+            <span>Elite50</span>
+          </button>
+          <button class="project-orb orb-kings" type="button" data-orb-track="apps" data-project="kingsworld" aria-label="KingsWorld">
+            <span class="orb-image"><img src="assets/kingsworld.jpg" alt="" /></span>
+            <span>Kings</span>
+          </button>
+          <button class="project-orb orb-blueprint" type="button" data-orb-track="info" data-project="health" aria-label="Ficha de sa&uacute;de">
+            <span class="orb-image becoslab-zoom"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Ficha sa&uacute;de</span>
+          </button>
+          <button class="project-orb orb-life" type="button" data-orb-track="info" data-project="life" aria-label="Organizar a vida">
+            <span class="orb-image becoslab-zoom"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Organizar vida</span>
+          </button>
+          <button class="project-orb orb-course" type="button" data-orb-track="info" data-project="course" aria-label="Curso">
+            <span class="orb-image becoslab-zoom"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Curso</span>
+          </button>
+          <button class="project-orb orb-tarot" type="button" data-orb-track="studio" data-project="tarot" aria-label="Tarot">
+            <span class="orb-image"><img src="assets/tarot.jpg" alt="" /></span>
+            <span>Tarot</span>
+          </button>
+          <button class="project-orb orb-mtg" type="button" data-orb-track="studio" data-project="mtg" aria-label="MTG Dota">
+            <span class="orb-image"><img src="assets/mtgdota.jpg" alt="" /></span>
+            <span>MTG Dota</span>
+          </button>
+          <button class="project-orb orb-sabedoria" type="button" data-orb-track="studio" data-project="sabedoria" aria-label="Sabedoria Animada">
+            <span class="orb-image"><img src="assets/sabedoriaanimada.jpg" alt="" /></span>
+            <span>Sabedoria</span>
+          </button>
+        </div>
+
+        <article class="door-panel" id="trackPanel" aria-live="polite" hidden></article>
+      </section>
+
+      <section class="contact-screen snap-screen" id="contactScreen" aria-labelledby="contactTitle">
+        <div class="contact-copy">
+          <span class="contact-brand-orb" aria-hidden="true"><img src="assets/becoslab.jpg" alt="" /></span>
+          <p class="section-kicker">Contato</p>
+          <h2 id="contactTitle">Trabalhar junto.</h2>
+          <p>Apps, sites, dashboards, UX de produto e sistemas autorais com a mesma linguagem visual do Lab.</p>
+        </div>
+
+        <form class="lab-contact-form" aria-label="Contato experimental">
+          <input id="contactTopicInput" type="hidden" value="Contrate" />
+          <div class="service-strip contact-topics" aria-label="Assunto do contato">
+            <button class="is-active" type="button" data-contact-topic="Contrate">Contrate</button>
+            <button type="button" data-contact-topic="Apoie">Apoie</button>
+            <button type="button" data-contact-topic="Mostre">Mostre</button>
+            <button type="button" data-contact-topic="Acompanhar">Acompanhar</button>
+          </div>
+          <p class="contact-topic-readout" id="contactTopicReadout">Assunto: Contrate</p>
+          <div class="contact-grid">
+            <label class="contact-field">
+              <span>Nome</span>
+              <input id="contactName" type="text" placeholder="Seu nome" />
+            </label>
+            <label class="contact-field">
+              <span>E-mail</span>
+              <input id="contactEmail" type="email" placeholder="voce@email.com" />
+            </label>
+          </div>
+          <div class="contact-actions">
+            <button class="send-action" type="button">Enviar e-mail</button>
+          </div>
+        </form>
+
+        <footer class="experiment-footer" aria-label="Rodap&eacute;">
+          <div class="footer-brand">
+            <span class="brand-orb"><img src="assets/becoslab.jpg" alt="" /></span>
+            <strong>Beco's Lab</strong>
+          </div>
+          <div class="footer-links">
+            <div class="footer-group">
+              <span>Mapa</span>
+              <a href="index.html">Home</a>
+              <a href="news.html">News</a>
+              <a href="metodo.html">M&eacute;todo</a>
+            </div>
+            <div class="footer-group">
+              <span>Legal</span>
+              <a href="privacidade.html">Privacidade</a>
+              <a href="termos.html">Termos</a>
+            </div>
+            <div class="footer-group">
+              <span>Social</span>
+              <a href="mailto:?subject=Beco%27s%20Lab">E-mail</a>
+              <a href="https://github.com/arabeco">GitHub</a>
+              <button type="button">Instagram</button>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <section class="experiment-slideshow" id="experimentSlideshow" role="dialog" aria-modal="true" aria-labelledby="slideTitle" hidden>
+      <button class="slide-close" type="button" data-close-slides aria-label="Fechar apresenta&ccedil;&atilde;o">Fechar</button>
+      <button class="slide-nav slide-prev" type="button" data-prev-slide aria-label="Slide anterior">&lsaquo;</button>
+      <article class="slide-card">
+        <div class="slide-media">
+          <img id="slideImage" alt="" />
+        </div>
+        <div class="slide-copy">
+          <p id="slideKicker"></p>
+          <h2 id="slideTitle"></h2>
+          <p id="slideText"></p>
+          <div class="slide-state" id="slideState" hidden></div>
+        </div>
+        <div class="slide-dots" id="slideDots" aria-label="Slides"></div>
+      </article>
+      <button class="slide-nav slide-next" type="button" data-next-slide aria-label="Pr&oacute;ximo slide">&rsaquo;</button>
+    </section>
+
+    <script src="landing-experimento.js"></script>
+  </body>
+</html>
