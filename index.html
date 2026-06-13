@@ -1,129 +1,140 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Beco's Lab: apps, sistemas criativos, sites, jogos, vídeos e projetos autorais."
-    />
+    <meta name="description" content="Beco's Lab: apps, sistemas criativos, sites, jogos, v&iacute;deos e projetos autorais." />
     <title>Beco's Lab</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="landing-experimento.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" />
   </head>
   <body>
-    <div class="constellation-bg" aria-hidden="true"></div>
+    <div class="lab-noise" aria-hidden="true">
+      <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain)" />
+      </svg>
+    </div>
 
-    <header class="site-header" aria-label="Navega&ccedil;&atilde;o principal">
-      <a class="site-brand" href="index.html">
-        <span class="site-brand-mark">
-          <img src="assets/becoslab.jpg" alt="" />
-        </span>
-        <span class="site-brand-copy">
-          <strong>Beco's Lab</strong>
-        </span>
-      </a>
+    <main class="experiment-shell">
+      <section class="lab-stage snap-screen" aria-labelledby="heroTitle">
+        <header class="stage-topline">
+          <a class="experiment-brand" href="index.html" aria-label="Beco's Lab">
+            <span class="brand-orb"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Beco's Lab</span>
+          </a>
+          <nav class="experiment-nav" aria-label="Caminhos do Lab">
+            <a href="news.html">News</a>
+            <a href="metodo.html">M&eacute;todo</a>
+            <a href="index.html?scene=parcerias">Parcerias</a>
+          </nav>
+        </header>
 
-      <nav class="site-nav" aria-label="Seções do site">
-        <a href="index.html" aria-current="page" data-scene-nav="home">Home</a>
-        <a href="news.html">News</a>
-        <a href="metodo.html">M&eacute;todo</a>
-        <a href="index.html?scene=parcerias" data-open-partnerships data-scene-nav="partnerships">Parcerias</a>
-      </nav>
-
-      <div class="site-header-actions">
-        <button class="support-trigger" id="supportTrigger" type="button">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M12 3.7c-1.6-1.8-4.4-2-6.3-.2-2 1.9-2 5 0 6.9l6.3 6 6.3-6c2-1.9 2-5 0-6.9-1.9-1.8-4.7-1.6-6.3.2Z"
-            />
-          </svg>
-          <span>Apoie</span>
-        </button>
-      </div>
-    </header>
-
-    <main class="page-shell" id="top" aria-label="Beco's Lab">
-      <section class="hero" id="hero" aria-label="Entrada do laborat&oacute;rio">
-        <div class="hero-stage">
-          <section class="lab-stage" id="labStage" aria-label="Sistema de projetos">
-            <button class="scene-back" id="sceneBackButton" type="button" aria-label="Voltar">
-              <span class="scene-back-orb" aria-hidden="true">
-                <img src="assets/becoslab.jpg" alt="" />
-              </span>
-              <span class="scene-back-copy">Voltar ao Beco's Lab</span>
-            </button>
-            <button class="scene-forward" id="partnershipForwardButton" type="button" aria-label="Abrir parcerias">
-              <span>Parcerias</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m9 6 6 6-6 6" />
-              </svg>
-            </button>
-            <div class="orbit-field" id="orbitField" aria-label="Projetos orbitais"></div>
-            <div class="partnership-field" id="partnershipField" aria-label="Mapa de parcerias"></div>
-
-            <div class="hero-copy" id="heroCopy">
-              <p class="hero-kicker">Estúdio de produto criativo</p>
-              <p class="hero-lead">Beco's Lab</p>
-              <p class="hero-text">Apps, sites, jogos e sistemas criativos constru&iacute;dos como produtos vivos.</p>
-              <div class="hero-actions" aria-label="Ações principais">
-                <button class="hero-action is-primary" id="heroProjectsButton" type="button">Ver projetos</button>
-                <a class="hero-action" href="#contactSection">Trabalhar junto</a>
-              </div>
-              <div class="hero-proof-strip" aria-label="Frentes do laboratório">
-                <span>Produto</span>
-                <span>Interface</span>
-                <span>Sistemas</span>
-              </div>
-            </div>
-
-            <div class="core" id="core">
-              <span class="core-halo"></span>
-              <span class="core-media">
-                <img class="core-image" src="assets/becoslab.jpg" alt="" />
-              </span>
-              <button class="core-cta" id="coreRevealButton" type="button">
-                <span>Ver projetos</span>
-              </button>
-              <span class="core-label">Beco's Lab</span>
-            </div>
-          </section>
-
-          <aside class="focus-panel" id="focusPanel" aria-live="polite"></aside>
+        <div class="stage-copy">
+          <p class="section-kicker">Sistema vivo &middot; Beco's Lab</p>
+          <h1 id="heroTitle">Beco's Lab</h1>
+          <p class="desktop-line">Um sistema vivo de apps, jogos, m&eacute;todos e produtos autorais.</p>
+          <p class="mobile-line">Apps, jogos e m&eacute;todos autorais.</p>
         </div>
+
+        <div class="door-tabs" role="tablist" aria-label="Portas do Lab">
+          <button class="door-tab" type="button" role="tab" aria-selected="false" data-track="apps">
+            <span class="door-mark mark-apps" aria-hidden="true"></span>
+            <strong>Apps</strong>
+            <small>Produtos digitais e experi&ecirc;ncias mobile.</small>
+          </button>
+          <button class="door-tab" type="button" role="tab" aria-selected="false" data-track="studio">
+            <span class="door-mark mark-systems" aria-hidden="true"></span>
+            <strong>Studio</strong>
+            <small>Design, parcerias e produ&ccedil;&atilde;o do Lab.</small>
+          </button>
+          <button class="door-tab" type="button" role="tab" aria-selected="false" data-track="info">
+            <span class="door-mark mark-methods" aria-hidden="true"></span>
+            <strong>Infoprodutos</strong>
+            <small>Sa&uacute;de, organiza&ccedil;&atilde;o e curso.</small>
+          </button>
+        </div>
+
+        <div class="lab-system" aria-label="Mapa visual do Beco's Lab">
+          <svg class="constellation" aria-hidden="true" preserveAspectRatio="none">
+            <line class="constellation-line" x1="0" y1="0" x2="0" y2="0" />
+          </svg>
+          <button class="project-back-orb" type="button" data-project-back hidden>
+            <span class="mini-becos" aria-hidden="true"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Voltar</span>
+          </button>
+          <button class="core-orb" type="button" data-reset-lab aria-label="Beco's Lab">
+            <span class="orb-image becoslab-zoom"><img src="assets/becoslab.jpg" alt="" /></span>
+            <span>Beco's Lab</span>
+          </button>
+
+          <button class="project-orb orb-glyph" type="button" data-orb-track="apps" data-project="glyph" aria-label="Glyph">
+            <span class="orb-image"><img src="assets/glyph.jpg" alt="" /></span>
+            <span>Glyph</span>
+          </button>
+          <button class="project-orb orb-mind" type="button" data-orb-track="apps" data-project="mind" aria-label="Mind Practice">
+            <span class="orb-image"><img src="assets/mindpractice.jpg" alt="" /></span>
+            <span>Mind</span>
+          </button>
+          <button class="project-orb orb-elite" type="button" data-orb-track="apps" data-project="elite50" aria-label="Elite50">
+            <span class="orb-image"><img src="assets/elite50.jpg" alt="" /></span>
+            <span>Elite50</span>
+          </button>
+          <button class="project-orb orb-kings" type="button" data-orb-track="apps" data-project="kingsworld" aria-label="KingsWorld">
+            <span class="orb-image"><img src="assets/kingsworld.jpg" alt="" /></span>
+            <span>Kings</span>
+          </button>
+          <button class="project-orb orb-blueprint" type="button" data-orb-track="info" data-project="health" aria-label="Ficha de sa&uacute;de">
+            <span class="orb-image orb-glyph-mark glyph-health" aria-hidden="true"></span>
+            <span>Ficha sa&uacute;de</span>
+          </button>
+          <button class="project-orb orb-life" type="button" data-orb-track="info" data-project="life" aria-label="Organizar a vida">
+            <span class="orb-image orb-glyph-mark glyph-life" aria-hidden="true"></span>
+            <span>Organizar vida</span>
+          </button>
+          <button class="project-orb orb-course" type="button" data-orb-track="info" data-project="course" aria-label="Curso">
+            <span class="orb-image orb-glyph-mark glyph-course" aria-hidden="true"></span>
+            <span>Curso</span>
+          </button>
+          <button class="project-orb orb-tarot" type="button" data-orb-track="studio" data-project="tarot" aria-label="Tarot">
+            <span class="orb-image"><img src="assets/tarot.jpg" alt="" /></span>
+            <span>Tarot</span>
+          </button>
+          <button class="project-orb orb-mtg" type="button" data-orb-track="studio" data-project="mtg" aria-label="MTG Dota">
+            <span class="orb-image"><img src="assets/mtgdota.jpg" alt="" /></span>
+            <span>MTG Dota</span>
+          </button>
+          <button class="project-orb orb-sabedoria" type="button" data-orb-track="studio" data-project="sabedoria" aria-label="Sabedoria Animada">
+            <span class="orb-image"><img src="assets/sabedoriaanimada.jpg" alt="" /></span>
+            <span>Sabedoria</span>
+          </button>
+        </div>
+
+        <article class="door-panel" id="trackPanel" aria-live="polite" hidden></article>
       </section>
 
-      <section class="chapter contact-section contact-screen" id="contactSection" aria-labelledby="contactTitle">
-        <h2 class="sr-only" id="contactTitle">Contato</h2>
-        <form class="contact-form" id="contactForm">
-          <div class="contact-tags" aria-label="Tipo de contato">
-            <button class="contact-tag" type="button" data-contact-tag="apoie" aria-label="Apoie" title="Apoie">
-              <span class="contact-tag-icon" aria-hidden="true">♡</span>
-              <span class="sr-only">Apoie</span>
-            </button>
-            <button class="contact-tag" type="button" data-contact-tag="mostre" aria-label="Mostre" title="Mostre">
-              <span class="contact-tag-icon" aria-hidden="true">✦</span>
-              <span class="sr-only">Mostre</span>
-            </button>
-            <button class="contact-tag" type="button" data-contact-tag="acompanhar" aria-label="Acompanhar" title="Acompanhar">
-              <span class="contact-tag-icon" aria-hidden="true">◎</span>
-              <span class="sr-only">Acompanhar</span>
-            </button>
-            <button class="contact-tag is-active" type="button" data-contact-tag="contrate" aria-label="Contrate" title="Contrate">
-              <span class="contact-tag-icon" aria-hidden="true">↗</span>
-              <span class="sr-only">Contrate</span>
-            </button>
+      <section class="contact-screen snap-screen" id="contactScreen" aria-labelledby="contactTitle">
+        <div class="contact-copy">
+          <span class="contact-brand-orb" aria-hidden="true"><img src="assets/becoslab.jpg" alt="" /></span>
+          <p class="section-kicker">Contato</p>
+          <h2 id="contactTitle">Trabalhar junto.</h2>
+          <p>Apps, sites, dashboards, UX de produto e sistemas autorais com a mesma linguagem visual do Lab.</p>
+        </div>
+
+        <form class="lab-contact-form" aria-label="Contato experimental">
+          <input id="contactTopicInput" type="hidden" value="Contrate" />
+          <div class="service-strip contact-topics" aria-label="Assunto do contato">
+            <button class="is-active" type="button" data-contact-topic="Contrate">Contrate</button>
+            <button type="button" data-contact-topic="Apoie">Apoie</button>
+            <button type="button" data-contact-topic="Mostre">Mostre</button>
+            <button type="button" data-contact-topic="Acompanhar">Acompanhar</button>
           </div>
-          <input id="contactTagInput" type="hidden" value="contrate" />
-          <div class="contact-mode-readout" aria-live="polite">
-            <strong id="contactModeTitle">Contrate</strong>
-            <p class="contact-hint" id="contactHint">Sites, apps, dashboards, UX de produto, sistemas criativos e vídeos.</p>
-          </div>
-          <div class="service-strip" aria-label="Serviços do Beco's Lab">
-            <span>Apps & MVPs</span>
-            <span>Sites & dashboards</span>
-            <span>UX de produto</span>
-            <span>Vídeo & visual</span>
-          </div>
+          <p class="contact-topic-readout" id="contactTopicReadout">Assunto: Contrate</p>
           <div class="contact-grid">
             <label class="contact-field">
               <span>Nome</span>
@@ -134,13 +145,16 @@
               <input id="contactEmail" type="email" placeholder="voce@email.com" />
             </label>
           </div>
-<div class="contact-actions">
-            <button class="primary-action" id="contactSubmit" type="submit">
-              <span>Enviar e-mail</span>
-            </button>
+          <div class="contact-actions">
+            <button class="send-action" type="button">Enviar e-mail</button>
           </div>
         </form>
-        <footer class="site-footer" aria-label="Rodap&eacute;">
+
+        <footer class="experiment-footer" aria-label="Rodap&eacute;">
+          <div class="footer-brand">
+            <span class="brand-orb"><img src="assets/becoslab.jpg" alt="" /></span>
+            <strong>Beco's Lab</strong>
+          </div>
           <div class="footer-links">
             <div class="footer-group">
               <span>Mapa</span>
@@ -149,144 +163,39 @@
               <a href="metodo.html">M&eacute;todo</a>
             </div>
             <div class="footer-group">
-              <span>Social</span>
-              <div class="footer-socials">
-                <button class="footer-link is-placeholder footer-icon-link" type="button" aria-label="YouTube">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.5a2.7 2.7 0 0 0-1.9-1.9C17.4 6 12 6 12 6s-5.4 0-7.1.6A2.7 2.7 0 0 0 3 8.5 28 28 0 0 0 3 12a28 28 0 0 0 .6 3.5 2.7 2.7 0 0 0 1.9 1.9C7.2 18 12 18 12 18s5.4 0 7.1-.6a2.7 2.7 0 0 0 1.9-1.9 28 28 0 0 0 .6-3.5 28 28 0 0 0-.6-3.5Z"/><path d="m10 15 5-3-5-3z"/></svg>
-                </button>
-                <button class="footer-link is-placeholder footer-icon-link" type="button" aria-label="Instagram">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-                </button>
-                <button class="footer-link is-placeholder footer-icon-link" type="button" aria-label="GitHub">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8A9.2 9.2 0 0 0 2.8 12a9.2 9.2 0 0 0 6.3 8.7c.5.1.7-.2.7-.5v-1.9c-2.6.6-3.2-1.1-3.2-1.1-.4-1-.9-1.3-.9-1.3-.8-.5 0-.5 0-.5.9 0 1.4 1 1.4 1 .8 1.4 2.1 1 2.6.8 0-.6.3-1 .6-1.3-2.1-.2-4.3-1-4.3-4.6 0-1 .4-1.9 1-2.6 0-.2-.4-1.2.1-2.5 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.1 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.5-2.1 4.3-4.2 4.6.3.2.7.8.7 1.6v2.4c0 .3.2.7.7.5A9.2 9.2 0 0 0 21.2 12 9.2 9.2 0 0 0 12 2.8Z"/></svg>
-                </button>
-                <a class="footer-icon-link" href="mailto:?subject=Beco%27s%20Lab" aria-label="E-mail">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 8 8 6 8-6"/></svg>
-                </a>
-              </div>
-            </div>
-            <div class="footer-group">
               <span>Legal</span>
               <a href="privacidade.html">Privacidade</a>
               <a href="termos.html">Termos</a>
+            </div>
+            <div class="footer-group">
+              <span>Social</span>
+              <a href="mailto:?subject=Beco%27s%20Lab">E-mail</a>
+              <a href="https://github.com/arabeco">GitHub</a>
+              <button type="button">Instagram</button>
             </div>
           </div>
         </footer>
       </section>
     </main>
 
-    <dialog class="modal project-modal" id="projectModal" aria-labelledby="modalTitle">
-      <button class="icon-button close-button" type="button" data-close-project aria-label="Fechar painel">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m6 6 12 12M18 6 6 18" />
-        </svg>
-      </button>
-      <div class="modal-media">
-        <img id="modalImage" alt="" />
-      </div>
-      <div class="modal-copy">
-        <p id="modalKicker">Projeto em foco</p>
-        <h2 id="modalTitle"></h2>
-        <p class="modal-status" id="modalStatus"></p>
-        <p id="modalDescription"></p>
-        <button class="primary-action" id="presentationButton" type="button">
-          <span>Ver apresenta&ccedil;&atilde;o</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 12h13M13 6l6 6-6 6" />
-          </svg>
-        </button>
-      </div>
-    </dialog>
-
-    <dialog class="modal support-modal" id="supportModal" aria-labelledby="supportTitle">
-      <button class="icon-button close-button" type="button" data-close-support aria-label="Fechar apoio">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m6 6 12 12M18 6 6 18" />
-        </svg>
-      </button>
-      <div class="support-copy">
-        <p>Apoio direto</p>
-        <h2 id="supportTitle">Apoiar o Lab</h2>
-        <div class="support-pix-card">
-          <button class="support-key" id="supportKeyButton" type="button" aria-label="Copiar chave Pix">
-            <span>Chave Pix</span>
-            <code id="supportPixKey">configure-sua-chave-pix</code>
-          </button>
-          <div class="support-actions">
-            <button class="secondary-action" id="copyPixButton" type="button">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8 8h11v11H8z" />
-                <path d="M5 16H4a1 1 0 0 1-1-1V5c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v1" />
-              </svg>
-              <span>Copiar Pix</span>
-            </button>
-            <button class="secondary-action" id="showQrButton" type="button">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z" />
-                <path d="M14 14h2v2h-2zM18 14h2v6h-4v-2h2zM14 18h2v2h-2z" />
-              </svg>
-              <span>QR Code</span>
-            </button>
-          </div>
-        </div>
-        <p class="copy-feedback" id="copyFeedback" role="status" aria-live="polite" hidden></p>
-      </div>
-      <div class="qr-wrap" id="qrWrap" hidden>
-        <div class="qr-code" id="qrCode" aria-label="QR Code Pix"></div>
-      </div>
-    </dialog>
-
-    <dialog class="modal signal-modal" id="signalModal" aria-labelledby="signalTitle">
-      <button class="icon-button close-button" type="button" data-close-signal aria-label="Fechar sinal">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m6 6 12 12M18 6 6 18" />
-        </svg>
-      </button>
-      <div class="signal-modal-copy">
-        <p id="signalKicker">Protocolo de colabora&ccedil;&atilde;o</p>
-        <h2 id="signalTitle"></h2>
-        <p id="signalText"></p>
-        <div class="signal-modal-details" id="signalDetails"></div>
-        <div class="signal-modal-actions" id="signalActions"></div>
-      </div>
-    </dialog>
-
-    <section class="slideshow" id="slideshow" role="dialog" aria-modal="true" aria-labelledby="slideTitle" hidden>
-      <button class="icon-button slideshow-close" type="button" id="closeSlideshow" aria-label="Fechar apresenta&ccedil;&atilde;o">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m6 6 12 12M18 6 6 18" />
-        </svg>
-      </button>
-
-      <button class="nav-button nav-button-back" type="button" id="previousSlide" aria-label="Slide anterior">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M15 18 9 12l6-6" />
-        </svg>
-      </button>
-
-      <article class="slide-frame">
-        <div class="slide-image-wrap">
+    <section class="experiment-slideshow" id="experimentSlideshow" role="dialog" aria-modal="true" aria-labelledby="slideTitle" hidden>
+      <button class="slide-close" type="button" data-close-slides aria-label="Fechar apresenta&ccedil;&atilde;o">Fechar</button>
+      <button class="slide-nav slide-prev" type="button" data-prev-slide aria-label="Slide anterior">&lsaquo;</button>
+      <article class="slide-card">
+        <div class="slide-media">
           <img id="slideImage" alt="" />
         </div>
         <div class="slide-copy">
           <p id="slideKicker"></p>
           <h2 id="slideTitle"></h2>
           <p id="slideText"></p>
-          <div class="slide-system-state" id="slideSystemState" hidden></div>
-          <div class="slide-actions" id="slideActions" hidden></div>
+          <div class="slide-state" id="slideState" hidden></div>
         </div>
-        <div class="slide-dots" id="slideDots" aria-label="Indicadores da apresenta&ccedil;&atilde;o"></div>
+        <div class="slide-dots" id="slideDots" aria-label="Slides"></div>
       </article>
-
-      <button class="nav-button nav-button-next" type="button" id="nextSlide" aria-label="Pr&oacute;ximo slide">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m9 18 6-6-6-6" />
-        </svg>
-      </button>
+      <button class="slide-nav slide-next" type="button" data-next-slide aria-label="Pr&oacute;ximo slide">&rsaquo;</button>
     </section>
 
-    <script src="script.js" defer></script>
+    <script src="landing-experimento.js"></script>
   </body>
 </html>
-
-
