@@ -1426,3 +1426,18 @@ button {
     transition-duration: 0.001ms !important;
   }
 }
+
+.door-tab:active,
+.service-strip button:active,
+.panel-action:active,
+.send-action:active,
+.slide-nav:active,
+.slide-close:active {
+  transform: scale(0.94);
+}
+
+.core-orb:active .orb-image,
+.project-orb:active .orb-image {
+  filter: brightness(1.2);
+  border-color: rgba(246, 239, 225, 0.9);
+}

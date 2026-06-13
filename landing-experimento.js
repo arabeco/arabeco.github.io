@@ -405,7 +405,12 @@ tabs.forEach((tab) => {
 });
 
 orbs.forEach((orb) => {
-  orb.addEventListener("click", () => renderProject(orb.dataset.project));
+  orb.addEventListener("click", () => {
+    if ("vibrate" in navigator) {
+      navigator.vibrate(8);
+    }
+    renderProject(orb.dataset.project);
+  });
 });
 
 resetButton?.addEventListener("click", () => renderTrack(activeTrack || "apps"));
