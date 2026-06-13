@@ -207,30 +207,24 @@ button {
   transform: translate(var(--par-x, 0px), var(--par-y, 0px));
 }
 
-.system-line {
+.constellation {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(58vw, 680px);
-  height: 1px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(216, 183, 106, 0.32), transparent);
-  transform: translate(-50%, -50%) rotate(-18deg);
+  overflow: visible;
 }
 
-.line-b {
-  background: linear-gradient(90deg, transparent, rgba(102, 231, 205, 0.16), transparent);
-  transform: translate(-50%, -50%) rotate(22deg);
-}
-
-.lab-system.is-project-open .line-a {
-  width: min(19vw, 230px);
-  background: linear-gradient(90deg, transparent, rgba(216, 183, 106, 0.56), transparent);
-  transform: translate(-50%, -50%) rotate(-90deg);
-}
-
-.lab-system.is-project-open .line-b {
+.constellation-line {
+  stroke: rgba(216, 183, 106, 0.55);
+  stroke-width: 1;
   opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.lab-system.is-project-open .constellation-line {
+  opacity: 1;
 }
 
 .core-orb,
@@ -1124,10 +1118,6 @@ button {
 
   .lab-system {
     min-height: 180px;
-  }
-
-  .system-line {
-    width: 96vw;
   }
 
   .core-orb {

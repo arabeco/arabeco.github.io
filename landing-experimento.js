@@ -302,6 +302,22 @@ function renderTrack(id) {
   layoutTrackOrbs(id);
 }
 
+function drawConstellation(projectId) {
+  const line = document.querySelector(".constellation-line");
+  const core = resetButton;
+  const orb = orbs.find((item) => item.dataset.project === projectId);
+  if (!line || !core || !orb || !labSystem) return;
+
+  const base = labSystem.getBoundingClientRect();
+  const coreRect = core.getBoundingClientRect();
+  const orbRect = orb.getBoundingClientRect();
+
+  line.setAttribute("x1", (coreRect.left + coreRect.width / 2 - base.left).toFixed(1));
+  line.setAttribute("y1", (coreRect.top + coreRect.height / 2 - base.top).toFixed(1));
+  line.setAttribute("x2", (orbRect.left + orbRect.width / 2 - base.left).toFixed(1));
+  line.setAttribute("y2", (orbRect.top + orbRect.height / 2 - base.top).toFixed(1));
+}
+
 function renderProject(projectId) {
   const project = projects[projectId];
   if (!project) return;
@@ -348,6 +364,7 @@ function renderProject(projectId) {
 
   layoutTrackOrbs(project.track, projectId);
   panel.querySelector("[data-open-slides]")?.addEventListener("click", () => openSlides(projectId));
+  requestAnimationFrame(() => drawConstellation(projectId));
 }
 
 function renderSlides() {
@@ -546,6 +563,10 @@ function animateSystem(now) {
       noise.style.setProperty("--noise-x", `${(px * -10).toFixed(2)}px`);
       noise.style.setProperty("--noise-y", `${(py * -10).toFixed(2)}px`);
     }
+  }
+
+  if (labSystem?.classList.contains("is-project-open") && selectedProjectId) {
+    drawConstellation(selectedProjectId);
   }
 
   requestAnimationFrame(animateSystem);
