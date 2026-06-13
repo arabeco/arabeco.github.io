@@ -287,10 +287,16 @@ function renderTrack(id) {
     tab.setAttribute("aria-selected", String(active));
   });
 
+  let trackIndex = 0;
   orbs.forEach((orb) => {
-    orb.classList.toggle("is-visible", orb.dataset.orbTrack === id);
+    const inTrack = orb.dataset.orbTrack === id;
+    orb.classList.toggle("is-visible", inTrack);
     orb.classList.remove("is-selected", "is-dimmed");
     orb.setAttribute("aria-pressed", "false");
+    if (inTrack) {
+      orb.style.setProperty("--orb-index", String(trackIndex));
+      trackIndex += 1;
+    }
   });
 
   layoutTrackOrbs(id);

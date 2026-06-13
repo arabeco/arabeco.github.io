@@ -336,9 +336,9 @@ button {
   filter: blur(3px);
   transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) translate(var(--orb-dx), var(--orb-dy)) scale(0.78);
   transition:
-    opacity 260ms ease,
-    filter 260ms ease,
-    transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 260ms ease calc(var(--orb-index, 0) * 45ms),
+    filter 260ms ease calc(var(--orb-index, 0) * 45ms),
+    transform 380ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--orb-index, 0) * 45ms);
 }
 
 .project-orb.is-visible {
@@ -1244,6 +1244,7 @@ button {
   .project-detail-actions {
     width: 100%;
   }
+}
 
   .panel-action {
     justify-self: center;
@@ -1442,4 +1443,20 @@ button {
 .project-orb:active .orb-image {
   filter: brightness(1.2);
   border-color: rgba(246, 239, 225, 0.9);
+}
+
+@keyframes core-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.035);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .core-orb:not([hidden]) {
+    animation: core-pulse 4.5s ease-in-out infinite;
+  }
 }
