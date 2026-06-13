@@ -534,6 +534,20 @@ function animateSystem(now) {
     orb.style.setProperty("--orb-dy", `${dy.toFixed(2)}px`);
   });
 
+  if (finePointer.matches && pointerX !== null) {
+    const px = (pointerX / window.innerWidth - 0.5) * 2;
+    const py = (pointerY / window.innerHeight - 0.5) * 2;
+    if (labSystem) {
+      labSystem.style.setProperty("--par-x", `${(px * 6).toFixed(2)}px`);
+      labSystem.style.setProperty("--par-y", `${(py * 6).toFixed(2)}px`);
+    }
+    const noise = document.querySelector(".lab-noise");
+    if (noise) {
+      noise.style.setProperty("--noise-x", `${(px * -10).toFixed(2)}px`);
+      noise.style.setProperty("--noise-y", `${(py * -10).toFixed(2)}px`);
+    }
+  }
+
   requestAnimationFrame(animateSystem);
 }
 

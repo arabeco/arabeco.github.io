@@ -52,6 +52,7 @@ button {
     linear-gradient(90deg, rgba(255, 255, 255, 0.017) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at 50% 38%, black 0 44%, transparent 80%);
+  transform: translate(var(--noise-x, 0px), var(--noise-y, 0px));
 }
 
 .experiment-shell {
@@ -200,6 +201,7 @@ button {
   position: relative;
   min-height: 255px;
   isolation: isolate;
+  transform: translate(var(--par-x, 0px), var(--par-y, 0px));
 }
 
 .system-line {
