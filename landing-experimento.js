@@ -196,6 +196,11 @@ const contactTopicReadout = document.querySelector("#contactTopicReadout");
 const contactName = document.querySelector("#contactName");
 const contactEmail = document.querySelector("#contactEmail");
 const sendAction = document.querySelector(".send-action");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const finePointer = window.matchMedia("(pointer: fine)");
+let pointerX = null;
+let pointerY = null;
+let motionRunning = false;
 
 let activeTrack = "";
 let selectedProjectId = "";
@@ -477,4 +482,33 @@ window.addEventListener("load", () => {
 
 window.addEventListener("resize", () => {
   layoutTrackOrbs(activeTrack, selectedProjectId);
+});
+
+function visibleOrbs() {
+  return orbs.filter((orb) => orb.classList.contains("is-visible"));
+}
+
+function animateSystem(now) {
+  const t = now / 1000;
+
+  visibleOrbs().forEach((orb, index) => {
+    const phase = index * 1.7;
+    const driftX = Math.sin(t * 0.9 + phase) * 4;
+    const driftY = Math.cos(t * 0.7 + phase) * 4;
+    orb.style.setProperty("--orb-dx", `${driftX.toFixed(2)}px`);
+    orb.style.setProperty("--orb-dy", `${driftY.toFixed(2)}px`);
+  });
+
+  requestAnimationFrame(animateSystem);
+}
+
+function startMotion() {
+  if (motionRunning || reduceMotion.matches) return;
+  motionRunning = true;
+  requestAnimationFrame(animateSystem);
+}
+
+startMotion();
+reduceMotion.addEventListener("change", (event) => {
+  if (!event.matches) startMotion();
 });
