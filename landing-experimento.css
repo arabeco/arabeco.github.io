@@ -325,6 +325,8 @@ button {
 .project-orb {
   --orb-x: 0px;
   --orb-y: 0px;
+  --orb-dx: 0px;
+  --orb-dy: 0px;
   width: clamp(62px, 6.4vw, 84px);
   height: clamp(62px, 6.4vw, 84px);
   top: 50%;
@@ -332,7 +334,7 @@ button {
   opacity: 0;
   pointer-events: none;
   filter: blur(3px);
-  transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) scale(0.78);
+  transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) translate(var(--orb-dx), var(--orb-dy)) scale(0.78);
   transition:
     opacity 260ms ease,
     filter 260ms ease,
@@ -343,14 +345,14 @@ button {
   opacity: 1;
   pointer-events: auto;
   filter: blur(0);
-  transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) scale(1);
+  transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) translate(var(--orb-dx), var(--orb-dy)) scale(1);
 }
 
 .project-orb.is-dimmed {
   opacity: 0;
   pointer-events: none;
   filter: blur(12px) saturate(0.4);
-  transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) scale(0.62);
+  transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) translate(var(--orb-dx), var(--orb-dy)) scale(0.62);
 }
 
 .project-orb.is-selected {
@@ -358,7 +360,7 @@ button {
   opacity: 1;
   pointer-events: auto;
   filter: brightness(1.12);
-  transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) scale(1.72);
+  transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) translate(var(--orb-dx), var(--orb-dy)) scale(1.72);
 }
 
 .project-orb.is-selected .orb-image {
@@ -562,7 +564,7 @@ button {
   }
 
   .lab-stage:has(.door-panel.is-project-panel) .project-orb.is-selected {
-    transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) scale(1.92);
+    transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) translate(var(--orb-dx), var(--orb-dy)) scale(1.92);
   }
 }
 
