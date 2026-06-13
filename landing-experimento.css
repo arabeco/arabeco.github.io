@@ -1455,3 +1455,35 @@ button {
     animation: core-pulse 4.5s ease-in-out infinite;
   }
 }
+
+.orb-glyph-mark {
+  background:
+    radial-gradient(circle at 50% 35%, rgba(216, 183, 106, 0.18), transparent 70%),
+    rgba(5, 7, 16, 0.6);
+}
+
+.glyph-health::after,
+.glyph-life::after,
+.glyph-course::after {
+  content: "";
+  width: 46%;
+  height: 46%;
+}
+
+.glyph-health::after {
+  background:
+    linear-gradient(90deg, transparent 44%, var(--gold) 44% 56%, transparent 56%),
+    linear-gradient(0deg, transparent 44%, var(--gold) 44% 56%, transparent 56%);
+}
+
+.glyph-life::after {
+  border: 2px solid var(--gold);
+  border-radius: 999px;
+  background: radial-gradient(circle, var(--gold) 0 22%, transparent 26%);
+}
+
+.glyph-course::after {
+  background: var(--gold);
+  clip-path: polygon(0 18%, 100% 0, 100% 82%, 0 100%);
+  border-radius: 2px;
+}
