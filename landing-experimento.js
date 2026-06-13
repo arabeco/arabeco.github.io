@@ -488,15 +488,44 @@ function visibleOrbs() {
   return orbs.filter((orb) => orb.classList.contains("is-visible"));
 }
 
+if (finePointer.matches) {
+  window.addEventListener("pointermove", (event) => {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+  });
+  window.addEventListener("pointerleave", () => {
+    pointerX = null;
+    pointerY = null;
+  });
+}
+
 function animateSystem(now) {
   const t = now / 1000;
 
+  const magnetRadius = 120;
+  const magnetStrength = 8;
+
   visibleOrbs().forEach((orb, index) => {
     const phase = index * 1.7;
-    const driftX = Math.sin(t * 0.9 + phase) * 4;
-    const driftY = Math.cos(t * 0.7 + phase) * 4;
-    orb.style.setProperty("--orb-dx", `${driftX.toFixed(2)}px`);
-    orb.style.setProperty("--orb-dy", `${driftY.toFixed(2)}px`);
+    let dx = Math.sin(t * 0.9 + phase) * 4;
+    let dy = Math.cos(t * 0.7 + phase) * 4;
+
+    if (finePointer.matches && pointerX !== null) {
+      const rect = orb.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const distX = pointerX - cx;
+      const distY = pointerY - cy;
+      const dist = Math.hypot(distX, distY);
+      if (dist < magnetRadius && dist > 0) {
+        const pull = (1 - dist / magnetRadius) * magnetStrength;
+        dx += (distX / dist) * pull;
+        dy += (distY / dist) * pull;
+      }
+    }
+
+    orb.style.setProperty("--orb-dx", `${dx.toFixed(2)}px`);
+    orb.style.setProperty("--orb-dy", `${dy.toFixed(2)}px`);
   });
 
   requestAnimationFrame(animateSystem);
