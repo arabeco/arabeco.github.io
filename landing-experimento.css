@@ -1160,7 +1160,6 @@ button {
   .lab-stage {
     padding: 72px 0 14px;
     grid-template-rows: auto minmax(200px, 1fr) auto;
-    padding-top: 14px;
     gap: 9px;
   }
 
@@ -1326,7 +1325,6 @@ button {
   .project-detail-actions {
     width: 100%;
   }
-}
 
   .panel-action {
     justify-self: center;
