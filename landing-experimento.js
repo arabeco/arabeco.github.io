@@ -12,7 +12,7 @@ const tracks = {
   info: {
     title: "Infoprodutos",
     text:
-      "Ficha de saude, organizar a vida e curso entram como produtos de conhecimento: claros, praticos e prontos para vender sem pesar a UI.",
+      "Produtos de conhecimento em construção: ficha de saúde, método de organização e curso guiado. Cadastre o e-mail para ser avisado quando lançar.",
   },
 };
 
@@ -25,6 +25,8 @@ const projects = {
     progress: 80,
     type: "Sistema de rotina",
     state: "Ciclos e progresso diario",
+    siteUrl: "https://glyph.life",
+    githubUrl: "https://github.com/arabeco/game-of-life",
     text: "Projeto principal do laboratorio: metas, rotina e progresso pessoal com logica de construcao de imperio.",
     slides: [
       ["Resumo", "GLYPH e um app de evolucao pessoal gamificada que transforma objetivos, rotina e identidade em uma jornada estruturada."],
@@ -73,6 +75,7 @@ const projects = {
     progress: 40,
     type: "Jogo persistente",
     state: "Mundo, cidades e influencia",
+    githubUrl: "https://github.com/kingsworldgame/King-s-World",
     text: "Mundo de reconstrucao onde administrar recursos, proteger pessoas e expandir territorio fazem parte da mesma tensao.",
     slides: [
       ["Resumo", "KingsWorld e um jogo mobile de estrategia em mundos sazonais."],
@@ -265,6 +268,54 @@ function projectPhase(project) {
   return phases[Math.max(1, Math.min(10, Number(project.level) || 1)) - 1];
 }
 
+function resetToIdle() {
+  if ("vibrate" in navigator) navigator.vibrate(4);
+  activeTrack = "";
+  selectedProjectId = "";
+  panel.hidden = true;
+  panel.classList.remove("is-project-panel", "is-entering");
+  labSystem?.classList.remove("is-track-active", "is-project-open");
+  if (projectBackButton) projectBackButton.hidden = true;
+  tabs.forEach((tab) => {
+    tab.classList.remove("is-active");
+    tab.setAttribute("aria-selected", "false");
+  });
+  orbs.forEach((orb) => {
+    orb.classList.remove("is-visible", "is-selected", "is-dimmed");
+    orb.setAttribute("aria-pressed", "false");
+  });
+}
+
+function animatePanel() {
+  panel.classList.remove("is-entering");
+  requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add("is-entering")));
+}
+
+function goToWaitlist() {
+  document.querySelector("#contactScreen")?.scrollIntoView({ behavior: "smooth" });
+  setContactTopic("Acompanhar");
+}
+
+function projectActionsHtml(project) {
+  const parts = [];
+  if (project.siteUrl) {
+    parts.push(
+      `<a class="panel-action" href="${project.siteUrl}" target="_blank" rel="noopener">Acessar</a>`,
+    );
+  }
+  if (project.track === "info") {
+    const cls = project.siteUrl ? " panel-action-secondary" : "";
+    parts.push(
+      `<button class="panel-action${cls}" type="button" data-go-waitlist>Avise-me quando lançar</button>`,
+    );
+  }
+  const secondaryCls = project.siteUrl || project.track === "info" ? " panel-action-secondary" : "";
+  parts.push(
+    `<button class="panel-action${secondaryCls}" type="button" data-open-slides>Ver slides</button>`,
+  );
+  return parts.join("");
+}
+
 function renderTrack(id) {
   const track = tracks[id] || tracks.apps;
   activeTrack = id;
@@ -275,10 +326,12 @@ function renderTrack(id) {
     <h2>${track.title}</h2>
     <p>${track.text}</p>
   `;
+  animatePanel();
   labSystem?.classList.remove("is-project-open");
+  labSystem?.classList.add("is-track-active");
   labSystem?.setAttribute("data-active-track", id);
   if (projectBackButton) {
-    projectBackButton.hidden = true;
+    projectBackButton.hidden = false;
   }
 
   tabs.forEach((tab) => {
@@ -346,9 +399,10 @@ function renderProject(projectId) {
       <section><span>Estado</span><strong>${project.state}</strong></section>
     </div>
     <div class="project-detail-actions">
-      <button class="panel-action" type="button" data-open-slides>Ver slides</button>
+      ${projectActionsHtml(project)}
     </div>
   `;
+  animatePanel();
   if (projectBackButton) {
     projectBackButton.hidden = false;
   }
@@ -364,6 +418,7 @@ function renderProject(projectId) {
 
   layoutTrackOrbs(project.track, projectId);
   panel.querySelector("[data-open-slides]")?.addEventListener("click", () => openSlides(projectId));
+  panel.querySelector("[data-go-waitlist]")?.addEventListener("click", goToWaitlist);
   requestAnimationFrame(() => drawConstellation(projectId));
 }
 
@@ -429,7 +484,10 @@ function moveSlide(direction) {
 }
 
 tabs.forEach((tab) => {
-  tab.addEventListener("click", () => renderTrack(tab.dataset.track));
+  tab.addEventListener("click", () => {
+    if ("vibrate" in navigator) navigator.vibrate(6);
+    renderTrack(tab.dataset.track);
+  });
 });
 
 orbs.forEach((orb) => {
@@ -441,8 +499,18 @@ orbs.forEach((orb) => {
   });
 });
 
-resetButton?.addEventListener("click", () => renderTrack(activeTrack || "apps"));
-projectBackButton?.addEventListener("click", () => renderTrack(activeTrack || "apps"));
+resetButton?.addEventListener("click", () => {
+  if ("vibrate" in navigator) navigator.vibrate(6);
+  renderTrack(activeTrack || "apps");
+});
+projectBackButton?.addEventListener("click", () => {
+  if (selectedProjectId) {
+    if ("vibrate" in navigator) navigator.vibrate(4);
+    renderTrack(activeTrack || "apps");
+  } else {
+    resetToIdle();
+  }
+});
 
 function setContactTopic(topic) {
   contactTopicInput.value = topic;

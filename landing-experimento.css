@@ -224,6 +224,36 @@ button {
   transition: opacity 300ms ease;
 }
 
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.door-panel.is-entering {
+  animation: panel-in 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes back-btn-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.project-back-orb:not([hidden]) {
+  animation: back-btn-in 280ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .lab-system.is-project-open .constellation-line {
   opacity: 1;
 }
@@ -241,6 +271,7 @@ button {
 .core-orb {
   top: 50%;
   left: 50%;
+  z-index: 2;
   width: clamp(124px, 13vw, 168px);
   height: clamp(124px, 13vw, 168px);
   transform: translate(-50%, -50%);
@@ -250,7 +281,7 @@ button {
     transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.lab-system.is-project-open .core-orb {
+.lab-system.is-track-active .core-orb {
   opacity: 0;
   pointer-events: none;
   filter: blur(12px);
@@ -409,17 +440,21 @@ button {
 }
 
 .door-tab.is-active {
-  border-color: rgba(216, 183, 106, 0.46);
+  border-color: rgba(216, 183, 106, 0.56);
   background:
-    linear-gradient(145deg, rgba(216, 183, 106, 0.14), rgba(255, 255, 255, 0.026)),
-    rgba(255, 255, 255, 0.04);
+    linear-gradient(145deg, rgba(216, 183, 106, 0.16), rgba(255, 255, 255, 0.028)),
+    rgba(255, 255, 255, 0.046);
+  box-shadow:
+    0 0 0 1px rgba(216, 183, 106, 0.06) inset,
+    0 6px 22px rgba(216, 183, 106, 0.07);
 }
 
 .door-tab:hover,
 .door-tab:focus-visible {
   outline: none;
-  border-color: rgba(216, 183, 106, 0.42);
-  transform: translateY(-1px);
+  border-color: rgba(216, 183, 106, 0.38);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .door-mark {
@@ -546,16 +581,33 @@ button {
 
 @media (min-width: 821px) {
   .lab-stage:has(.door-panel.is-project-panel) {
-    grid-template-rows: auto auto 286px auto;
-    gap: 8px;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr minmax(264px, 0.42fr);
+    gap: 8px 18px;
+  }
+
+  .lab-stage:has(.door-panel.is-project-panel) .stage-copy,
+  .lab-stage:has(.door-panel.is-project-panel) .door-tabs {
+    grid-column: 1 / -1;
   }
 
   .lab-stage:has(.door-panel.is-project-panel) .lab-system {
-    min-height: 286px;
+    grid-column: 1;
+    grid-row: 3;
+    min-height: 260px;
   }
 
   .lab-stage:has(.door-panel.is-project-panel) .door-panel {
-    margin-top: -4px;
+    grid-column: 2;
+    grid-row: 3;
+    align-self: center;
+    margin-top: 0;
+  }
+
+  .lab-stage:has(.door-panel.is-project-panel) .door-panel.is-project-panel {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: start;
   }
 
   .lab-stage:has(.door-panel.is-project-panel) .project-back-orb {
@@ -564,7 +616,7 @@ button {
   }
 
   .lab-stage:has(.door-panel.is-project-panel) .project-orb.is-selected {
-    transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) translate(var(--orb-dx), var(--orb-dy)) scale(1.92);
+    transform: translate(-50%, -50%) translate(var(--orb-x), var(--orb-y)) translate(var(--orb-dx), var(--orb-dy)) scale(2.3);
   }
 }
 
@@ -669,18 +721,38 @@ button {
 }
 
 .project-detail-actions {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   align-items: center;
 }
 
 .panel-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 40px;
-  padding: 0 14px;
+  padding: 0 16px;
   color: #090a12;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
   background: linear-gradient(135deg, #fff0b7, var(--gold));
   border-radius: 999px;
+  border: 0;
+  white-space: nowrap;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.panel-action:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.panel-action.panel-action-secondary {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(216, 183, 106, 0.3);
 }
 
 .experiment-slideshow {
@@ -1455,6 +1527,19 @@ button {
   .core-orb:not([hidden]) {
     animation: core-pulse 4.5s ease-in-out infinite;
   }
+}
+
+.orb-svg-icon {
+  background:
+    radial-gradient(circle at 50% 36%, rgba(216, 183, 106, 0.16), transparent 70%),
+    rgba(9, 11, 23, 0.86);
+}
+
+.orb-svg-icon svg {
+  width: 40%;
+  height: 40%;
+  color: rgba(216, 183, 106, 0.84);
+  stroke: currentColor;
 }
 
 .orb-glyph-mark {
