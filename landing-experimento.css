@@ -20,9 +20,7 @@
 
 html {
   height: 100%;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overscroll-behavior-y: none;
+  overflow: hidden;
 }
 
 body {
@@ -30,10 +28,11 @@ body {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  overscroll-behavior-y: none;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -455,16 +454,20 @@ button {
   align-items: center;
   min-height: 76px;
   padding: 12px 16px;
-  color: var(--ink);
+  color: rgba(246, 239, 225, 0.88);
   cursor: pointer;
   text-align: left;
   background:
-    radial-gradient(circle at 10% 0%, rgba(216, 183, 106, 0.1), transparent 10rem),
-    rgba(255, 255, 255, 0.028);
-  border: 1px solid rgba(216, 183, 106, 0.15);
-  border-radius: 8px;
+    linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 36%, rgba(0, 0, 0, 0.22) 100%),
+    rgba(22, 26, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
   min-width: 0;
   overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42),
+    0 4px 14px rgba(0, 0, 0, 0.28);
 }
 
 .door-tab {
@@ -472,13 +475,15 @@ button {
 }
 
 .door-tab.is-active {
+  color: rgba(255, 247, 220, 0.98);
   border-color: rgba(var(--track-rgb), 0.56);
   background:
-    linear-gradient(145deg, rgba(var(--track-rgb), 0.16), rgba(255, 255, 255, 0.028)),
-    rgba(255, 255, 255, 0.046);
+    linear-gradient(160deg, rgba(var(--track-rgb), 0.22), rgba(255, 255, 255, 0.05) 38%, rgba(0, 0, 0, 0.24) 100%),
+    rgba(22, 26, 42, 0.86);
   box-shadow:
-    0 0 0 1px rgba(var(--track-rgb), 0.06) inset,
-    0 6px 22px rgba(var(--track-rgb), 0.1);
+    inset 0 1px 0 rgba(var(--track-rgb), 0.32),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.48),
+    0 6px 22px rgba(var(--track-rgb), 0.22);
 }
 
 .door-tab:hover,
@@ -496,8 +501,26 @@ button {
   height: 38px;
   grid-row: span 2;
   place-items: center;
-  border: 1px solid rgba(216, 183, 106, 0.32);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02) 45%, rgba(0, 0, 0, 0.18) 100%),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.32);
+  transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
+}
+
+.door-tab.is-active .door-mark {
+  border-color: rgba(var(--track-rgb), 0.62);
+  background:
+    linear-gradient(160deg, rgba(var(--track-rgb), 0.28), rgba(255, 255, 255, 0.06) 45%, rgba(0, 0, 0, 0.22) 100%),
+    rgba(255, 255, 255, 0.03);
+  box-shadow:
+    inset 0 1px 0 rgba(var(--track-rgb), 0.34),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42),
+    0 0 14px rgba(var(--track-rgb), 0.32);
 }
 
 .door-mark::after {
@@ -1492,26 +1515,30 @@ button {
 
   .contact-screen {
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr) auto;
-    gap: 10px;
-    align-content: stretch;
+    grid-template-rows: auto auto auto;
+    gap: 14px;
+    align-content: center;
     justify-items: stretch;
-    padding: 18px 0 0;
+    padding: 28px 0 10px;
   }
 
   .contact-copy {
+    grid-row: auto;
+    align-self: auto;
     justify-items: center;
     justify-self: center;
-    gap: 7px;
+    gap: 5px;
     padding-left: 0;
     text-align: center;
   }
 
   .lab-contact-form {
+    grid-row: auto;
     justify-self: center;
-    align-self: center;
-    width: min(100%, 330px);
+    align-self: auto;
+    width: min(100%, 360px);
     margin-bottom: 0;
+    gap: 10px;
   }
 
   .contact-copy::before {
