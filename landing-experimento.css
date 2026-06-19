@@ -3,8 +3,9 @@
   --muted: rgba(246, 239, 225, 0.74);
   --gold: #d8b76a;
   --gold-soft: rgba(216, 183, 106, 0.26);
-  --teal: #66e7cd;
-  --violet: #b794f6;
+  --apps-green: #6fe8a5;
+  --info-yellow: #f5cf4e;
+  --studio-red: #f87171;
   --deep: #050610;
   --track-color: var(--gold);
   --track-rgb: 216, 183, 106;
@@ -32,10 +33,10 @@ body {
     sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(ellipse at 50% 28%, rgba(var(--track-rgb), 0.16), transparent 38rem),
-    radial-gradient(ellipse at 14% 88%, rgba(102, 231, 205, 0.07), transparent 28rem),
-    radial-gradient(ellipse at 86% 12%, rgba(183, 148, 246, 0.06), transparent 26rem),
-    linear-gradient(160deg, #06081a 0%, #0a0a22 38%, #0d1330 72%, #06122a 100%);
+    radial-gradient(ellipse at 50% 26%, rgba(var(--track-rgb), 0.18), transparent 38rem),
+    radial-gradient(ellipse at 12% 90%, rgba(56, 132, 240, 0.18), transparent 30rem),
+    radial-gradient(ellipse at 88% 14%, rgba(70, 160, 255, 0.12), transparent 28rem),
+    linear-gradient(160deg, #07112c 0%, #0a1843 38%, #122257 72%, #0a1538 100%);
   transition: background 600ms ease;
 }
 
@@ -1562,18 +1563,18 @@ button {
 }
 
 body:has(.lab-system[data-active-track="apps"]) {
-  --track-color: var(--teal);
-  --track-rgb: 102, 231, 205;
+  --track-color: var(--apps-green);
+  --track-rgb: 111, 232, 165;
 }
 
 body:has(.lab-system[data-active-track="studio"]) {
-  --track-color: var(--violet);
-  --track-rgb: 183, 148, 246;
+  --track-color: var(--studio-red);
+  --track-rgb: 248, 113, 113;
 }
 
 body:has(.lab-system[data-active-track="info"]) {
-  --track-color: var(--gold);
-  --track-rgb: 216, 183, 106;
+  --track-color: var(--info-yellow);
+  --track-rgb: 245, 207, 78;
 }
 
 @keyframes card-in {
