@@ -417,25 +417,27 @@ function renderProject(projectId) {
   panel.hidden = false;
   panel.classList.add("is-project-panel");
   panel.innerHTML = `
-    <div class="project-detail-head">
-      <span class="project-thumb" aria-hidden="true"><img src="${project.image}" alt="" /></span>
-      <div class="project-detail-copy">
-        <p class="project-kicker">${project.type}</p>
-        <h2>${project.title}</h2>
-        <p>${project.text}</p>
-        <div class="project-progress" aria-label="Progresso de ${project.title}">
-          <span>Nivel ${project.level} - ${projectPhase(project)}</span>
-          <strong>${project.progress}%</strong>
-          <i style="--progress:${project.progress}%"></i>
-        </div>
+    <header class="project-detail-top">
+      <p class="project-kicker">${project.type}</p>
+      <h2>${project.title}</h2>
+    </header>
+    <figure class="project-detail-hero" aria-hidden="true">
+      <img src="${project.image}" alt="" />
+    </figure>
+    <div class="project-detail-body">
+      <p class="project-detail-desc">${project.text}</p>
+      <div class="project-progress" aria-label="Progresso de ${project.title}">
+        <span>Nivel ${project.level} - ${projectPhase(project)}</span>
+        <strong>${project.progress}%</strong>
+        <i style="--progress:${project.progress}%"></i>
       </div>
-    </div>
-    <div class="project-detail-meta">
-      <section><span>Tipo</span><strong>${project.type}</strong></section>
-      <section><span>Estado</span><strong>${project.state}</strong></section>
-    </div>
-    <div class="project-detail-actions">
-      ${projectActionsHtml(project)}
+      <div class="project-detail-meta">
+        <section><span>Tipo</span><strong>${project.type}</strong></section>
+        <section><span>Estado</span><strong>${project.state}</strong></section>
+      </div>
+      <div class="project-detail-actions">
+        ${projectActionsHtml(project)}
+      </div>
     </div>
   `;
   animatePanel();
