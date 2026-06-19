@@ -1111,6 +1111,113 @@ button {
   line-height: 0.94;
 }
 
+.destaque-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+  margin: 14px auto 0;
+  padding: 14px 18px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  background:
+    linear-gradient(145deg, rgba(216, 183, 106, 0.12), rgba(255, 255, 255, 0.025) 50%, rgba(0, 0, 0, 0.22) 100%),
+    rgba(8, 10, 22, 0.66);
+  border: 1px solid rgba(216, 183, 106, 0.28);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42),
+    0 14px 36px rgba(0, 0, 0, 0.36);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.destaque-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(216, 183, 106, 0.56);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.46),
+    0 18px 44px rgba(0, 0, 0, 0.46),
+    0 0 30px rgba(216, 183, 106, 0.2);
+}
+
+.destaque-card:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.destaque-thumb {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(216, 183, 106, 0.5);
+  border-radius: 999px;
+  box-shadow: 0 0 22px rgba(216, 183, 106, 0.22);
+  flex-shrink: 0;
+}
+
+.destaque-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destaque-body {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  text-align: left;
+}
+
+.destaque-kicker {
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(216, 183, 106, 0.82);
+}
+
+.destaque-title {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: rgba(255, 247, 220, 0.98);
+}
+
+.destaque-level {
+  display: grid;
+  gap: 1px;
+  justify-items: end;
+  align-items: end;
+  text-align: right;
+  padding-left: 8px;
+  border-left: 1px solid rgba(216, 183, 106, 0.18);
+}
+
+.destaque-level small {
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(216, 183, 106, 0.78);
+}
+
+.destaque-level strong {
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--gold);
+  text-shadow: 0 0 18px rgba(216, 183, 106, 0.34);
+}
+
 .contact-copy p:not(.section-kicker) {
   max-width: 62ch;
   margin: 0;
@@ -1646,6 +1753,35 @@ button {
     max-width: 36ch;
     font-size: 0.88rem;
     line-height: 1.38;
+  }
+
+  .destaque-card {
+    max-width: 340px;
+    margin: 12px auto 0;
+    padding: 11px 14px;
+    gap: 12px;
+    border-radius: 14px;
+  }
+
+  .destaque-thumb {
+    width: 46px;
+    height: 46px;
+  }
+
+  .destaque-title {
+    font-size: 1.2rem;
+  }
+
+  .destaque-kicker {
+    font-size: 0.6rem;
+  }
+
+  .destaque-level small {
+    font-size: 0.54rem;
+  }
+
+  .destaque-level strong {
+    font-size: 1.5rem;
   }
 
   .service-strip {

@@ -583,6 +583,14 @@ sendAction?.addEventListener("click", () => {
   window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
 
+document.querySelector("[data-destaque-project]")?.addEventListener("click", (event) => {
+  const id = event.currentTarget?.dataset?.destaqueProject;
+  if (id) {
+    if ("vibrate" in navigator) navigator.vibrate(6);
+    openSlides(id);
+  }
+});
+
 document.querySelector("[data-close-slides]")?.addEventListener("click", closeSlides);
 document.querySelector("[data-prev-slide]")?.addEventListener("click", () => moveSlide(-1));
 document.querySelector("[data-next-slide]")?.addEventListener("click", () => moveSlide(1));
