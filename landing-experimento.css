@@ -76,7 +76,7 @@ button {
 .lab-stage {
   position: relative;
   display: grid;
-  grid-template-rows: auto auto minmax(230px, 1fr) auto;
+  grid-template-rows: auto minmax(230px, 1fr) auto;
   gap: 12px;
   padding: 18px 0;
   overflow: hidden;
@@ -353,6 +353,16 @@ button {
   white-space: nowrap;
 }
 
+.core-orb > span:last-child {
+  top: calc(100% + 14px);
+  color: rgba(216, 183, 106, 0.92);
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 28px rgba(216, 183, 106, 0.3);
+}
+
 .project-orb {
   --orb-x: 0px;
   --orb-y: 0px;
@@ -437,6 +447,10 @@ button {
   border-radius: 8px;
   min-width: 0;
   overflow: hidden;
+}
+
+.door-tab {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .door-tab.is-active {
@@ -581,25 +595,24 @@ button {
 
 @media (min-width: 821px) {
   .lab-stage:has(.door-panel.is-project-panel) {
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-columns: 1fr minmax(264px, 0.42fr);
     gap: 8px 18px;
   }
 
-  .lab-stage:has(.door-panel.is-project-panel) .stage-copy,
   .lab-stage:has(.door-panel.is-project-panel) .door-tabs {
     grid-column: 1 / -1;
   }
 
   .lab-stage:has(.door-panel.is-project-panel) .lab-system {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 2;
     min-height: 260px;
   }
 
   .lab-stage:has(.door-panel.is-project-panel) .door-panel {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 2;
     align-self: center;
     margin-top: 0;
   }
@@ -1145,7 +1158,7 @@ button {
   }
 
   .lab-stage {
-    grid-template-rows: auto auto minmax(170px, 1fr) auto;
+    grid-template-rows: auto minmax(170px, 1fr) auto;
     padding-top: 14px;
     gap: 9px;
   }
@@ -1526,6 +1539,123 @@ button {
 @media (prefers-reduced-motion: no-preference) {
   .core-orb:not([hidden]) {
     animation: core-pulse 4.5s ease-in-out infinite;
+  }
+}
+
+/* ── Card layout: track ativo ── */
+
+.lab-system.is-track-active {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px 4px 12px;
+}
+
+.lab-system.is-track-active .project-orb {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: clamp(84px, 10.5vw, 118px);
+  height: auto;
+  padding: 14px 10px 13px;
+  border-radius: 14px;
+  border: 1px solid rgba(216, 183, 106, 0.12);
+  background: rgba(255, 255, 255, 0.022);
+  opacity: 0;
+  transform: translateY(8px) scale(0.96);
+  filter: none;
+  pointer-events: none;
+  transition:
+    opacity 280ms ease calc(var(--orb-index, 0) * 55ms),
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--orb-index, 0) * 55ms),
+    border-color 160ms ease,
+    background 160ms ease,
+    filter 160ms ease;
+}
+
+.lab-system.is-track-active .project-orb.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.lab-system.is-track-active .project-orb.is-dimmed {
+  opacity: 0.26;
+  filter: saturate(0.2);
+  pointer-events: none;
+  transform: scale(0.95) !important;
+}
+
+.lab-system.is-track-active .project-orb.is-selected {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1.08) !important;
+  z-index: 4;
+  border-color: rgba(216, 183, 106, 0.48);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(216, 183, 106, 0.14), transparent 70%),
+    rgba(255, 255, 255, 0.034);
+  filter: brightness(1.08);
+}
+
+.lab-system.is-track-active .project-orb.is-selected .orb-image {
+  border-color: rgba(246, 239, 225, 0.68);
+  box-shadow:
+    0 16px 44px rgba(0, 0, 0, 0.44),
+    0 0 32px rgba(216, 183, 106, 0.26),
+    0 0 14px rgba(102, 231, 205, 0.08);
+}
+
+.lab-system.is-track-active .project-orb::before {
+  display: none;
+}
+
+.lab-system.is-track-active .project-orb .orb-image {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.lab-system.is-track-active .project-orb > span:last-child {
+  position: relative;
+  top: auto;
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: rgba(246, 239, 225, 0.78);
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.lab-system.is-track-active .project-orb.is-selected > span:last-child {
+  color: rgba(246, 239, 225, 0.96);
+}
+
+.lab-system.is-track-active .constellation-line {
+  opacity: 0 !important;
+}
+
+@media (max-width: 820px) {
+  .lab-system.is-track-active {
+    padding: 12px 0 8px;
+    gap: 8px;
+  }
+
+  .lab-system.is-track-active .project-orb {
+    width: calc(50% - 4px);
+    max-width: 144px;
+  }
+
+  .lab-system.is-track-active .project-orb .orb-image {
+    width: 48px;
+    height: 48px;
   }
 }
 
