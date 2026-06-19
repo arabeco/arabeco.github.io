@@ -617,6 +617,47 @@ window.addEventListener("resize", () => {
   layoutTrackOrbs(activeTrack, selectedProjectId);
 });
 
+(function setupSnap() {
+  const snapSections = [...document.querySelectorAll(".snap-screen")];
+  if (snapSections.length < 2) return;
+
+  let snapTimer = null;
+  let isProgrammaticScroll = false;
+
+  function snapToNearest() {
+    if (isProgrammaticScroll) return;
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    const viewH = window.innerHeight;
+    let nearest = snapSections[0];
+    let minDist = Infinity;
+    snapSections.forEach((sec) => {
+      const top = sec.offsetTop;
+      const dist = Math.abs(scrollY - top);
+      if (dist < minDist) {
+        minDist = dist;
+        nearest = sec;
+      }
+    });
+    const targetTop = nearest.offsetTop;
+    if (Math.abs(scrollY - targetTop) < 2) return;
+    isProgrammaticScroll = true;
+    window.scrollTo({ top: targetTop, behavior: "smooth" });
+    setTimeout(() => {
+      isProgrammaticScroll = false;
+    }, 700);
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (isProgrammaticScroll) return;
+      clearTimeout(snapTimer);
+      snapTimer = setTimeout(snapToNearest, 120);
+    },
+    { passive: true },
+  );
+})();
+
 function visibleOrbs() {
   return orbs.filter((orb) => orb.classList.contains("is-visible"));
 }
