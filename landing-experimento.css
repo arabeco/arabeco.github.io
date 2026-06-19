@@ -20,12 +20,11 @@
 
 html {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   margin: 0;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -38,10 +37,10 @@ body {
     sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(ellipse at 50% 26%, rgba(var(--track-rgb), 0.18), transparent 38rem),
-    radial-gradient(ellipse at 12% 90%, rgba(56, 132, 240, 0.18), transparent 30rem),
-    radial-gradient(ellipse at 88% 14%, rgba(70, 160, 255, 0.12), transparent 28rem),
-    linear-gradient(160deg, #07112c 0%, #0a1843 38%, #122257 72%, #0a1538 100%);
+    radial-gradient(ellipse at 50% 24%, rgba(var(--track-rgb), 0.18), transparent 36rem),
+    radial-gradient(ellipse at 8% 88%, rgba(40, 90, 200, 0.18), transparent 30rem),
+    radial-gradient(ellipse at 92% 10%, rgba(120, 60, 200, 0.1), transparent 28rem),
+    linear-gradient(165deg, #06080f 0%, #0a0d1a 32%, #0d1226 60%, #07091a 100%);
   transition: background 600ms ease;
 }
 
@@ -89,7 +88,7 @@ button {
   display: grid;
   grid-template-rows: auto minmax(280px, 1fr) auto;
   gap: 18px;
-  padding: 92px 0 18px;
+  padding: 112px 0 18px;
   overflow: hidden;
   min-width: 0;
 }
@@ -361,7 +360,6 @@ button {
   transform: rotate(-28deg);
 }
 
-.core-orb > span:last-child,
 .project-orb > span:last-child {
   position: absolute;
   top: calc(100% + 9px);
@@ -370,14 +368,35 @@ button {
   white-space: nowrap;
 }
 
-.core-orb > span:last-child {
-  top: calc(100% + 14px);
-  color: rgba(216, 183, 106, 0.92);
+.core-orb .core-title {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(216, 183, 106, 0.96);
   font-family: var(--display);
-  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-size: clamp(1.9rem, 4.4vw, 3.2rem);
   font-weight: 700;
-  letter-spacing: -0.01em;
-  text-shadow: 0 0 28px rgba(216, 183, 106, 0.3);
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  text-shadow:
+    0 0 32px rgba(216, 183, 106, 0.32),
+    0 2px 18px rgba(0, 0, 0, 0.5);
+}
+
+.core-orb .core-tagline {
+  position: absolute;
+  top: calc(100% + 16px + clamp(1.9rem, 4.4vw, 3.2rem) + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: min(78vw, 460px);
+  color: rgba(246, 239, 225, 0.62);
+  font-size: clamp(0.86rem, 1.4vw, 1rem);
+  line-height: 1.4;
+  text-align: center;
+  white-space: normal;
+  letter-spacing: 0.01em;
 }
 
 .project-orb {
@@ -1220,9 +1239,9 @@ button {
   }
 
   .lab-stage {
-    padding: 64px 0 10px;
+    padding: 86px 0 12px;
     grid-template-rows: auto minmax(0, 1fr) auto;
-    gap: 8px;
+    gap: 12px;
   }
 
   .stage-topline {
