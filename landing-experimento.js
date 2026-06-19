@@ -416,14 +416,17 @@ function renderProject(projectId) {
   panel.hidden = false;
   panel.classList.add("is-project-panel");
   panel.innerHTML = `
-    <div class="project-detail-copy">
-      <p class="project-kicker">${project.type}</p>
-      <h2>${project.title}</h2>
-      <p>${project.text}</p>
-      <div class="project-progress" aria-label="Progresso de ${project.title}">
-        <span>Nivel ${project.level} - ${projectPhase(project)}</span>
-        <strong>${project.progress}%</strong>
-        <i style="--progress:${project.progress}%"></i>
+    <div class="project-detail-head">
+      <span class="project-thumb" aria-hidden="true"><img src="${project.image}" alt="" /></span>
+      <div class="project-detail-copy">
+        <p class="project-kicker">${project.type}</p>
+        <h2>${project.title}</h2>
+        <p>${project.text}</p>
+        <div class="project-progress" aria-label="Progresso de ${project.title}">
+          <span>Nivel ${project.level} - ${projectPhase(project)}</span>
+          <strong>${project.progress}%</strong>
+          <i style="--progress:${project.progress}%"></i>
+        </div>
       </div>
     </div>
     <div class="project-detail-meta">
