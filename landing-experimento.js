@@ -323,7 +323,8 @@ function animatePanel() {
 }
 
 function goToWaitlist() {
-  document.querySelector("#contactScreen")?.scrollIntoView({ behavior: "smooth" });
+  if (window.goToSection) window.goToSection(1);
+  else document.querySelector("#contactScreen")?.scrollIntoView({ behavior: "smooth" });
   setContactTopic("Acompanhar");
 }
 
@@ -617,45 +618,102 @@ window.addEventListener("resize", () => {
   layoutTrackOrbs(activeTrack, selectedProjectId);
 });
 
-(function setupSnap() {
-  const snapSections = [...document.querySelectorAll(".snap-screen")];
-  if (snapSections.length < 2) return;
+(function setupPageNav() {
+  const sections = [...document.querySelectorAll(".snap-screen")];
+  if (sections.length < 2) return;
 
-  let snapTimer = null;
-  let isProgrammaticScroll = false;
+  let currentIdx = 0;
+  let isAnimating = false;
+  const ANIM_MS = 700;
+  const SWIPE_THRESHOLD = 60;
+  const WHEEL_THRESHOLD = 28;
 
-  function snapToNearest() {
-    if (isProgrammaticScroll) return;
-    const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const viewH = window.innerHeight;
-    let nearest = snapSections[0];
-    let minDist = Infinity;
-    snapSections.forEach((sec) => {
-      const top = sec.offsetTop;
-      const dist = Math.abs(scrollY - top);
-      if (dist < minDist) {
-        minDist = dist;
-        nearest = sec;
-      }
-    });
-    const targetTop = nearest.offsetTop;
-    if (Math.abs(scrollY - targetTop) < 2) return;
-    isProgrammaticScroll = true;
-    window.scrollTo({ top: targetTop, behavior: "smooth" });
+  function goTo(idx) {
+    if (idx < 0 || idx >= sections.length || isAnimating) return false;
+    isAnimating = true;
+    currentIdx = idx;
+    sections[idx].scrollIntoView({ behavior: "smooth", block: "start" });
     setTimeout(() => {
-      isProgrammaticScroll = false;
-    }, 700);
+      isAnimating = false;
+    }, ANIM_MS);
+    return true;
   }
 
+  function shouldIgnoreEvent(target) {
+    if (!target) return false;
+    const tag = target.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
+    if (target.closest && target.closest(".experiment-slideshow:not([hidden])")) return true;
+    return false;
+  }
+
+  let wheelLock = 0;
   window.addEventListener(
-    "scroll",
-    () => {
-      if (isProgrammaticScroll) return;
-      clearTimeout(snapTimer);
-      snapTimer = setTimeout(snapToNearest, 120);
+    "wheel",
+    (e) => {
+      if (shouldIgnoreEvent(e.target)) return;
+      e.preventDefault();
+      if (isAnimating) return;
+      const now = Date.now();
+      if (now - wheelLock < 120) return;
+      if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) return;
+      wheelLock = now;
+      goTo(currentIdx + (e.deltaY > 0 ? 1 : -1));
+    },
+    { passive: false },
+  );
+
+  let touchStartY = null;
+  window.addEventListener(
+    "touchstart",
+    (e) => {
+      if (isAnimating || shouldIgnoreEvent(e.target)) {
+        touchStartY = null;
+        return;
+      }
+      touchStartY = e.touches[0].clientY;
     },
     { passive: true },
   );
+
+  window.addEventListener(
+    "touchmove",
+    (e) => {
+      if (touchStartY !== null) e.preventDefault();
+    },
+    { passive: false },
+  );
+
+  window.addEventListener(
+    "touchend",
+    (e) => {
+      if (touchStartY === null || isAnimating) return;
+      const dy = touchStartY - e.changedTouches[0].clientY;
+      touchStartY = null;
+      if (Math.abs(dy) < SWIPE_THRESHOLD) return;
+      goTo(currentIdx + (dy > 0 ? 1 : -1));
+    },
+    { passive: true },
+  );
+
+  window.addEventListener("keydown", (e) => {
+    if (shouldIgnoreEvent(e.target)) return;
+    if (e.key === "ArrowDown" || e.key === "PageDown") {
+      e.preventDefault();
+      goTo(currentIdx + 1);
+    } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+      e.preventDefault();
+      goTo(currentIdx - 1);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      goTo(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      goTo(sections.length - 1);
+    }
+  });
+
+  window.goToSection = goTo;
 })();
 
 function visibleOrbs() {
