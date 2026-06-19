@@ -206,6 +206,7 @@ let pointerY = null;
 let motionRunning = false;
 
 let activeTrack = "";
+let isAllMode = false;
 let selectedProjectId = "";
 let activeSlideProjectId = "";
 let activeSlideIndex = 0;
@@ -271,10 +272,11 @@ function projectPhase(project) {
 function resetToIdle() {
   if ("vibrate" in navigator) navigator.vibrate(4);
   activeTrack = "";
+  isAllMode = false;
   selectedProjectId = "";
   panel.hidden = true;
   panel.classList.remove("is-project-panel", "is-entering");
-  labSystem?.classList.remove("is-track-active", "is-project-open");
+  labSystem?.classList.remove("is-track-active", "is-project-open", "is-all-active");
   if (projectBackButton) projectBackButton.hidden = true;
   tabs.forEach((tab) => {
     tab.classList.remove("is-active");
@@ -283,6 +285,35 @@ function resetToIdle() {
   orbs.forEach((orb) => {
     orb.classList.remove("is-visible", "is-selected", "is-dimmed");
     orb.setAttribute("aria-pressed", "false");
+  });
+}
+
+function renderAll() {
+  activeTrack = "";
+  isAllMode = true;
+  selectedProjectId = "";
+  panel.hidden = false;
+  panel.classList.remove("is-project-panel");
+  panel.innerHTML = `
+    <h2>Todos os sistemas</h2>
+    <p>Apps, Studio e Infoprodutos no mesmo mapa. Clique em qualquer um para abrir.</p>
+  `;
+  animatePanel();
+  labSystem?.classList.remove("is-project-open");
+  labSystem?.classList.add("is-track-active", "is-all-active");
+  labSystem?.removeAttribute("data-active-track");
+  if (projectBackButton) projectBackButton.hidden = false;
+
+  tabs.forEach((tab) => {
+    tab.classList.remove("is-active");
+    tab.setAttribute("aria-selected", "false");
+  });
+
+  orbs.forEach((orb, index) => {
+    orb.classList.add("is-visible");
+    orb.classList.remove("is-selected", "is-dimmed");
+    orb.setAttribute("aria-pressed", "false");
+    orb.style.setProperty("--orb-index", String(index));
   });
 }
 
@@ -319,6 +350,7 @@ function projectActionsHtml(project) {
 function renderTrack(id) {
   const track = tracks[id] || tracks.apps;
   activeTrack = id;
+  isAllMode = false;
   selectedProjectId = "";
   panel.hidden = false;
   panel.classList.remove("is-project-panel");
@@ -327,7 +359,7 @@ function renderTrack(id) {
     <p>${track.text}</p>
   `;
   animatePanel();
-  labSystem?.classList.remove("is-project-open");
+  labSystem?.classList.remove("is-project-open", "is-all-active");
   labSystem?.classList.add("is-track-active");
   labSystem?.setAttribute("data-active-track", id);
   if (projectBackButton) {
@@ -375,7 +407,7 @@ function renderProject(projectId) {
   const project = projects[projectId];
   if (!project) return;
 
-  if (project.track !== activeTrack) {
+  if (!isAllMode && project.track !== activeTrack) {
     renderTrack(project.track);
   }
 
@@ -410,9 +442,15 @@ function renderProject(projectId) {
   orbs.forEach((orb) => {
     const selected = orb.dataset.project === projectId;
     const sameTrack = orb.dataset.orbTrack === project.track;
-    orb.classList.toggle("is-visible", sameTrack);
-    orb.classList.toggle("is-selected", selected);
-    orb.classList.toggle("is-dimmed", sameTrack && !selected);
+    if (isAllMode) {
+      orb.classList.add("is-visible");
+      orb.classList.toggle("is-selected", selected);
+      orb.classList.toggle("is-dimmed", !selected);
+    } else {
+      orb.classList.toggle("is-visible", sameTrack);
+      orb.classList.toggle("is-selected", selected);
+      orb.classList.toggle("is-dimmed", sameTrack && !selected);
+    }
     orb.setAttribute("aria-pressed", String(selected));
   });
 
@@ -501,12 +539,13 @@ orbs.forEach((orb) => {
 
 resetButton?.addEventListener("click", () => {
   if ("vibrate" in navigator) navigator.vibrate(6);
-  renderTrack(activeTrack || "apps");
+  renderAll();
 });
 projectBackButton?.addEventListener("click", () => {
   if (selectedProjectId) {
     if ("vibrate" in navigator) navigator.vibrate(4);
-    renderTrack(activeTrack || "apps");
+    if (isAllMode) renderAll();
+    else renderTrack(activeTrack || "apps");
   } else {
     resetToIdle();
   }
