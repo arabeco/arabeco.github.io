@@ -1611,10 +1611,17 @@ button {
 }
 
 .lab-system.is-track-active .project-orb.is-dimmed {
-  opacity: 0.22;
-  filter: saturate(0.2);
-  pointer-events: none;
-  transform: scale(0.94) !important;
+  opacity: 0.52;
+  filter: saturate(0.55);
+  pointer-events: auto;
+  transform: scale(0.96) !important;
+}
+
+.lab-system.is-track-active .project-orb.is-dimmed:hover {
+  opacity: 0.92;
+  filter: saturate(1);
+  transform: translateY(-2px) scale(0.99) !important;
+  border-color: rgba(216, 183, 106, 0.32);
 }
 
 .lab-system.is-track-active .project-orb.is-selected {
