@@ -476,14 +476,14 @@ button {
   cursor: pointer;
   text-align: left;
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 36%, rgba(0, 0, 0, 0.22) 100%),
+    linear-gradient(160deg, rgba(var(--tab-rgb, 216, 183, 106), 0.1), rgba(255, 255, 255, 0.02) 36%, rgba(0, 0, 0, 0.22) 100%),
     rgba(22, 26, 42, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(var(--tab-rgb, 216, 183, 106), 0.22);
   border-radius: 10px;
   min-width: 0;
   overflow: hidden;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(var(--tab-rgb, 216, 183, 106), 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.42),
     0 4px 14px rgba(0, 0, 0, 0.28);
 }
@@ -494,14 +494,14 @@ button {
 
 .door-tab.is-active {
   color: rgba(255, 247, 220, 0.98);
-  border-color: rgba(var(--track-rgb), 0.56);
+  border-color: rgba(var(--tab-rgb), 0.62);
   background:
-    linear-gradient(160deg, rgba(var(--track-rgb), 0.22), rgba(255, 255, 255, 0.05) 38%, rgba(0, 0, 0, 0.24) 100%),
+    linear-gradient(160deg, rgba(var(--tab-rgb), 0.28), rgba(255, 255, 255, 0.05) 38%, rgba(0, 0, 0, 0.24) 100%),
     rgba(22, 26, 42, 0.86);
   box-shadow:
-    inset 0 1px 0 rgba(var(--track-rgb), 0.32),
+    inset 0 1px 0 rgba(var(--tab-rgb), 0.4),
     inset 0 -1px 0 rgba(0, 0, 0, 0.48),
-    0 6px 22px rgba(var(--track-rgb), 0.22);
+    0 6px 22px rgba(var(--tab-rgb), 0.28);
 }
 
 .door-tab:hover,
@@ -520,25 +520,25 @@ button {
   grid-row: span 2;
   place-items: center;
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02) 45%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(160deg, rgba(var(--tab-rgb, 255, 255, 255), 0.18), rgba(255, 255, 255, 0.02) 45%, rgba(0, 0, 0, 0.18) 100%),
     rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(var(--tab-rgb, 255, 255, 255), 0.32);
   border-radius: 999px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 1px 0 rgba(var(--tab-rgb, 255, 255, 255), 0.22),
     inset 0 -1px 0 rgba(0, 0, 0, 0.32);
   transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
 }
 
 .door-tab.is-active .door-mark {
-  border-color: rgba(var(--track-rgb), 0.62);
+  border-color: rgba(var(--tab-rgb), 0.7);
   background:
-    linear-gradient(160deg, rgba(var(--track-rgb), 0.28), rgba(255, 255, 255, 0.06) 45%, rgba(0, 0, 0, 0.22) 100%),
+    linear-gradient(160deg, rgba(var(--tab-rgb), 0.36), rgba(255, 255, 255, 0.06) 45%, rgba(0, 0, 0, 0.22) 100%),
     rgba(255, 255, 255, 0.03);
   box-shadow:
-    inset 0 1px 0 rgba(var(--track-rgb), 0.34),
+    inset 0 1px 0 rgba(var(--tab-rgb), 0.42),
     inset 0 -1px 0 rgba(0, 0, 0, 0.42),
-    0 0 14px rgba(var(--track-rgb), 0.32);
+    0 0 18px rgba(var(--tab-rgb), 0.42);
 }
 
 .door-mark::after {
@@ -1723,6 +1723,24 @@ body:has(.lab-system[data-active-track="info"]) {
   --track-rgb: 245, 207, 78;
 }
 
+[data-track="apps"],
+[data-orb-track="apps"] {
+  --tab-rgb: 111, 232, 165;
+  --orb-rgb: 111, 232, 165;
+}
+
+[data-track="studio"],
+[data-orb-track="studio"] {
+  --tab-rgb: 248, 113, 113;
+  --orb-rgb: 248, 113, 113;
+}
+
+[data-track="info"],
+[data-orb-track="info"] {
+  --tab-rgb: 245, 207, 78;
+  --orb-rgb: 245, 207, 78;
+}
+
 @keyframes card-in {
   from {
     opacity: 0;
@@ -1746,9 +1764,9 @@ body:has(.lab-system[data-active-track="info"]) {
   height: auto;
   padding: 24px 16px 22px;
   border-radius: 18px;
-  border: 1px solid rgba(216, 183, 106, 0.16);
+  border: 1px solid rgba(var(--orb-rgb, 216, 183, 106), 0.22);
   background:
-    radial-gradient(circle at 50% -20%, rgba(216, 183, 106, 0.08), transparent 60%),
+    radial-gradient(circle at 50% -20%, rgba(var(--orb-rgb, 216, 183, 106), 0.1), transparent 60%),
     rgba(255, 255, 255, 0.028);
   opacity: 1;
   transform: none;
@@ -1772,11 +1790,11 @@ body:has(.lab-system[data-active-track="info"]) {
 }
 
 .lab-system.is-track-active .project-orb.is-visible:hover {
-  border-color: rgba(var(--track-rgb), 0.42);
+  border-color: rgba(var(--orb-rgb), 0.5);
   transform: translateY(-3px) scale(1) !important;
   box-shadow:
     0 14px 38px rgba(0, 0, 0, 0.28),
-    0 0 22px rgba(var(--track-rgb), 0.12);
+    0 0 22px rgba(var(--orb-rgb), 0.18);
 }
 
 .lab-system.is-track-active .project-orb.is-dimmed {
@@ -1798,13 +1816,13 @@ body:has(.lab-system[data-active-track="info"]) {
   pointer-events: auto;
   transform: translateY(-3px) scale(1.05) !important;
   z-index: 4;
-  border-color: rgba(var(--track-rgb), 0.55);
+  border-color: rgba(var(--orb-rgb), 0.62);
   background:
-    radial-gradient(circle at 50% -10%, rgba(var(--track-rgb), 0.22), transparent 65%),
+    radial-gradient(circle at 50% -10%, rgba(var(--orb-rgb), 0.28), transparent 65%),
     rgba(255, 255, 255, 0.04);
   box-shadow:
     0 18px 48px rgba(0, 0, 0, 0.36),
-    0 0 36px rgba(var(--track-rgb), 0.2);
+    0 0 36px rgba(var(--orb-rgb), 0.26);
   filter: brightness(1.08);
 }
 
@@ -1812,7 +1830,7 @@ body:has(.lab-system[data-active-track="info"]) {
   border-color: rgba(246, 239, 225, 0.78);
   box-shadow:
     0 16px 44px rgba(0, 0, 0, 0.44),
-    0 0 36px rgba(var(--track-rgb), 0.32);
+    0 0 36px rgba(var(--orb-rgb), 0.4);
 }
 
 .lab-system.is-track-active .project-orb::before {
@@ -1876,46 +1894,47 @@ body:has(.lab-system[data-active-track="info"]) {
 @media (max-width: 820px) {
   .lab-system.is-track-active {
     padding: 4px 2px;
-    gap: 6px;
+    gap: 5px;
     overflow: hidden;
   }
 
   .lab-system.is-track-active .project-orb {
-    width: calc(50% - 3px);
-    max-width: 150px;
-    padding: 8px 6px 8px;
-    gap: 5px;
-    border-radius: 12px;
+    width: calc(33.333% - 4px);
+    max-width: 120px;
+    padding: 7px 4px 7px;
+    gap: 4px;
+    border-radius: 11px;
   }
 
   .lab-system.is-track-active .project-orb .orb-image {
-    width: clamp(38px, 12vw, 50px);
-    height: clamp(38px, 12vw, 50px);
+    width: clamp(34px, 11vw, 48px);
+    height: clamp(34px, 11vw, 48px);
   }
 
   .lab-system.is-track-active .project-orb > span:last-child {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
+    line-height: 1.15;
   }
 
   .lab-system.is-track-active.is-all-active {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 9px;
-    padding: 10px 2px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 6px 2px;
   }
 
   .lab-system.is-track-active.is-all-active .project-orb {
-    padding: 14px 8px 12px;
-    gap: 9px;
+    padding: 9px 5px 8px;
+    gap: 5px;
     max-width: none;
   }
 
   .lab-system.is-track-active.is-all-active .project-orb .orb-image {
-    width: 56px;
-    height: 56px;
+    width: 46px;
+    height: 46px;
   }
 
   .lab-system.is-track-active.is-all-active .project-orb > span:last-child {
-    font-size: 0.82rem;
+    font-size: 0.72rem;
   }
 }
 
