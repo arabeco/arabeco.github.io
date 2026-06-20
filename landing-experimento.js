@@ -800,6 +800,7 @@ window.addEventListener("resize", () => {
     const tag = target.tagName;
     if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
     if (target.closest && target.closest(".experiment-slideshow:not([hidden])")) return true;
+    if (target.closest && target.closest(".lab-system.is-all-active")) return true;
     return false;
   }
 
