@@ -262,7 +262,7 @@ button {
 }
 
 .is-staggered {
-  animation: block-in 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: block-in 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes back-btn-in {
@@ -888,10 +888,11 @@ button {
 
 .project-detail-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: 14px;
   align-items: center;
   justify-content: center;
+  margin-top: 4px;
 }
 
 .panel-action {

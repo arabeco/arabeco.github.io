@@ -338,11 +338,11 @@ function staggerProjectBlocks() {
   const blocks = selectors
     .map((sel) => panel.querySelector(sel))
     .filter(Boolean);
-  const STEP = 200;
+  const STEP = 290;
   blocks.forEach((block, i) => {
     block.style.animationDelay = `${i * STEP}ms`;
     block.classList.add("is-staggered");
-    setTimeout(() => haptic(20), i * STEP + 40);
+    setTimeout(() => haptic(20), i * STEP + 60);
   });
 }
 
@@ -353,22 +353,44 @@ function goToWaitlist() {
 }
 
 function projectActionsHtml(project) {
+  const isApp = project.track === "apps";
+  const isInfo = project.track === "info";
+  const downloadSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
+  const linkSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+
   const parts = [];
-  if (project.siteUrl) {
-    parts.push(
-      `<a class="panel-action" href="${project.siteUrl}" target="_blank" rel="noopener">Acessar</a>`,
-    );
-  }
-  if (project.track === "info") {
-    const cls = project.siteUrl ? " panel-action-secondary" : "";
-    parts.push(
-      `<button class="panel-action${cls}" type="button" data-go-waitlist>Avise-me quando lançar</button>`,
-    );
-  }
-  const secondaryCls = project.siteUrl || project.track === "info" ? " panel-action-secondary" : "";
   parts.push(
-    `<button class="panel-action${secondaryCls}" type="button" data-open-slides>Ver slides</button>`,
+    `<button class="panel-action" type="button" data-open-slides>Ver slides</button>`,
   );
+
+  if (isApp) {
+    const url = project.downloadUrl;
+    if (url) {
+      parts.push(
+        `<span class="slide-icon-wrap"><a class="slide-icon-action" href="${url}" target="_blank" rel="noopener" aria-label="Baixar ${project.title}">${downloadSvg}</a><span class="slide-icon-tip">Baixar</span></span>`,
+      );
+    } else {
+      parts.push(
+        `<span class="slide-icon-wrap is-disabled"><button class="slide-icon-action is-disabled" type="button" disabled aria-label="Baixar ${project.title} em breve">${downloadSvg}</button><span class="slide-icon-tip">Em breve</span></span>`,
+      );
+    }
+  } else if (isInfo) {
+    parts.push(
+      `<span class="slide-icon-wrap"><button class="slide-icon-action" type="button" data-go-waitlist aria-label="Avise-me quando ${project.title} lançar">${linkSvg}</button><span class="slide-icon-tip">Avise-me</span></span>`,
+    );
+  } else {
+    const url = project.siteUrl;
+    if (url) {
+      parts.push(
+        `<span class="slide-icon-wrap"><a class="slide-icon-action" href="${url}" target="_blank" rel="noopener" aria-label="Acessar ${project.title}">${linkSvg}</a><span class="slide-icon-tip">Acessar</span></span>`,
+      );
+    } else {
+      parts.push(
+        `<span class="slide-icon-wrap is-disabled"><button class="slide-icon-action is-disabled" type="button" disabled aria-label="Acessar ${project.title} em breve">${linkSvg}</button><span class="slide-icon-tip">Em breve</span></span>`,
+      );
+    }
+  }
+
   return parts.join("");
 }
 
