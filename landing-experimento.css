@@ -946,14 +946,14 @@ button {
 .slide-card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(260px, 0.92fr) minmax(0, 1.08fr);
-  min-height: min(620px, calc(100svh - 88px));
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  min-height: min(640px, calc(100svh - 88px));
   overflow: hidden;
   background:
     linear-gradient(145deg, rgba(216, 183, 106, 0.08), rgba(255, 255, 255, 0.018)),
     rgba(7, 9, 20, 0.9);
   border: 1px solid rgba(216, 183, 106, 0.22);
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 26px 90px rgba(0, 0, 0, 0.54);
 }
 
@@ -971,10 +971,11 @@ button {
 
 .slide-copy {
   display: grid;
-  gap: 18px;
+  gap: 26px;
   align-content: center;
-  justify-items: start;
-  padding: clamp(28px, 4.4vw, 52px) clamp(28px, 4.4vw, 52px) clamp(74px, 7vw, 88px);
+  justify-items: center;
+  text-align: center;
+  padding: clamp(36px, 5.4vw, 72px) clamp(36px, 5.4vw, 72px) clamp(86px, 8vw, 110px);
 }
 
 .slide-copy p,
@@ -984,29 +985,43 @@ button {
 
 .slide-copy > p:first-child {
   font-family: var(--display);
-  font-size: 0.7rem;
+  font-size: 0.74rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(216, 183, 106, 0.86);
+  color: rgba(216, 183, 106, 0.82);
 }
 
 .slide-copy h2 {
   color: rgba(255, 250, 234, 0.98);
   font-family: var(--display);
-  font-size: clamp(2.2rem, 4.4vw, 4.2rem);
+  font-size: clamp(2.6rem, 5.4vw, 5rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 0.94;
+  letter-spacing: -0.025em;
+  line-height: 0.96;
+  max-width: 16ch;
+  text-wrap: balance;
 }
 
 #slideText {
+  font-family: var(--display);
+  font-weight: 400;
   color: rgba(246, 239, 225, 0.82);
-  font-size: 1.04rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.22rem);
   line-height: 1.62;
-  letter-spacing: 0.005em;
-  max-width: 56ch;
+  letter-spacing: 0.008em;
+  max-width: 52ch;
+  text-align: center;
   white-space: pre-line;
+}
+
+.slide-state {
+  display: grid;
+  justify-items: center;
+}
+
+.slide-actions {
+  justify-content: center;
 }
 
 .slide-actions {
@@ -1827,18 +1842,28 @@ button {
   }
 
   .slide-copy {
-    align-content: start;
-    padding: 22px 18px 78px;
-    gap: 14px;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    padding: 26px 22px 92px;
+    gap: 18px;
+  }
+
+  .slide-copy > p:first-child {
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
   }
 
   .slide-copy h2 {
-    font-size: clamp(1.8rem, 11vw, 2.7rem);
+    font-size: clamp(2rem, 10vw, 2.9rem);
+    line-height: 0.98;
+    max-width: 14ch;
   }
 
   #slideText {
-    font-size: 0.94rem;
-    line-height: 1.52;
+    font-size: 0.98rem;
+    line-height: 1.56;
+    max-width: 38ch;
   }
 
   .slide-action {
