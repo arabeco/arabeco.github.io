@@ -467,30 +467,30 @@ function renderProject(projectId) {
 }
 
 function buildSlideActions(project) {
-  const parts = [];
-  if (project.siteUrl) {
-    parts.push(
-      `<a class="slide-action" href="${project.siteUrl}" target="_blank" rel="noopener">Acessar</a>`,
-    );
+  const isApp = project.track === "apps";
+  const url = isApp ? project.downloadUrl : project.siteUrl;
+  const disabled = !url;
+  const label = isApp ? "Baixar" : "Acessar";
+  const tip = isApp ? "Em breve na loja" : "Em breve";
+
+  const downloadSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
+  const linkSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+  const icon = isApp ? downloadSvg : linkSvg;
+
+  if (disabled) {
+    return `
+      <span class="slide-icon-wrap is-disabled">
+        <button class="slide-icon-action is-disabled" type="button" disabled aria-label="${label} ${project.title} (${tip})" title="${tip}">${icon}</button>
+        <span class="slide-icon-tip">${tip}</span>
+      </span>
+    `;
   }
-  if (project.downloadUrl) {
-    const cls = parts.length ? " slide-action-secondary" : "";
-    parts.push(
-      `<a class="slide-action${cls}" href="${project.downloadUrl}" target="_blank" rel="noopener">Baixar</a>`,
-    );
-  }
-  if (project.githubUrl) {
-    const cls = parts.length ? " slide-action-secondary" : "";
-    parts.push(
-      `<a class="slide-action${cls}" href="${project.githubUrl}" target="_blank" rel="noopener">GitHub</a>`,
-    );
-  }
-  if (parts.length === 0) {
-    parts.push(
-      `<button class="slide-action slide-action-secondary" type="button" data-slide-waitlist>Em breve &mdash; me avise</button>`,
-    );
-  }
-  return parts.join("");
+  return `
+    <span class="slide-icon-wrap">
+      <a class="slide-icon-action" href="${url}" target="_blank" rel="noopener" aria-label="${label} ${project.title}">${icon}</a>
+      <span class="slide-icon-tip">${label}</span>
+    </span>
+  `;
 }
 
 function renderSlides() {
