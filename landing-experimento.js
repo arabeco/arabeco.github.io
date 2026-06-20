@@ -327,13 +327,22 @@ function haptic(ms) {
 }
 
 function staggerProjectBlocks() {
-  const blocks = panel.querySelectorAll(
-    ".project-detail-top, .project-detail-hero, .project-detail-body",
-  );
-  blocks.forEach((block) => block.classList.add("is-staggered"));
-  [0, 130, 260].forEach((delay, i) => {
-    if (i >= blocks.length) return;
-    setTimeout(() => haptic(i === 0 ? 6 : 4), delay + 30);
+  const selectors = [
+    ".project-detail-top",
+    ".project-detail-hero",
+    ".project-detail-desc",
+    ".project-progress",
+    ".project-detail-meta",
+    ".project-detail-actions",
+  ];
+  const blocks = selectors
+    .map((sel) => panel.querySelector(sel))
+    .filter(Boolean);
+  const STEP = 200;
+  blocks.forEach((block, i) => {
+    block.style.animationDelay = `${i * STEP}ms`;
+    block.classList.add("is-staggered");
+    setTimeout(() => haptic(20), i * STEP + 40);
   });
 }
 
