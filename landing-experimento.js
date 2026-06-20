@@ -466,6 +466,33 @@ function renderProject(projectId) {
   requestAnimationFrame(() => drawConstellation(projectId));
 }
 
+function buildSlideActions(project) {
+  const parts = [];
+  if (project.siteUrl) {
+    parts.push(
+      `<a class="slide-action" href="${project.siteUrl}" target="_blank" rel="noopener">Acessar</a>`,
+    );
+  }
+  if (project.downloadUrl) {
+    const cls = parts.length ? " slide-action-secondary" : "";
+    parts.push(
+      `<a class="slide-action${cls}" href="${project.downloadUrl}" target="_blank" rel="noopener">Baixar</a>`,
+    );
+  }
+  if (project.githubUrl) {
+    const cls = parts.length ? " slide-action-secondary" : "";
+    parts.push(
+      `<a class="slide-action${cls}" href="${project.githubUrl}" target="_blank" rel="noopener">GitHub</a>`,
+    );
+  }
+  if (parts.length === 0) {
+    parts.push(
+      `<button class="slide-action slide-action-secondary" type="button" data-slide-waitlist>Em breve &mdash; me avise</button>`,
+    );
+  }
+  return parts.join("");
+}
+
 function renderSlides() {
   const project = projects[activeSlideProjectId];
   if (!project || !slideshow) return;
@@ -492,6 +519,21 @@ function renderSlides() {
       </div>
     `
     : "";
+
+  const slideActions = document.querySelector("#slideActions");
+  if (slideActions) {
+    if (activeSlideIndex === 0) {
+      slideActions.innerHTML = buildSlideActions(project);
+      slideActions.hidden = false;
+      slideActions.querySelector("[data-slide-waitlist]")?.addEventListener("click", () => {
+        closeSlides();
+        goToWaitlist();
+      });
+    } else {
+      slideActions.innerHTML = "";
+      slideActions.hidden = true;
+    }
+  }
 
   slideDots.innerHTML = slides
     .map(
