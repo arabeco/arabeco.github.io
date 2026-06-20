@@ -520,6 +520,11 @@ function renderSlides() {
     `
     : "";
 
+  const prevBtn = document.querySelector("[data-prev-slide]");
+  const nextBtn = document.querySelector("[data-next-slide]");
+  if (prevBtn) prevBtn.disabled = activeSlideIndex === 0;
+  if (nextBtn) nextBtn.disabled = activeSlideIndex >= slides.length - 1;
+
   const slideActions = document.querySelector("#slideActions");
   if (slideActions) {
     if (activeSlideIndex === 0) {
@@ -565,7 +570,10 @@ function closeSlides() {
 function moveSlide(direction) {
   const project = projects[activeSlideProjectId];
   if (!project?.slides?.length) return;
-  activeSlideIndex = (activeSlideIndex + direction + project.slides.length) % project.slides.length;
+  const newIdx = activeSlideIndex + direction;
+  if (newIdx < 0 || newIdx >= project.slides.length) return;
+  activeSlideIndex = newIdx;
+  if ("vibrate" in navigator) navigator.vibrate(5);
   renderSlides();
 }
 
@@ -642,6 +650,38 @@ slideshow?.addEventListener("click", (event) => {
     closeSlides();
   }
 });
+
+(function setupSlideSwipe() {
+  if (!slideshow) return;
+  let startX = null;
+  let startY = null;
+  const THRESHOLD = 50;
+
+  slideshow.addEventListener(
+    "touchstart",
+    (e) => {
+      if (slideshow.hidden) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    },
+    { passive: true },
+  );
+
+  slideshow.addEventListener(
+    "touchend",
+    (e) => {
+      if (slideshow.hidden || startX === null) return;
+      const dx = startX - e.changedTouches[0].clientX;
+      const dy = startY - e.changedTouches[0].clientY;
+      startX = null;
+      startY = null;
+      if (Math.abs(dx) < THRESHOLD) return;
+      if (Math.abs(dx) < Math.abs(dy)) return;
+      moveSlide(dx > 0 ? 1 : -1);
+    },
+    { passive: true },
+  );
+})();
 
 window.addEventListener("keydown", (event) => {
   if (slideshow?.hidden === false && event.key === "Escape") {
