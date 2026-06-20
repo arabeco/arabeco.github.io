@@ -322,6 +322,21 @@ function animatePanel() {
   requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add("is-entering")));
 }
 
+function haptic(ms) {
+  if ("vibrate" in navigator) navigator.vibrate(ms);
+}
+
+function staggerProjectBlocks() {
+  const blocks = panel.querySelectorAll(
+    ".project-detail-top, .project-detail-hero, .project-detail-body",
+  );
+  blocks.forEach((block) => block.classList.add("is-staggered"));
+  [0, 130, 260].forEach((delay, i) => {
+    if (i >= blocks.length) return;
+    setTimeout(() => haptic(i === 0 ? 6 : 4), delay + 30);
+  });
+}
+
 function goToWaitlist() {
   if (window.goToSection) window.goToSection(1);
   else document.querySelector("#contactScreen")?.scrollIntoView({ behavior: "smooth" });
@@ -461,9 +476,18 @@ function renderProject(projectId) {
   });
 
   layoutTrackOrbs(project.track, projectId);
-  panel.querySelector("[data-open-slides]")?.addEventListener("click", () => openSlides(projectId));
-  panel.querySelector("[data-go-waitlist]")?.addEventListener("click", goToWaitlist);
-  requestAnimationFrame(() => drawConstellation(projectId));
+  panel.querySelector("[data-open-slides]")?.addEventListener("click", () => {
+    haptic(8);
+    openSlides(projectId);
+  });
+  panel.querySelector("[data-go-waitlist]")?.addEventListener("click", () => {
+    haptic(6);
+    goToWaitlist();
+  });
+  requestAnimationFrame(() => {
+    drawConstellation(projectId);
+    staggerProjectBlocks();
+  });
 }
 
 function buildSlideActions(project) {
@@ -531,8 +555,12 @@ function renderSlides() {
       slideActions.innerHTML = buildSlideActions(project);
       slideActions.hidden = false;
       slideActions.querySelector("[data-slide-waitlist]")?.addEventListener("click", () => {
+        haptic(6);
         closeSlides();
         goToWaitlist();
+      });
+      slideActions.querySelectorAll(".slide-icon-action:not(.is-disabled)").forEach((el) => {
+        el.addEventListener("click", () => haptic(8));
       });
     } else {
       slideActions.innerHTML = "";
@@ -619,10 +647,14 @@ function setContactTopic(topic) {
 
 contactTopics.forEach((button) => {
   button.setAttribute("aria-pressed", String(button.classList.contains("is-active")));
-  button.addEventListener("click", () => setContactTopic(button.dataset.contactTopic));
+  button.addEventListener("click", () => {
+    haptic(4);
+    setContactTopic(button.dataset.contactTopic);
+  });
 });
 
 sendAction?.addEventListener("click", () => {
+  haptic(12);
   const topic = contactTopicInput?.value || "Contato";
   const name = contactName?.value.trim() || "";
   const email = contactEmail?.value.trim() || "";
@@ -724,6 +756,7 @@ window.addEventListener("resize", () => {
     if (idx < 0 || idx >= sections.length || isAnimating) return false;
     isAnimating = true;
     currentIdx = idx;
+    haptic(7);
     sections[idx].scrollIntoView({ behavior: "smooth", block: "start" });
     setTimeout(() => {
       isAnimating = false;
