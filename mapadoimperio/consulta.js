@@ -1,0 +1,19 @@
+// Read-only presentation of actual answers. Examples/placeholders never enter it.
+const readView=document.createElement('main');readView.id='read-view';document.body.append(readView);
+const viewButton=document.createElement('button');viewButton.type='button';viewButton.textContent='Ver minha ficha';viewButton.id='view-sheet';document.querySelector('.actions').prepend(viewButton);
+const answer=(label,value)=>`<div class="answer"><span>${esc(label)}</span><p>${esc(value||'—')}</p></div>`;
+const chosen=(value,other)=>['Outro','Outra'].includes(value)?other:value;
+function buildReadView(){
+ const section=(name,n,body)=>`<section class="read-panel ${name.toLowerCase()}"><header><img src="icons/emblem-${n}-${name.toLowerCase()}.png" alt=""><h2>${name}</h2></header>${body}</section>`;
+ const tags=values=>`<div class="answer-tags">${values.filter(v=>v.trim()).map(v=>`<p>${esc(v)}</p>`).join('')||'<p>—</p>'}</div>`;
+ const moneyRows=rows=>rows.filter(r=>r.name.trim()||r.amount).map(r=>`<div class="read-money-row"><span>${esc(r.name||'Sem descrição')}</span><b>${esc(brl(money(r.amount)))}</b></div>`).join('')||'<p class="unset">—</p>';
+ const incoming=state.income.reduce((s,r)=>s+money(r.amount),0),out=Object.values(state.expenses).flat().reduce((s,r)=>s+money(r.amount),0);
+ readView.innerHTML=`<div class="read-brand">MAPA DO IMPÉRIO</div><h1>Minha ficha de comando</h1>`+
+ section('Identidade',1,`<div class="identity-pair"><div><div class="answer-label">Meus valores</div>${tags(state.values)}</div><div><div class="answer-label">Meus talentos</div>${tags(state.talents)}</div></div>${answer('Minha missão',[state.verb,state.audience,state.missionDetail].some(Boolean)?['Eu quero',state.verb,state.audience,state.missionDetail].filter(Boolean).join(' '):'')}`)+
+ section('Vigor',2,`<div class="read-columns">${answer('Meu foco',chosen(state.focus,state.focusOther))}${answer('Minha atividade',chosen(state.activity,state.activityOther))}${answer('Frequência',state.frequency?(/^\d+$/.test(state.frequency)?state.frequency+' / semana':state.frequency):'')}</div>`)+
+ section('Ordem',3,`${answer('Minha prioridade atual',state.arenas[0]?.name)}<div class="answer-tags">${state.arenas.map(a=>`<p>${esc(a.name||'—')}${a.hours?`<small>${esc(a.hours)} h/semana</small>`:''}</p>`).join('')}</div><h3>Minha semana</h3><div class="read-week-wrap"><table class="read-week"><thead><tr><th></th>${days.map(d=>`<th>${d}</th>`).join('')}</tr></thead><tbody>${periods.map((p,i)=>`<tr><th>${p}</th>${days.map((_,j)=>`<td>${(state.week[i]?.[j]||[]).map(id=>state.arenas.find(a=>a.id===id)?.name).filter(Boolean).map(n=>`<div>${esc(n)}</div>`).join('')||'—'}</td>`).join('')}</tr>`).join('')}</tbody></table></div><h3>Meu dinheiro do mês</h3><div class="read-columns finance"><div><h4>Entradas</h4>${moneyRows(state.income)}${answer('Total de entradas',brl(incoming))}</div><div><h4>Saídas</h4>${Object.entries(groupMeta).map(([key,g])=>`<h5>${esc(g.title)}</h5>${moneyRows(state.expenses[key]||[])}`).join('')}${answer('Total de saídas',brl(out))}</div></div><div class="read-columns">${answer('Sobra antes de guardar',brl(incoming-out))}${answer('Quero guardar',brl(money(state.saveAmount)))}${answer('Livre após guardar',brl(incoming-out-money(state.saveAmount)))}</div>`)+
+ section('Soberania',4,answer('Minha crença escolhida',state.belief)+`<div class="read-columns">${answer('Minha prática',chosen(state.practice,state.practiceOther))}${answer('Tempo por dia',state.duration ? (/\/\s*dia|por dia/i.test(state.duration) ? state.duration : state.duration+' / dia') : '')}</div>`);
+}
+viewButton.onclick=()=>{const open=!document.body.classList.contains('reading');if(open)buildReadView();document.body.classList.toggle('reading',open);viewButton.textContent=open?'Voltar a editar':'Ver minha ficha';window.scrollTo(0,0)};
+el('print').onclick=()=>{buildReadView();window.print()};
+addEventListener('beforeprint',buildReadView);

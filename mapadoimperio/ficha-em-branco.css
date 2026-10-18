@@ -1,0 +1,39 @@
+/* Examples are placeholders, never answers. Keep contrast sufficient for reading. */
+/* Compact sheet: help is available on demand, not between every field. */
+.blank-sheet .page{padding-top:12px;padding-bottom:24px}
+.blank-sheet .mast{padding:16px 22px}.blank-sheet .mast h1{font-size:38px;margin:5px 0 8px}
+.blank-sheet .mast>p,.blank-sheet .panel-head p,.blank-sheet .panel .hint,.blank-sheet .finance-col .sub,.blank-sheet .finance-note,.blank-sheet .week-instructions,.blank-sheet .week-selection,.blank-sheet .foot{display:none}
+.blank-sheet .actions{margin-top:8px;gap:6px}.blank-sheet #status{margin-top:5px}
+.blank-sheet .compact-help{margin-top:8px;color:#bfb29e;font-size:13px}.blank-sheet .compact-help summary{cursor:pointer;display:inline-block;color:#dbc28f}.blank-sheet .compact-help p{margin:6px 0;max-width:75ch}
+.blank-sheet .panel{padding:15px 19px 17px;margin-top:10px}.blank-sheet .panel-head{margin-bottom:10px;padding-bottom:8px;gap:9px}.blank-sheet .panel-head img{width:36px;height:36px}.blank-sheet .panel-head h2{font-size:28px}
+.blank-sheet .label{margin:12px 0 4px;font-size:12px}.blank-sheet .row3{gap:8px}
+.blank-sheet .row3 .slot-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.blank-sheet .slot input{height:44px;font-size:21px;padding:8px 12px}.blank-sheet .clear-choice{bottom:6px}
+.blank-sheet .picker{gap:5px;padding:3px 0 2px}.blank-sheet .picker button{padding:5px 10px;font-size:12px;min-height:30px}.blank-sheet .picker button.selected{font-size:18px;padding:5px 11px}
+.blank-sheet .mission-sentence{margin-top:4px;gap:9px}.blank-sheet .mission-part select{min-height:44px;font-size:20px;padding:8px}.blank-sheet .mission-part textarea{height:62px;min-height:44px;font-size:20px;padding:8px}.blank-sheet .mission-part .slot-label{font-size:10px;margin-bottom:3px}.blank-sheet .mission-sentence .prefix{padding-top:26px;font-size:19px}
+.blank-sheet .arena-list{gap:5px}.blank-sheet .arena-row{padding:5px}.blank-sheet .arena-row .arena-name{height:32px;font-size:20px}.blank-sheet .arena-row input.hours{height:32px}.blank-sheet .primary-note{font-size:17px;margin:6px 0}
+.blank-sheet .arena-chips{margin:4px 0}.blank-sheet .arena-chip{padding:5px 9px;min-height:30px}.blank-sheet .week-grid .head{padding:5px 2px}.blank-sheet .week-cell{min-height:100px;padding:4px}.blank-sheet .week-cell .empty-line{height:28px}.blank-sheet .week-cell .week-tag{padding:4px;font-size:13px;min-height:26px}.blank-sheet .week-grid .period-head{font-size:17px}
+.blank-sheet .compact-fields{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.blank-sheet .compact-fields>div{min-width:0}.blank-sheet .compact-fields>.full{grid-column:1/-1}
+.blank-sheet #soberania .slot-label{display:none}.blank-sheet #soberania textarea{min-height:62px;height:62px;font-size:21px;padding:8px 12px}
+@media(max-width:730px){.blank-sheet .panel{padding:13px}.blank-sheet .mast{padding:15px}.blank-sheet .mast h1{font-size:31px}.blank-sheet .row3{grid-template-columns:repeat(3,minmax(0,1fr))}.blank-sheet .row3 input{font-size:18px;padding-left:7px}.blank-sheet .row3 input::placeholder{font-size:12px!important}.blank-sheet .clear-choice{right:3px;width:24px}.blank-sheet .day-tabs{margin:6px 0}.blank-sheet .week-cell{min-height:112px}.blank-sheet .week-cell .week-tag{font-size:17px}.blank-sheet .compact-fields{grid-template-columns:1fr}}
+@media(max-width:480px){.blank-sheet .mission-sentence .prefix{padding-top:0}}
+@media print{.blank-sheet .compact-help{display:none}.blank-sheet .page{padding:0}.blank-sheet .panel{padding:3mm}.blank-sheet .compact-fields{grid-template-columns:1fr 1fr}.blank-sheet .row3 .slot-label{display:none}.blank-sheet .week-cell{min-height:18mm}.blank-sheet .label{margin-top:2mm}.blank-sheet .mission-sentence .prefix{padding-top:6mm}}
+.blank-sheet input::placeholder,.blank-sheet textarea::placeholder{font:italic 16px/1.4 Georgia,serif!important;color:#a5aab4!important;opacity:1}
+.blank-sheet select.is-empty{font-style:italic;color:#a5aab4}.blank-sheet select option{font-style:normal;color:#fff3dc;background:#101924}
+.blank-sheet .mast p{max-width:760px;font-size:14px;line-height:1.6}
+.blank-sheet .finance-col{padding:12px 14px}.blank-sheet .finance-col h3{font-size:25px;margin:0 0 4px}
+.blank-sheet .finance-col .sub{font-size:12px;line-height:1.4;margin:0 0 8px}
+.blank-sheet .finance-group{position:relative;padding:9px 0 8px;border-top:1px solid #a78b4d40}
+.blank-sheet .finance-group h4{font-size:12px;margin:0 85px 7px 0;line-height:28px;color:#dfc48f}
+.blank-sheet .finance-group>.add{position:absolute;right:0;top:9px;font-size:11px;padding:4px 7px;min-height:28px;background:transparent;border-color:#9c824c66}
+.blank-sheet .finance-row{grid-template-columns:minmax(0,1fr) 84px 24px;gap:6px;margin:4px 0}
+.blank-sheet .finance-row input{height:38px;font-size:15px}.blank-sheet .finance-row input::placeholder{font-size:13px!important}
+.blank-sheet .finance-row .amount{font-size:17px}.blank-sheet .finance-summary{margin-top:7px;padding-top:8px}
+.blank-sheet .finance-summary strong{font-size:20px}
+.blank-sheet .finance-left .result .box{padding:10px 12px}.blank-sheet .result strong,.blank-sheet .result input{font-size:22px}
+.blank-sheet .clear-choice{opacity:.65}.blank-sheet .slot:has(input:placeholder-shown) .clear-choice{visibility:hidden}
+@media(max-width:480px){.blank-sheet .finance-row{grid-template-columns:minmax(0,1fr) 75px 22px}.blank-sheet .finance-row input::placeholder{font-size:12px!important}}
+@media print{.blank-sheet input::placeholder,.blank-sheet textarea::placeholder{color:transparent!important}.blank-sheet select.is-empty{color:transparent}.blank-sheet .finance-group>.add{display:none}.blank-sheet .finance-group{padding:1mm 0}.blank-sheet .finance-group h4{line-height:1.3;margin:0}.blank-sheet .finance-col{padding:2mm}.blank-sheet .finance-row{grid-template-columns:minmax(0,1fr) 22mm}.blank-sheet .finance-row input{height:7mm;font-size:9pt}.blank-sheet .finance-left .result .box{padding:2mm}}
+.blank-sheet .identity-edit-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}.blank-sheet .identity-edit-pair>div{min-width:0}.blank-sheet .identity-edit-pair .slot input{font-size:19px}.blank-sheet .identity-edit-pair input::placeholder{font-size:12px!important}
+.blank-sheet .panel{background:radial-gradient(ellipse at top left,var(--wash),transparent 85%),linear-gradient(120deg,#1a202b,#0c1119)}
+@media(max-width:850px){.blank-sheet .identity-edit-pair{grid-template-columns:1fr;gap:0}}
