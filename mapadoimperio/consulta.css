@@ -14,3 +14,21 @@
 .read-panel.soberania .read-columns{grid-template-columns:repeat(2,minmax(0,1fr));max-width:800px;width:100%;margin-inline:auto}
 @media(max-width:480px){.read-panel.soberania .read-columns{grid-template-columns:1fr}}
 @media print{.read-panel.soberania .read-columns{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}}
+/* PDF robusto: tinta escura sobre papel claro — imprime legivel mesmo sem "graficos de segundo plano". */
+@media print{
+ html,body{background:#fff!important}
+ #read-view .read-brand{color:#9a7a3a!important}
+ #read-view>h1{color:#6f531a!important}
+ .read-panel{background:#fff!important;border:1.6px solid #b89450!important;box-shadow:none!important;color:#241e10!important}
+ .read-panel h2{color:#6f531a!important}
+ .read-panel h3,.read-panel h4,.read-panel h5{color:#7a5a16!important}
+ .read-panel .answer-label,.read-panel .answer>span,.read-panel .answer-tags small{color:#6a6256!important}
+ .read-panel .answer p{color:#241e10!important}
+ .read-panel .answer-tags p{background:#f6f1e4!important;border:1px solid #b89450!important;color:#241e10!important}
+ .read-panel>.answer{background:transparent!important}
+ .read-week th{color:#6f531a!important}
+ .read-week td{color:#241e10!important;border-color:#c7ad73!important}
+ .read-money-row{border-color:#c7ad73!important;color:#241e10!important}
+ .read-money-row b{color:#3a2e14!important}
+ .read-panel .unset{color:#8a8a8a!important}
+}
