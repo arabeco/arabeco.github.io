@@ -32,3 +32,14 @@
  .read-money-row b{color:#3a2e14!important}
  .read-panel .unset{color:#8a8a8a!important}
 }
+/* Cores por fase no PDF (vindas de borda/título/emblema = imprimem sempre; o tom de fundo é bônus). */
+@media print{
+ .read-panel.identidade{background:#eff4fb!important;border-color:#3f78c8!important}
+ .read-panel.identidade h2{color:#2a5c9e!important}
+ .read-panel.vigor{background:#fcefec!important;border-color:#c9513f!important}
+ .read-panel.vigor h2{color:#a33a2a!important}
+ .read-panel.ordem{background:#faf4e2!important;border-color:#c79a3e!important}
+ .read-panel.ordem h2{color:#8a6a1f!important}
+ .read-panel.soberania{background:#f2ecfb!important;border-color:#7d5bbf!important}
+ .read-panel.soberania h2{color:#5e3f93!important}
+}
