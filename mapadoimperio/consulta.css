@@ -14,32 +14,5 @@
 .read-panel.soberania .read-columns{grid-template-columns:repeat(2,minmax(0,1fr));max-width:800px;width:100%;margin-inline:auto}
 @media(max-width:480px){.read-panel.soberania .read-columns{grid-template-columns:1fr}}
 @media print{.read-panel.soberania .read-columns{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}}
-/* PDF robusto: tinta escura sobre papel claro — imprime legivel mesmo sem "graficos de segundo plano". */
-@media print{
- html,body{background:#fff!important}
- #read-view .read-brand{color:#9a7a3a!important}
- #read-view>h1{color:#6f531a!important}
- .read-panel{background:#fff!important;border:1.6px solid #b89450!important;box-shadow:none!important;color:#241e10!important}
- .read-panel h2{color:#6f531a!important}
- .read-panel h3,.read-panel h4,.read-panel h5{color:#7a5a16!important}
- .read-panel .answer-label,.read-panel .answer>span,.read-panel .answer-tags small{color:#6a6256!important}
- .read-panel .answer p{color:#241e10!important}
- .read-panel .answer-tags p{background:#f6f1e4!important;border:1px solid #b89450!important;color:#241e10!important}
- .read-panel>.answer{background:transparent!important}
- .read-week th{color:#6f531a!important}
- .read-week td{color:#241e10!important;border-color:#c7ad73!important}
- .read-money-row{border-color:#c7ad73!important;color:#241e10!important}
- .read-money-row b{color:#3a2e14!important}
- .read-panel .unset{color:#8a8a8a!important}
-}
-/* Cores por fase no PDF (vindas de borda/título/emblema = imprimem sempre; o tom de fundo é bônus). */
-@media print{
- .read-panel.identidade{background:#eff4fb!important;border-color:#3f78c8!important}
- .read-panel.identidade h2{color:#2a5c9e!important}
- .read-panel.vigor{background:#fcefec!important;border-color:#c9513f!important}
- .read-panel.vigor h2{color:#a33a2a!important}
- .read-panel.ordem{background:#faf4e2!important;border-color:#c79a3e!important}
- .read-panel.ordem h2{color:#8a6a1f!important}
- .read-panel.soberania{background:#f2ecfb!important;border-color:#7d5bbf!important}
- .read-panel.soberania h2{color:#5e3f93!important}
-}
+/* Versão escura bonita no PDF: força as cores e o fundo a imprimir onde o navegador respeita print-color-adjust. */
+@media print{#read-view,#read-view *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}}
