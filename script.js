@@ -216,8 +216,8 @@ const PHASE_TITLES = [
   "Design",
   "Fluxo",
   "Engine",
-  "Persistencia",
-  "Conexao",
+  "Persistência",
+  "Conexão",
   "Refino",
   "Ataque",
   "Produto Vivo",
@@ -287,7 +287,7 @@ const projects = [
     line: "Jogo de estratégia e sobrevivência persistente",
     impact: "Sistema de mundo com cidades, influência e decisões de temporada",
     description:
-      "Um mundo de reconstrucao onde administrar recursos, proteger pessoas e expandir territorio fazem parte da mesma tensao.",
+      "Um mundo de reconstrução onde administrar recursos, proteger pessoas e expandir território fazem parte da mesma tensão.",
     palette: ["#f6a15f", "#d8b76a", "#264b55", "#080912"],
     image: "assets/kingsworld.jpg",
     focalPoint: "50% 50%",
@@ -329,7 +329,7 @@ const projects = [
     line: "Simulador de reatividade social sob pressão",
     impact: "Sistema de calibração comportamental por escolhas",
     description:
-      "Um projeto sobre mente, reflexo e leitura de comportamento: escolhas rapidas revelando padroes reais.",
+      "Um projeto sobre mente, reflexo e leitura de comportamento: escolhas rápidas revelando padrões reais.",
     palette: ["#8aa4ff", "#d8b76a", "#3a315f", "#070912"],
     image: "assets/mindpractice.jpg",
     focalPoint: "49% 50%",
@@ -371,7 +371,7 @@ const projects = [
     line: "Sistema competitivo baseado em estratégia e gestão",
     impact: "Jogadores, decisões e performance em ambiente dinâmico",
     description:
-      "Uma liga pensada como ecossistema competitivo: jogadores, leitura de meta, escolhas de gestao e comunidade em torno da disputa.",
+      "Uma liga pensada como ecossistema competitivo: jogadores, leitura de meta, escolhas de gestão e comunidade em torno da disputa.",
     palette: ["#ff7a95", "#d8b76a", "#5a2942", "#090a12"],
     image: "assets/elite50.jpg",
     focalPoint: "50% 54%",
@@ -516,7 +516,7 @@ const projects = [
         line: "Sistema simbólico baseado em cartas",
         impact: "Arquétipos e interpretação visual",
         description:
-          "Um deck de tarot autoral onde cada carta funciona como imagem, simbolo e fragmento de mundo.",
+          "Um deck de tarot autoral onde cada carta funciona como imagem, símbolo e fragmento de mundo.",
         palette: ["#66e7cd", "#d8b76a", "#243f78", "#070912"],
         image: "assets/tarot.jpg",
         focalPoint: "50% 48%",
@@ -598,22 +598,22 @@ const PROJECT_DECK_OVERRIDES = {
     slides: [
       {
         title: "Resumo",
-        text: "GLYPH e um app de evolucao pessoal gamificada que transforma objetivos, rotina e identidade em uma jornada estruturada. O usuario cria arenas da vida, executa acoes, atravessa ciclos, desbloqueia campanhas, registra historia e constroi legado.\n\nO sistema conecta Planner, Painel Diario, Ciclos, Relatorios, Historico, Eras, Legado, Oraculo, Mundo Social, Clas, Loja, Arsenal e Perfil Soberano em uma experiencia unica: viver a propria evolucao como um jogo serio, mensuravel e simbolico.",
+        text: "GLYPH é um app de evolução pessoal gamificada que transforma objetivos, rotina e identidade em uma jornada estruturada. O usuário cria arenas da vida, executa ações, atravessa ciclos, desbloqueia campanhas, registra história e constrói legado.\n\nO sistema conecta Planner, Painel Diário, Ciclos, Relatórios, Histórico, Eras, Legado, Oráculo, Mundo Social, Clãs, Loja, Arsenal e Perfil Soberano em uma experiência única: viver a própria evolução como um jogo sério, mensurável e simbólico.",
         image: "",
       },
       {
-        title: "Visao",
-        text: "O GLYPH foi lapidado para nao ser apenas uma lista de tarefas. Ele organiza a vida como uma arquitetura de manifestacao: campanhas dao direcao, arenas definem campos de batalha, acoes viram execucao concreta e ciclos transformam esforco em leitura de nivel.\n\nA visao do produto e criar um sistema onde progresso nao desaparece. Cada decisao, tarefa, campanha, vinculo, conquista e ciclo encerrado pode virar historico, era, titulo, skin, relatorio, imagem compartilhavel ou peca do legado do usuario.",
+        title: "Visão",
+        text: "O GLYPH foi lapidado para não ser apenas uma lista de tarefas. Ele organiza a vida como uma arquitetura de manifestação: campanhas dão direção, arenas definem campos de batalha, ações viram execução concreta e ciclos transformam esforço em leitura de nível.\n\nA visão do produto é criar um sistema onde progresso não desaparece. Cada decisão, tarefa, campanha, vínculo, conquista e ciclo encerrado pode virar histórico, era, título, skin, relatório, imagem compartilhável ou peça do legado do usuário.",
         image: "",
       },
       {
         title: "Sistema",
-        text: "O sistema combina execucao diaria, progressao, identidade, social e narrativa pessoal. A entrada do usuario passa por arenas, acoes, Planner e SITREP; depois ganha profundidade em ciclos, relatorios, historico, eras e legado.\n\nEntre os modulos centrais estao Campanhas, Codex e Mentoria, Arenas, Acoes, Planner, Painel Diario, Deep Focus, Descanso, Ciclos, Relatorios, Historico, Eras e Legado. Essa espinha transforma meta abstrata em caminho visivel, jogavel e auditavel.",
+        text: "O sistema combina execução diária, progressão, identidade, social e narrativa pessoal. A entrada do usuário passa por arenas, ações, Planner e SITREP; depois ganha profundidade em ciclos, relatórios, histórico, eras e legado.\n\nEntre os módulos centrais estão Campanhas, Codex e Mentoria, Arenas, Ações, Planner, Painel Diário, Deep Focus, Descanso, Ciclos, Relatórios, Histórico, Eras e Legado. Essa espinha transforma meta abstrata em caminho visível, jogável e auditável.",
         image: "",
       },
       {
         title: "Sistema Parte 2",
-        text: "Ao redor da espinha principal, o GLYPH adiciona camadas de inteligencia, status, economia e comunidade. O Oraculo orienta, interpreta e conecta momentos importantes; Maestria e Quiz calibram leitura de maturidade; Loja, Forja, Arsenal, Patentes e Perfil Soberano constroem identidade.\n\nO Mundo Social amplia a experiencia com vinculos, amigos, mentoria, parceria, competicao, clas, missoes coletivas e quests de temporada. O app nao vende apenas produtividade: vende pertencimento, trajetoria, simbolo, conquista e construcao de uma versao mais forte de si.",
+        text: "Ao redor da espinha principal, o GLYPH adiciona camadas de inteligência, status, economia e comunidade. O Oráculo orienta, interpreta e conecta momentos importantes; Maestria e Quiz calibram leitura de maturidade; Loja, Forja, Arsenal, Patentes e Perfil Soberano constroem identidade.\n\nO Mundo Social amplia a experiência com vínculos, amigos, mentoria, parceria, competição, clãs, missões coletivas e quests de temporada. O app não vende apenas produtividade: vende pertencimento, trajetória, símbolo, conquista e construção de uma versão mais forte de si.",
         image: "",
       },
     ],
@@ -634,22 +634,22 @@ const PROJECT_DECK_OVERRIDES = {
     slides: [
       {
         title: "Resumo",
-        text: "KingsWorld e um jogo mobile de estrategia em mundos sazonais. Cada jogador lidera um reino, escolhe um rei, desenvolve cidades, recruta herois, explora o mapa e tenta acumular influencia suficiente para atravessar o Portal Central antes do fim da temporada.\n\nA proposta e unir guerra, politica, expansao e sobrevivencia em uma experiencia mais clara que jogos tradicionais de aldeias. O foco nao e controlar dezenas de telas repetitivas, mas tomar boas decisoes sobre crescimento, defesa, sociedade e legado.",
+        text: "KingsWorld é um jogo mobile de estratégia em mundos sazonais. Cada jogador lidera um reino, escolhe um rei, desenvolve cidades, recruta heróis, explora o mapa e tenta acumular influência suficiente para atravessar o Portal Central antes do fim da temporada.\n\nA proposta é unir guerra, política, expansão e sobrevivência em uma experiência mais clara que jogos tradicionais de aldeias. O foco não é controlar dezenas de telas repetitivas, mas tomar boas decisões sobre crescimento, defesa, sociedade e legado.",
         image: "",
       },
       {
-        title: "Visao",
-        text: "O jogo gira em torno de uma campanha com comeco, meio e fim. Cada mundo avanca por dias, cria pressao de tempo e forca o jogador a escolher entre fundar, anexar, conquistar, proteger ou investir melhor nas cidades que ja possui.\n\nA vitoria nao vem apenas de ter mais tropas. O jogador precisa construir um imperio estavel, influente e capaz de resistir ate o encerramento do mundo. A influencia e o grande objetivo: um score soberano formado por infraestrutura, governo, militar, sociedade e legado.",
+        title: "Visão",
+        text: "O jogo gira em torno de uma campanha com começo, meio e fim. Cada mundo avança por dias, cria pressão de tempo e força o jogador a escolher entre fundar, anexar, conquistar, proteger ou investir melhor nas cidades que já possui.\n\nA vitória não vem apenas de ter mais tropas. O jogador precisa construir um império estável, influente e capaz de resistir até o encerramento do mundo. A influência é o grande objetivo: um score soberano formado por infraestrutura, governo, militar, sociedade e legado.",
         image: "",
       },
       {
         title: "Sistema",
-        text: "Cada cidade evolui por 5 frentes principais: Governo, Producao, Sociedade, Quartel e Muralha. O nivel de cada frente nasce diretamente das skills investidas nela, sem botao generico de upgrade separado.\n\nEssas escolhas definem producao, defesa, populacao, tropas, estabilidade, capacidade de expansao e ritmo de crescimento. A cidade deixa de ser apenas um numero e passa a refletir a build real escolhida pelo jogador.",
+        text: "Cada cidade evolui por 5 frentes principais: Governo, Produção, Sociedade, Quartel e Muralha. O nível de cada frente nasce diretamente das skills investidas nela, sem botão genérico de upgrade separado.\n\nEssas escolhas definem produção, defesa, população, tropas, estabilidade, capacidade de expansão e ritmo de crescimento. A cidade deixa de ser apenas um número e passa a refletir a build real escolhida pelo jogador.",
         image: "",
       },
       {
         title: "Sistema Parte 2",
-        text: "O mapa funciona por exploracao, territorio conhecido e risco progressivo. O jogador descobre cidades, regioes vazias, oportunidades, inimigos, saqueadores, demonios, ruinas e eventos especiais ao longo da campanha.\n\nExpandir aumenta poder, mas tambem exposicao. Uma cidade nova pode acelerar a producao e ampliar influencia, mas tambem pode abrir novas frentes de defesa. O desafio e crescer sem perder controle politico, militar e social.",
+        text: "O mapa funciona por exploração, território conhecido e risco progressivo. O jogador descobre cidades, regiões vazias, oportunidades, inimigos, saqueadores, demônios, ruínas e eventos especiais ao longo da campanha.\n\nExpandir aumenta poder, mas também exposição. Uma cidade nova pode acelerar a produção e ampliar influência, mas também pode abrir novas frentes de defesa. O desafio é crescer sem perder controle político, militar e social.",
         image: "",
       },
     ],
@@ -660,7 +660,7 @@ const PROJECT_DECK_OVERRIDES = {
       4: "Atual",
       5: "Fechado",
       6: "Fechado",
-      7: "Proximo gate",
+      7: "Próximo gate",
       8: "Pendente",
       9: "Pendente",
       10: "Pendente",
@@ -670,22 +670,22 @@ const PROJECT_DECK_OVERRIDES = {
     slides: [
       {
         title: "Resumo",
-        text: "Elite50 e um manager game mobile-first de futebol futurista em tempo real. Ele organiza mundo, clube, elenco, tatica, treino, mercado, noticias e partidas dentro de um loop continuo de temporada, onde o jogador toma decisoes de tecnico e ve o impacto delas no desempenho do time.\n\nO sistema roda como um app conectado a estado local e backend, transformando gestao esportiva, leitura de elenco, score, progressao de atletas e calendario em uma experiencia repetivel, mensuravel e persistente.",
+        text: "Elite50 é um manager game mobile-first de futebol futurista em tempo real. Ele organiza mundo, clube, elenco, tática, treino, mercado, notícias e partidas dentro de um loop contínuo de temporada, onde o jogador toma decisões de técnico e vê o impacto delas no desempenho do time.\n\nO sistema roda como um app conectado a estado local e backend, transformando gestão esportiva, leitura de elenco, score, progressão de atletas e calendário em uma experiência repetível, mensurável e persistente.",
         image: "",
       },
       {
-        title: "Visao",
-        text: "O Elite50 foi lapidado para fazer o jogador sentir que comanda um clube vivo, e nao apenas uma colecao de telas. A proposta e unir rotina curta, atmosfera forte, identidade premium e consequencia real em elenco, score, tatica, timing e progresso de carreira.\n\nA logica foi refinada para equilibrar clareza, profundidade e retencao. O objetivo e manter o app facil de entender no comeco, sem perder densidade suficiente para sustentar apego ao clube, leitura do mundo e retorno diario.",
+        title: "Visão",
+        text: "O Elite50 foi lapidado para fazer o jogador sentir que comanda um clube vivo, e não apenas uma coleção de telas. A proposta é unir rotina curta, atmosfera forte, identidade premium e consequência real em elenco, score, tática, timing e progresso de carreira.\n\nA lógica foi refinada para equilibrar clareza, profundidade e retenção. O objetivo é manter o app fácil de entender no começo, sem perder densidade suficiente para sustentar apego ao clube, leitura do mundo e retorno diário.",
         image: "",
       },
       {
         title: "Sistema",
-        text: "O sistema combina montagem de elenco, teto de score, posicoes, lineup, ranking de atletas, draft, mercado, clubes, noticias, calendario e temporadas continuas. A forca do time nao depende de um unico numero, mas da confluencia entre qualidade individual, encaixe do elenco, escolhas do treinador e momento do mundo.\n\nEntre os elementos analisados estao score total, posicao de cada atleta, distribuicao do elenco, lineup minimo, tatica, treino, progressao de jogador, propostas de clube, janela de entrada, ranking global, ranking de clubes, radar de oportunidades e leitura de fase da temporada.",
+        text: "O sistema combina montagem de elenco, teto de score, posições, lineup, ranking de atletas, draft, mercado, clubes, notícias, calendário e temporadas continuas. A força do time não depende de um único número, mas da confluencia entre qualidade individual, encaixe do elenco, escolhas do treinador e momento do mundo.\n\nEntre os elementos analisados estão score total, posição de cada atleta, distribuição do elenco, lineup mínimo, tática, treino, progressão de jogador, propostas de clube, janela de entrada, ranking global, ranking de clubes, radar de oportunidades e leitura de fase da temporada.",
         image: "",
       },
       {
         title: "Sistema Parte 2",
-        text: "Depois de montar a base, o Elite50 entra no loop vivo da temporada. A logica busca fazer cada partida devolver informacao util ao jogador, sem quebrar o ritmo do mundo nem transformar a gestao em microgerenciamento confuso.\n\nA gestao combina match engine, peso de atributos, influencia de posicao, quimica, treino, entendimento tatico, relatorios de jogo, noticias dinamicas, progressao, propostas para tecnicos, modo sem clube, transicao automatica de temporada e persistencia de mundo.",
+        text: "Depois de montar a base, o Elite50 entra no loop vivo da temporada. A lógica busca fazer cada partida devolver informação útil ao jogador, sem quebrar o ritmo do mundo nem transformar a gestão em microgerenciamento confuso.\n\nA gestão combina match engine, peso de atributos, influência de posição, química, treino, entendimento tático, relatórios de jogo, notícias dinâmicas, progressão, propostas para técnicos, modo sem clube, transição automática de temporada e persistência de mundo.",
         image: "",
       },
     ],
@@ -696,7 +696,7 @@ const PROJECT_DECK_OVERRIDES = {
       4: "Atual",
       5: "Fechado",
       6: "Em fechamento",
-      7: "Proximo gate",
+      7: "Próximo gate",
       8: "Pendente",
       9: "Pendente",
       10: "Pendente",
@@ -706,22 +706,22 @@ const PROJECT_DECK_OVERRIDES = {
     slides: [
       {
         title: "Resumo",
-        text: "O Spectre e a nova engine automatizada de day trade do ScoreTrader para mini indice. Ele monitora o mercado em tempo real, identifica setups da estrategia V35 e executa operacoes com regras objetivas de entrada, stop, alvo e protecao de risco.\n\nO sistema roda em um terminal Python conectado ao MetaTrader 5, com operacao autorizada manualmente pelo usuario. A proposta e transformar leitura tecnica, zonas de preco, VWAP, volume e gestao de banca em uma rotina repetivel, auditavel e controlada.",
+        text: "O Spectre é a nova engine automatizada de day trade do ScoreTrader para mini índice. Ele monitora o mercado em tempo real, identifica setups da estratégia V35 e executa operações com regras objetivas de entrada, stop, alvo e proteção de risco.\n\nO sistema roda em um terminal Python conectado ao MetaTrader 5, com operação autorizada manualmente pelo usuário. A proposta é transformar leitura técnica, zonas de preço, VWAP, volume e gestão de banca em uma rotina repetível, auditável e controlada.",
         image: "",
       },
       {
-        title: "Visao",
-        text: "O Spectre foi desenhado para operar contextos especificos do indice: rompimento de abertura, pullback em tendencia, rejeicao na VWAP e sinais defensivos do nucleo V35.\n\nA logica atual busca equilibrar precisao, frequencia util por dia e risco conhecido. O foco nao e operar qualquer movimento, mas agir quando o mercado oferece estrutura suficiente para uma entrada com stop curto, alvo objetivo e execucao controlada.",
+        title: "Visão",
+        text: "O Spectre foi desenhado para operar contextos específicos do índice: rompimento de abertura, pullback em tendência, rejeição na VWAP e sinais defensivos do núcleo V35.\n\nA lógica atual busca equilibrar precisão, frequência útil por dia e risco conhecido. O foco não é operar qualquer movimento, mas agir quando o mercado oferece estrutura suficiente para uma entrada com stop curto, alvo objetivo e execução controlada.",
         image: "",
       },
       {
         title: "Sistema",
-        text: "O sistema combina leitura de VWAP, tendencia, abertura, rompimento, pullback, rejeicao e volume. A entrada nao depende de um unico indicador, mas de familias de setups que representam comportamentos diferentes do mercado.\n\nEntre os motores analisados estao V26B Core, OR Break, EMA Pullback e VWAP Reject. Cada familia possui criterios proprios de entrada, direcao, horario, stop e target. O Spectre nao trata todo trade igual: cada oportunidade nasce com sua propria logica de risco.",
+        text: "O sistema combina leitura de VWAP, tendência, abertura, rompimento, pullback, rejeição e volume. A entrada não depende de um único indicador, mas de famílias de setups que representam comportamentos diferentes do mercado.\n\nEntre os motores analisados estão V26B Core, OR Break, EMA Pullback e VWAP Reject. Cada família possui critérios próprios de entrada, direção, horário, stop e target. O Spectre não trata todo trade igual: cada oportunidade nasce com sua própria lógica de risco.",
         image: "",
       },
       {
         title: "Sistema Parte 2",
-        text: "Depois da entrada, o Spectre usa gestao objetiva da posicao. A logica trabalha com stop no servidor, alvo fixo por engine, limite diario de perda e bloqueio automatico quando o risco sai do planejado.\n\nA operacao tambem inclui alocacao diaria de banca, comando manual de ligar/desligar, validacao do MT5, logs de execucao, magic number proprio, arquivos separados de controle e registro de trades para auditoria posterior.",
+        text: "Depois da entrada, o Spectre usa gestão objetiva da posição. A lógica trabalha com stop no servidor, alvo fixo por engine, limite diário de perda e bloqueio automático quando o risco sai do planejado.\n\nA operação também inclui alocação diária de banca, comando manual de ligar/desligar, validação do MT5, logs de execução, magic number próprio, arquivos separados de controle e registro de trades para auditoria posterior.",
         image: "",
       },
     ],
@@ -732,9 +732,9 @@ const PROJECT_DECK_OVERRIDES = {
       4: "Fechado",
       5: "Engine V35 · fechado",
       6: "Fechado",
-      7: "Conexao MT5 · fechado",
-      8: "Robo Spectre · em validacao",
-      9: "Paper live e auditoria · proximo gate",
+      7: "Conexão MT5 · fechado",
+      8: "Robô Spectre · em validação",
+      9: "Paper live e auditoria · próximo gate",
       10: "Pendente",
     },
   },
@@ -2438,13 +2438,13 @@ function renderLinkChip(kind, label, href, extraClass = "") {
 
 function stateCardForLevel(level, status, tone) {
   return `
-    <article class="state-level-card is-${tone}" aria-label="Nivel ${level}: ${phaseTitle(level)}. ${status}">
+    <article class="state-level-card is-${tone}" aria-label="Nível ${level}: ${phaseTitle(level)}. ${status}">
       <div class="state-level-top">
         <span class="state-level-icon" aria-hidden="true">
           <img src="${phaseIconPath(level)}" alt="" />
         </span>
         <div>
-          <p class="state-level-kicker">Nivel ${level}</p>
+          <p class="state-level-kicker">Nível ${level}</p>
           <h3>${escapeXml(phaseTitle(level))}</h3>
         </div>
       </div>
@@ -2528,7 +2528,7 @@ function renderSystemCycleSlide(project) {
   const states = projectStateMap(project) || {};
   const previousStatus = states[previousLevel] || (previousLevel < currentLevel ? "Fechado" : "Anterior");
   const currentStatus = states[currentLevel] || "Atual";
-  const nextStatus = states[nextLevel] || (nextLevel > currentLevel ? "Proximo" : "Pendente");
+  const nextStatus = states[nextLevel] || (nextLevel > currentLevel ? "Próximo" : "Pendente");
   const links = projectLinkSet(project);
 
   slideTitle.textContent = "Estado";
@@ -2536,7 +2536,7 @@ function renderSystemCycleSlide(project) {
   slideText.textContent = "";
   slideSystemState.hidden = false;
   slideSystemState.innerHTML = `
-    <div class="state-level-stack" aria-label="Estado do projeto por niveis">
+    <div class="state-level-stack" aria-label="Estado do projeto por níveis">
       ${stateCardForLevel(previousLevel, previousStatus, "previous")}
       ${stateCardForLevel(currentLevel, currentStatus, "current")}
       ${stateCardForLevel(nextLevel, nextStatus, "next")}
@@ -2556,7 +2556,7 @@ function renderSystemCycleSlide(project) {
     </div>
   `;
   slideSystemState.classList.remove("is-live");
-  slideSystemState.setAttribute("aria-label", "Estado do projeto em tres niveis: anterior, atual e proximo.");
+  slideSystemState.setAttribute("aria-label", "Estado do projeto em três níveis: anterior, atual e próximo.");
 }
 
 function renderSlideActions(isFinalSlide) {

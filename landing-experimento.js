@@ -2,17 +2,17 @@ const tracks = {
   apps: {
     title: "Apps",
     text:
-      "Glyph, Mind Practice, Elite50 e KingsWorld ficam como produtos digitais do Lab: apps, jogos e sistemas que podem virar publicacao real.",
+      "Glyph, Mind Practice, Elite50 e KingsWorld ficam como produtos digitais do Lab: apps, jogos e sistemas que podem virar publicação real.",
   },
   studio: {
     title: "Studio",
     text:
-      "Studio e a camada visual, simbolica e narrativa do Lab: decks, cartas, videos, universos e sistemas de apresentacao.",
+      "Studio é a camada visual, simbólica e narrativa do Lab: decks, cartas, vídeos, universos e sistemas de apresentação.",
   },
   info: {
     title: "Infoprodutos",
     text:
-      "Produtos de conhecimento em construção: ficha de saúde, método de organização e curso guiado. Cadastre o e-mail para ser avisado quando lançar.",
+      "Mapa do Império: aulas gravadas e ficha digital para organizar sua vida, no seu ritmo.",
   },
 };
 
@@ -24,160 +24,113 @@ const projects = {
     level: 8,
     progress: 80,
     type: "Sistema de rotina",
-    state: "Ciclos e progresso diario",
-    siteUrl: "https://glyph.life",
+    state: "Ciclos e progresso diário",
+    siteUrl: "https://www.glyph.life/",
     githubUrl: "https://github.com/arabeco/game-of-life",
-    text: "Projeto principal do laboratorio: metas, rotina e progresso pessoal com logica de construcao de imperio.",
+    text: "Projeto principal do laboratório: metas, rotina e progresso pessoal com lógica de construção de império.",
     slides: [
-      ["Resumo", "GLYPH e um app de evolucao pessoal gamificada que transforma objetivos, rotina e identidade em uma jornada estruturada."],
-      ["Visao", "O usuario cria arenas da vida, executa acoes, atravessa ciclos, desbloqueia campanhas, registra historia e constroi legado."],
-      ["Sistema", "Planner, Painel Diario, Ciclos, Relatorios, Historico, Eras, Legado, Oraculo, Mundo Social, Clas, Loja, Arsenal e Perfil Soberano trabalham como uma experiencia unica."],
-      ["Estado", "Nivel 8: refino forte, com foco em fechamento, validacao e publicacao."],
+      ["Resumo", "GLYPH é um app de evolução pessoal gamificada que transforma objetivos, rotina e identidade em uma jornada estruturada."],
+      ["Visão", "O usuário cria arenas da vida, executa ações, atravessa ciclos, desbloqueia campanhas, registra história e constrói legado."],
+      ["Sistema", "Planner, Painel Diário, Ciclos, Relatórios, Histórico, Eras, Legado, Oráculo, Mundo Social, Clãs, Loja, Arsenal e Perfil Soberano trabalham como uma experiência única."],
+      ["Estado", "Nível 8: refino forte, com foco em fechamento, validação e publicação."],
     ],
   },
   mind: {
     track: "apps",
     title: "Mind Practice",
     image: "assets/mindpractice.jpg",
-    level: 6,
-    progress: 60,
+    level: 8,
+    progress: 80,
     type: "Simulador mental",
-    state: "Calibracao por escolhas",
-    text: "Projeto sobre mente, reflexo e leitura de comportamento: escolhas rapidas revelando padroes reais.",
+    state: "Calibração por escolhas",
+    text: "Projeto sobre mente, reflexo e leitura de comportamento: escolhas rápidas revelando padrões reais.",
     slides: [
-      ["Resumo", "Mind Practice e um simulador de reatividade social sob pressao, feito para treinar leitura e resposta."],
-      ["Interface", "Situacoes sociais aparecem em modo imersivo; cada resposta altera tracos comportamentais."],
-      ["Sistema", "Cada sessao gera score, deslocamento de perfil e leitura de padroes de decisao."],
-      ["Estado", "Nivel 6: refino, com estrutura madura ainda pedindo calibragem."],
+      ["Resumo", "Mind Practice é um simulador de reatividade social sob pressão, feito para treinar leitura e resposta."],
+      ["Interface", "Situações sociais aparecem em modo imersivo; cada resposta altera traços comportamentais."],
+      ["Sistema", "Cada sessão gera score, deslocamento de perfil e leitura de padrões de decisão."],
+      ["Estado", "Nível 8: em refino, com testes e possíveis ajustes pendentes antes do lançamento."],
     ],
   },
   elite50: {
     track: "apps",
     title: "Elite50",
     image: "assets/elite50.jpg",
-    level: 4,
-    progress: 40,
+    level: 8,
+    progress: 80,
     type: "Manager game",
-    state: "Temporada e gestao",
-    text: "Liga pensada como ecossistema competitivo: jogadores, meta, gestao e comunidade em torno da disputa.",
+    state: "Temporada e gestão",
+    text: "Liga pensada como ecossistema competitivo: jogadores, meta, gestão e comunidade em torno da disputa.",
     slides: [
-      ["Resumo", "Elite50 e um manager game mobile-first de futebol futurista em tempo real."],
-      ["Visao", "O jogador comanda um clube vivo, com rotina curta, atmosfera premium e consequencia real em elenco, score, tatica e carreira."],
-      ["Sistema", "Mundo, clube, elenco, tatica, treino, mercado, noticias e partidas entram em um loop continuo de temporada."],
-      ["Estado", "Nivel 4: sistema funcional crescendo para refino, billing e publicacao."],
+      ["Resumo", "Elite50 é um manager game mobile-first de futebol futurista em tempo real."],
+      ["Visão", "O jogador comanda um clube vivo, com rotina curta, atmosfera premium e consequência real em elenco, score, tática e carreira."],
+      ["Sistema", "Mundo, clube, elenco, tática, treino, mercado, notícias e partidas entram em um loop contínuo de temporada."],
+      ["Estado", "Nível 8: em refino. Lançamento ainda não confirmado."],
     ],
   },
   kingsworld: {
     track: "apps",
     title: "KingsWorld",
     image: "assets/kingsworld.jpg",
-    level: 4,
-    progress: 40,
+    level: null,
+    progress: 0,
     type: "Jogo persistente",
-    state: "Mundo, cidades e influencia",
+    state: "Mundo, cidades e influência",
     githubUrl: "https://github.com/kingsworldgame/King-s-World",
-    text: "Mundo de reconstrucao onde administrar recursos, proteger pessoas e expandir territorio fazem parte da mesma tensao.",
+    text: "Mundo de reconstrução onde administrar recursos, proteger pessoas e expandir território fazem parte da mesma tensão.",
     slides: [
-      ["Resumo", "KingsWorld e um jogo mobile de estrategia em mundos sazonais."],
-      ["Visao", "Cada jogador lidera um reino, escolhe um rei, desenvolve cidades, recruta herois, explora o mapa e tenta acumular influencia."],
-      ["Sistema", "Governo, Producao, Sociedade, Quartel e Muralha definem o crescimento real de cada cidade."],
-      ["Estado", "Nivel 4: base de mundo e produto em consolidacao."],
+      ["Resumo", "KingsWorld é um jogo mobile de estratégia em mundos sazonais."],
+      ["Visão", "Cada jogador lidera um reino, escolhe um rei, desenvolve cidades, recruta heróis, explora o mapa e tenta acumular influência."],
+      ["Sistema", "Governo, Produção, Sociedade, Quartel e Muralha definem o crescimento real de cada cidade."],
+      ["Estado", "Estágio inicial: infraestrutura e design em revisão."],
     ],
   },
   tarot: {
     track: "studio",
     title: "Tarot",
     image: "assets/tarot.jpg",
-    level: 10,
-    progress: 100,
-    type: "Sistema simbolico",
-    state: "Vivo",
-    text: "Deck autoral onde cada carta funciona como imagem, simbolo e fragmento de mundo.",
+    level: null,
+    progress: 0,
+    type: "Sistema simbólico",
+    state: "Publicação em preparação",
+    text: "Deck autoral onde cada carta funciona como imagem, símbolo e fragmento de mundo.",
     slides: [
-      ["Resumo", "Sistema simbolico baseado em cartas de tarot, com estrutura de arquetipos e interpretacao."],
-      ["Cartas visuais", "Cada carta funciona como imagem, simbolo e fragmento de mundo."],
-      ["Sistema de leitura", "Combinacao de cartas gera interpretacao e reflexao."],
-      ["Estado", "Nivel 10: vivo."],
-    ],
-  },
-  mtg: {
-    track: "studio",
-    title: "MTG Dota",
-    image: "assets/mtgdota.jpg",
-    level: 9,
-    progress: 90,
-    type: "Sistema de cartas",
-    state: "Polido",
-    text: "Sistema visual de cartas que traduz personagens, poderes e itens em composicoes colecionaveis.",
-    slides: [
-      ["Resumo", "Sistema de criacao de cartas inspirado em Magic e Dota."],
-      ["Interface de cartas", "Design e composicao visual de habilidades, atributos, custos e efeitos."],
-      ["Aplicacao pratica", "Cartas prontas para uso digital ou fisico."],
-      ["Estado", "Nivel 9: polido, proximo de vivo."],
+      ["Resumo", "Sistema simbólico baseado em cartas de tarot, com estrutura de arquétipos e interpretação."],
+      ["Cartas visuais", "Cada carta funciona como imagem, símbolo e fragmento de mundo."],
+      ["Sistema de leitura", "Combinação de cartas gera interpretação e reflexão."],
+      ["Estado", "Publicação comercial em preparação; formato e plataforma ainda serão definidos."],
     ],
   },
   sabedoria: {
     track: "studio",
-    title: "Sabedoria Animada",
+    title: "Studio / YouTube",
     image: "assets/sabedoriaanimada.jpg",
-    level: 6,
-    progress: 60,
+    level: null,
+    progress: 0,
     type: "Canal visual",
     state: "Narrativa e conhecimento",
-    text: "Canal de conhecimento visual: ideias complexas traduzidas em narrativa.",
+    text: "Produção de vídeos para os canais Sabedoria Animada e Frequências Sagradas.",
     slides: [
-      ["Resumo", "Canal de videos sobre conhecimento e interpretacao do mundo."],
-      ["Universo", "Historia, comportamento, filosofia, poder e misterios entram em series visuais."],
-      ["Estrutura", "Cada video conecta conceitos em uma linha maior e pode influenciar os proximos temas."],
-      ["Estado", "Nivel 6: refino e validacao."],
-    ],
-  },
-  health: {
-    track: "info",
-    title: "Ficha saude",
-    image: "assets/becoslab.jpg",
-    level: 2,
-    progress: 20,
-    type: "Infoproduto",
-    state: "Clareza pessoal",
-    text: "Uma ficha organizada para acompanhar saude, sinais, historico e rotina sem virar app pesado.",
-    slides: [
-      ["Resumo", "Ficha pratica para organizar sinais, historico, rotina e informacoes de saude."],
-      ["Formato", "Produto leve: pagina, PDF, checklist ou Notion, sem depender de app."],
-      ["Estado", "Nivel 2: ideia clara, ainda precisa embalagem e conteudo final."],
-    ],
-  },
-  life: {
-    track: "info",
-    title: "Organizar vida",
-    image: "assets/becoslab.jpg",
-    level: 2,
-    progress: 20,
-    type: "Metodo pratico",
-    state: "Rotina e direcao",
-    text: "Material para transformar caos em plano: areas da vida, prioridades, ciclos e acompanhamento.",
-    slides: [
-      ["Resumo", "Metodo para organizar areas da vida, prioridades e ciclos de execucao."],
-      ["Uso", "Uma experiencia guiada para sair do abstrato e montar um plano acompanhavel."],
-      ["Estado", "Nivel 2: promessa e estrutura inicial, falta material completo."],
+      ["Resumo", "Sabedoria Animada e Frequências Sagradas: duas frentes de produção para o YouTube."],
+      ["Universo", "História, comportamento, filosofia, poder e mistérios entram em séries visuais."],
+      ["Estrutura", "Cada vídeo conecta conceitos em uma linha maior e pode influenciar os próximos temas."],
+      ["Estado", "Canais em desenvolvimento. Frequências Sagradas é um nome provisório."],
     ],
   },
   course: {
     track: "info",
-    title: "Curso",
+    title: "Mapa do Império",
     image: "assets/becoslab.jpg",
-    level: 1,
-    progress: 10,
-    type: "Produto de conhecimento",
-    state: "Conteudo guiado",
-    text: "Oferta principal em formato de percurso, com aulas, fichas e checkpoints claros.",
+    level: null,
+    progress: 0,
+    type: "Curso de organização pessoal",
+    state: "Disponível na Hotmart",
+    text: "Um percurso para organizar sua rotina, suas prioridades e seus próximos passos. Sete aulas gravadas e uma ficha digital para aplicar no seu ritmo.",
     slides: [
-      ["Resumo", "Curso como percurso principal dos infoprodutos do Lab."],
-      ["Formato", "Aulas, fichas, checkpoints e entregaveis organizados por etapa."],
-      ["Estado", "Nivel 1: espaco reservado, ainda em definicao de promessa e trilha."],
+      ["Mapa do Império", "Um percurso para organizar sua rotina, suas prioridades e seus próximos passos. Sete aulas gravadas e uma ficha digital para aplicar no seu ritmo."],
+      ["O que você recebe", "Sete aulas: Abertura, Identidade, Vigor, Ordem, Soberania, Integração e Coroação. Uma ficha digital reúne suas decisões e pode ser atualizada e exportada para PDF."],
+      ["No seu ritmo", "Aulas gravadas para estudar de forma independente. O curso não inclui tutoria ou acompanhamento individual; o suporte é para dificuldades técnicas de acesso e arquivos."],
     ],
-  },
-};
+  },};
 
 const panel = document.querySelector("#trackPanel");
 const tabs = [...document.querySelectorAll("[data-track]")];
@@ -260,8 +213,8 @@ function projectPhase(project) {
     "Design",
     "Fluxo",
     "Engine",
-    "Persistencia",
-    "Conexao",
+    "Persistência",
+    "Conexão",
     "Refino",
     "Ataque",
     "Produto Vivo",
@@ -406,8 +359,8 @@ function renderTrack(id) {
     <p>${track.text}</p>
   `;
   animatePanel();
-  labSystem?.classList.remove("is-project-open", "is-all-active");
-  labSystem?.classList.add("is-track-active");
+  labSystem?.classList.remove("is-project-open");
+  labSystem?.classList.add("is-track-active", "is-all-active");
   labSystem?.setAttribute("data-active-track", id);
   if (projectBackButton) {
     projectBackButton.hidden = false;
@@ -473,7 +426,7 @@ function renderProject(projectId) {
     <div class="project-detail-body">
       <p class="project-detail-desc">${project.text}</p>
       <div class="project-progress" aria-label="Progresso de ${project.title}">
-        <span>Nivel ${project.level} - ${projectPhase(project)}</span>
+        <span>Nível ${project.level} - ${projectPhase(project)}</span>
         <strong>${project.progress}%</strong>
         <i style="--progress:${project.progress}%"></i>
       </div>
@@ -522,6 +475,12 @@ function renderProject(projectId) {
 }
 
 function buildSlideActions(project) {
+  if (project === projects.course) {
+    return '<a class="presentation-cta" href="https://go.hotmart.com/R108095318H?dp=1" target="_blank" rel="noopener">Comprar na Hotmart</a>';
+  }
+  if (project.track === "apps") {
+    return `${project.siteUrl ? `<a class="presentation-cta" href="${project.siteUrl}" target="_blank" rel="noopener">Conhecer ${project.title}</a>` : ""}<p class="presentation-status">Em desenvolvimento · lançamento ainda não confirmado</p>`;
+  }
   const isApp = project.track === "apps";
   const url = isApp ? project.downloadUrl : project.siteUrl;
   const disabled = !url;
@@ -560,15 +519,15 @@ function renderSlides() {
   slideImage.src = project.image || "assets/becoslab.jpg";
   slideImage.alt = "";
   slideKicker.textContent = `${project.title} - Slide ${activeSlideIndex + 1} de ${slides.length}`;
-  slideTitle.textContent = title;
+  slideTitle.textContent = activeSlideIndex === 0 ? project.title : title;
   slideText.textContent = text;
 
-  const isStateSlide = /estado/i.test(title);
+  const isStateSlide = /estado/i.test(title) && Number.isInteger(project.level);
   slideState.hidden = !isStateSlide;
   slideState.innerHTML = isStateSlide
     ? `
       <div class="slide-state-card">
-        <span>Nivel ${project.level}</span>
+        <span>Nível ${project.level}</span>
         <strong>${projectPhase(project)}</strong>
         <i style="--progress:${project.progress}%"></i>
       </div>
@@ -582,7 +541,7 @@ function renderSlides() {
 
   const slideActions = document.querySelector("#slideActions");
   if (slideActions) {
-    if (activeSlideIndex === 0) {
+    {
       slideActions.innerHTML = buildSlideActions(project);
       slideActions.hidden = false;
       slideActions.querySelector("[data-slide-waitlist]")?.addEventListener("click", () => {
@@ -593,9 +552,6 @@ function renderSlides() {
       slideActions.querySelectorAll(".slide-icon-action:not(.is-disabled)").forEach((el) => {
         el.addEventListener("click", () => haptic(8));
       });
-    } else {
-      slideActions.innerHTML = "";
-      slideActions.hidden = true;
     }
   }
 
@@ -609,22 +565,79 @@ function renderSlides() {
     button.addEventListener("click", () => {
       activeSlideIndex = Number(button.dataset.slideIndex) || 0;
       renderSlides();
+      slideDots.querySelector(`[data-slide-index="${activeSlideIndex}"]`)?.focus();
     });
   });
 }
 
-function openSlides(projectId) {
-  if (!slideshow || !projects[projectId]) return;
+const projectSlugs = { course: "mapa-do-imperio", glyph: "glyph", elite50: "elite", mind: "mind-practice", kingsworld: "kingsworld", tarot: "tarot", sabedoria: "studio" };
+const projectOrder = Object.keys(projectSlugs);
+let presentationReturnFocus = null;
+
+function openSlides(projectId, updateUrl = true) {
+  if (!slideshow || !projects[projectId] || !projectSlugs[projectId]) return;
+  const wasClosed = slideshow.hidden;
+  if (wasClosed) presentationReturnFocus = document.activeElement;
   activeSlideProjectId = projectId;
   activeSlideIndex = 0;
   slideshow.hidden = false;
+  document.querySelector("main").inert = true;
+  document.body.classList.add("presentation-open");
   renderSlides();
+  const copyButton = document.querySelector("[data-copy-project-link]");
+  if (copyButton) copyButton.textContent = "Compartilhar ↗";
+  document.title = `${projects[projectId].title} · Beco's Lab`;
+  if (updateUrl && location.hash !== `#${projectSlugs[projectId]}`) {
+    history.pushState(null, "", `#${projectSlugs[projectId]}`);
+  }
+  slideshow.scrollTop = 0;
+  slideshow.querySelector(".presentation-window")?.scrollTo(0, 0);
+  if (wasClosed) document.querySelector("[data-close-slides]").focus();
 }
 
-function closeSlides() {
+function closeSlides(updateUrl = true) {
   if (!slideshow) return;
   slideshow.hidden = true;
+  document.querySelector("main").inert = false;
+  document.body.classList.remove("presentation-open");
+  document.title = "Beco's Lab";
+  if (updateUrl) {
+    history.pushState(null, "", location.pathname + location.search);
+    renderAll();
+  }
+  if (presentationReturnFocus?.isConnected && presentationReturnFocus !== document.body) presentationReturnFocus.focus();
+  else resetButton?.focus();
 }
+
+function syncPresentationRoute() {
+  const slug = location.hash.slice(1);
+  const id = projectOrder.find(key => projectSlugs[key] === slug);
+  if (id) openSlides(id, false);
+  else if (!slideshow.hidden) closeSlides(false);
+}
+window.addEventListener("hashchange", syncPresentationRoute);
+window.addEventListener("popstate", syncPresentationRoute);
+
+document.querySelector("[data-copy-project-link]")?.addEventListener("click", async event => {
+  const button = event.currentTarget;
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: projects[activeSlideProjectId].title, url: location.href });
+    } else {
+      await navigator.clipboard.writeText(location.href);
+      button.textContent = "Link copiado ✓";
+    }
+  } catch (error) {
+    if (error.name !== "AbortError") button.textContent = "Copie o endereço do navegador";
+  }
+});
+slideshow?.addEventListener("keydown", event => {
+  if (event.key !== "Tab") return;
+  const focusable = [...slideshow.querySelectorAll("button:not(:disabled), a[href]")].filter(el => el.getClientRects().length);
+  const first = focusable[0], last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+});
 
 function moveSlide(direction) {
   const project = projects[activeSlideProjectId];
@@ -639,7 +652,8 @@ function moveSlide(direction) {
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     if ("vibrate" in navigator) navigator.vibrate(6);
-    renderTrack(tab.dataset.track);
+    if (activeTrack === tab.dataset.track) renderAll();
+    else renderTrack(tab.dataset.track);
   });
 });
 
@@ -648,7 +662,7 @@ orbs.forEach((orb) => {
     if ("vibrate" in navigator) {
       navigator.vibrate(8);
     }
-    renderProject(orb.dataset.project);
+    openSlides(orb.dataset.project);
   });
 });
 
@@ -667,6 +681,7 @@ projectBackButton?.addEventListener("click", () => {
 });
 
 function setContactTopic(topic) {
+  if (!contactTopicInput || !contactTopicReadout) return;
   contactTopicInput.value = topic;
   contactTopicReadout.textContent = `Assunto: ${topic}`;
   contactTopics.forEach((button) => {
@@ -704,7 +719,7 @@ document.querySelector("[data-destaque-project]")?.addEventListener("click", (ev
   }
 });
 
-document.querySelector("[data-close-slides]")?.addEventListener("click", closeSlides);
+document.querySelector("[data-close-slides]")?.addEventListener("click", () => closeSlides());
 document.querySelector("[data-prev-slide]")?.addEventListener("click", () => moveSlide(-1));
 document.querySelector("[data-next-slide]")?.addEventListener("click", () => moveSlide(1));
 
@@ -773,105 +788,13 @@ window.addEventListener("resize", () => {
   layoutTrackOrbs(activeTrack, selectedProjectId);
 });
 
-(function setupPageNav() {
-  const sections = [...document.querySelectorAll(".snap-screen")];
-  if (sections.length < 2) return;
-
-  let currentIdx = 0;
-  let isAnimating = false;
-  const ANIM_MS = 700;
-  const SWIPE_THRESHOLD = 60;
-  const WHEEL_THRESHOLD = 28;
-
-  function goTo(idx) {
-    if (idx < 0 || idx >= sections.length || isAnimating) return false;
-    isAnimating = true;
-    currentIdx = idx;
-    haptic(7);
-    sections[idx].scrollIntoView({ behavior: "smooth", block: "start" });
-    setTimeout(() => {
-      isAnimating = false;
-    }, ANIM_MS);
-    return true;
-  }
-
-  function shouldIgnoreEvent(target) {
-    if (!target) return false;
-    const tag = target.tagName;
-    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
-    if (target.closest && target.closest(".experiment-slideshow:not([hidden])")) return true;
-    if (target.closest && target.closest(".lab-system.is-all-active")) return true;
-    return false;
-  }
-
-  let wheelLock = 0;
-  window.addEventListener(
-    "wheel",
-    (e) => {
-      if (shouldIgnoreEvent(e.target)) return;
-      e.preventDefault();
-      if (isAnimating) return;
-      const now = Date.now();
-      if (now - wheelLock < 120) return;
-      if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) return;
-      wheelLock = now;
-      goTo(currentIdx + (e.deltaY > 0 ? 1 : -1));
-    },
-    { passive: false },
-  );
-
-  let touchStartY = null;
-  window.addEventListener(
-    "touchstart",
-    (e) => {
-      if (isAnimating || shouldIgnoreEvent(e.target)) {
-        touchStartY = null;
-        return;
-      }
-      touchStartY = e.touches[0].clientY;
-    },
-    { passive: true },
-  );
-
-  window.addEventListener(
-    "touchmove",
-    (e) => {
-      if (touchStartY !== null) e.preventDefault();
-    },
-    { passive: false },
-  );
-
-  window.addEventListener(
-    "touchend",
-    (e) => {
-      if (touchStartY === null || isAnimating) return;
-      const dy = touchStartY - e.changedTouches[0].clientY;
-      touchStartY = null;
-      if (Math.abs(dy) < SWIPE_THRESHOLD) return;
-      goTo(currentIdx + (dy > 0 ? 1 : -1));
-    },
-    { passive: true },
-  );
-
-  window.addEventListener("keydown", (e) => {
-    if (shouldIgnoreEvent(e.target)) return;
-    if (e.key === "ArrowDown" || e.key === "PageDown") {
-      e.preventDefault();
-      goTo(currentIdx + 1);
-    } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-      e.preventDefault();
-      goTo(currentIdx - 1);
-    } else if (e.key === "Home") {
-      e.preventDefault();
-      goTo(0);
-    } else if (e.key === "End") {
-      e.preventDefault();
-      goTo(sections.length - 1);
-    }
-  });
-
-  window.goToSection = goTo;
-})();
+// Native scrolling lets the grid hand off to the page at its boundaries.
+window.goToSection = index => {
+  const section = document.querySelectorAll(".snap-screen")[index];
+  if (!section) return false;
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+  return true;
+};
 
 function visibleOrbs() {
   return orbs.filter((orb) => orb.classList.contains("is-visible"));
@@ -948,3 +871,18 @@ startMotion();
 reduceMotion.addEventListener("change", (event) => {
   if (!event.matches) startMotion();
 });
+
+// Resolve direct links after all presentation controls are initialized.
+syncPresentationRoute();
+
+// Keep native scrolling, but show its indicator only while the surface moves.
+const scrollIndicatorTimers = new WeakMap();
+document.addEventListener("scroll", event => {
+  const surface = event.target === document ? document.documentElement : event.target;
+  if (!(surface instanceof Element)) return;
+  surface.classList.add("is-scrolling");
+  clearTimeout(scrollIndicatorTimers.get(surface));
+  scrollIndicatorTimers.set(surface, setTimeout(() => {
+    surface.classList.remove("is-scrolling");
+  }, 850));
+}, { capture: true, passive: true });

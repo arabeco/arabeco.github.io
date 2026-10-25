@@ -89,67 +89,25 @@
             <span class="orb-image"><img src="assets/kingsworld.jpg" alt="" /></span>
             <span>Kings</span>
           </button>
-          <button class="project-orb orb-blueprint" type="button" data-orb-track="info" data-project="health" aria-label="Ficha de sa&uacute;de">
-            <span class="orb-image orb-glyph-mark glyph-health" aria-hidden="true"></span>
-            <span>Ficha sa&uacute;de</span>
-          </button>
-          <button class="project-orb orb-life" type="button" data-orb-track="info" data-project="life" aria-label="Organizar a vida">
-            <span class="orb-image orb-glyph-mark glyph-life" aria-hidden="true"></span>
-            <span>Organizar vida</span>
-          </button>
-          <button class="project-orb orb-course" type="button" data-orb-track="info" data-project="course" aria-label="Curso">
+
+          <button class="project-orb orb-course" type="button" data-orb-track="info" data-project="course" aria-label="Mapa do Império">
             <span class="orb-image orb-glyph-mark glyph-course" aria-hidden="true"></span>
-            <span>Curso</span>
+            <span>Mapa do Império</span>
           </button>
           <button class="project-orb orb-tarot" type="button" data-orb-track="studio" data-project="tarot" aria-label="Tarot">
             <span class="orb-image"><img src="assets/tarot.jpg" alt="" /></span>
             <span>Tarot</span>
           </button>
-          <button class="project-orb orb-mtg" type="button" data-orb-track="studio" data-project="mtg" aria-label="MTG Dota">
-            <span class="orb-image"><img src="assets/mtgdota.jpg" alt="" /></span>
-            <span>MTG Dota</span>
-          </button>
-          <button class="project-orb orb-sabedoria" type="button" data-orb-track="studio" data-project="sabedoria" aria-label="Sabedoria Animada">
+<button class="project-orb orb-sabedoria" type="button" data-orb-track="studio" data-project="sabedoria" aria-label="Studio / YouTube">
             <span class="orb-image"><img src="assets/sabedoriaanimada.jpg" alt="" /></span>
-            <span>Sabedoria</span>
+            <span>Studio / YouTube</span>
           </button>
         </div>
 
         <article class="door-panel" id="trackPanel" aria-live="polite" hidden></article>
       </section>
 
-      <section class="contact-screen snap-screen" id="contactScreen" aria-labelledby="contactTitle">
-        <div class="contact-copy">
-          <span class="contact-brand-orb" aria-hidden="true"><img src="assets/becoslab.jpg" alt="" /></span>
-          <p class="section-kicker">Contato</p>
-          <h2 id="contactTitle">Trabalhar junto.</h2>
-          <p>Apps, sites, dashboards, UX de produto e sistemas autorais com a mesma linguagem visual do Lab.</p>
-        </div>
-
-        <form class="lab-contact-form" aria-label="Contato experimental">
-          <input id="contactTopicInput" type="hidden" value="Contrate" />
-          <div class="service-strip contact-topics" aria-label="Assunto do contato">
-            <button class="is-active" type="button" data-contact-topic="Contrate">Contrate</button>
-            <button type="button" data-contact-topic="Apoie">Apoie</button>
-            <button type="button" data-contact-topic="Mostre">Mostre</button>
-            <button type="button" data-contact-topic="Acompanhar">Acompanhar</button>
-          </div>
-          <p class="contact-topic-readout" id="contactTopicReadout">Assunto: Contrate</p>
-          <div class="contact-grid">
-            <label class="contact-field">
-              <span>Nome</span>
-              <input id="contactName" type="text" placeholder="Seu nome" />
-            </label>
-            <label class="contact-field">
-              <span>E-mail</span>
-              <input id="contactEmail" type="email" placeholder="voce@email.com" />
-            </label>
-          </div>
-          <div class="contact-actions">
-            <button class="send-action" type="button">Enviar e-mail</button>
-          </div>
-        </form>
-
+      <section class="contact-screen snap-screen" id="contactScreen" aria-label="Contato e links do laboratório">
         <footer class="experiment-footer" aria-label="Rodap&eacute;">
           <div class="footer-brand">
             <span class="brand-orb"><img src="assets/becoslab.jpg" alt="" /></span>
@@ -168,8 +126,8 @@
               <a href="termos.html">Termos</a>
             </div>
             <div class="footer-group">
-              <span>Social</span>
-              <a href="mailto:?subject=Beco%27s%20Lab">E-mail</a>
+              <span>Contato</span>
+              <a href="links/">Todos os links</a>
               <a href="https://github.com/arabeco">GitHub</a>
               <button type="button">Instagram</button>
             </div>
@@ -179,8 +137,12 @@
     </main>
 
     <section class="experiment-slideshow" id="experimentSlideshow" role="dialog" aria-modal="true" aria-labelledby="slideTitle" hidden>
-      <button class="slide-close" type="button" data-close-slides aria-label="Fechar apresenta&ccedil;&atilde;o">Fechar</button>
-      <button class="slide-nav slide-prev" type="button" data-prev-slide aria-label="Slide anterior">&lsaquo;</button>
+      <div class="presentation-window">
+      <header class="presentation-header">
+        <div class="presentation-tools">
+          <button class="slide-close" type="button" data-close-slides>← Ver todos</button>
+        </div>
+      </header>
       <article class="slide-card">
         <div class="slide-media">
           <img id="slideImage" alt="" />
@@ -191,9 +153,13 @@
           <p id="slideText"></p>
           <div class="slide-state" id="slideState" hidden></div>
         </div>
-        <div class="slide-dots" id="slideDots" aria-label="Slides"></div>
       </article>
-      <button class="slide-nav slide-next" type="button" data-next-slide aria-label="Pr&oacute;ximo slide">&rsaquo;</button>
+      <nav class="presentation-content-nav" aria-label="Páginas da apresentação">
+        <button class="slide-nav slide-prev" type="button" data-prev-slide aria-label="Página anterior" title="Página anterior">‹</button>
+        <div class="slide-dots" id="slideDots" aria-label="Páginas da apresentação"></div>
+        <button class="slide-nav slide-next" type="button" data-next-slide aria-label="Próxima página" title="Próxima página">›</button>
+      </nav>
+      </div>
     </section>
 
     <script src="landing-experimento.js"></script>
