@@ -1,0 +1,131 @@
+{
+  "version": 4,
+  "projects": [
+    {
+      "id": "glyph",
+      "name": "Glyph",
+      "image": "assets/glyph.jpg",
+      "level": 8,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "mind-practice",
+      "name": "Mind Practice",
+      "image": "assets/mindpractice.jpg",
+      "level": 8,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "elite",
+      "name": "Elite",
+      "image": "assets/elite50.jpg",
+      "level": 8,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "kingsworld",
+      "name": "KingsWorld",
+      "image": "assets/kingsworld.jpg",
+      "level": 2,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "tarot",
+      "name": "Tarot",
+      "image": "assets/tarot.jpg",
+      "level": 4,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "studio",
+      "name": "Sabedoria Animada",
+      "image": "assets/sabedoriaanimada.jpg",
+      "level": 8,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "frequencias-sagradas",
+      "name": "Frequências Sagradas",
+      "image": "assets/studio.jpg",
+      "level": 6,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "mapa-do-imperio",
+      "name": "Mapa do Império",
+      "image": "assets/becoslab.jpg",
+      "level": 8,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "ebook-compendio",
+      "name": "Ebook Compêndio",
+      "image": "assets/becoslab.jpg",
+      "level": 2,
+      "archived": false,
+      "tasks": []
+    },
+    {
+      "id": "video-matrix",
+      "parentId": "studio",
+      "name": "A Matrix Oculta — Desvendando as Sociedades Secretas",
+      "level": 10,
+      "archived": false,
+      "image": "assets/sabedoriaanimada.jpg",
+      "tasks": []
+    },
+    {
+      "id": "video-arqueiro",
+      "parentId": "studio",
+      "name": "O Arqueiro Cego: Foque no Seu Esforço, ESQUEÇA o Resultado Final",
+      "level": 10,
+      "archived": false,
+      "image": "assets/sabedoriaanimada.jpg",
+      "tasks": []
+    },
+    {
+      "id": "video-copo",
+      "parentId": "studio",
+      "name": "O Verdadeiro Peso do Copo: SOLTE a Ansiedade Antes Que Ela te PARALISE",
+      "level": 10,
+      "archived": false,
+      "image": "assets/sabedoriaanimada.jpg",
+      "tasks": []
+    },
+    {
+      "id": "video-anel",
+      "parentId": "studio",
+      "name": "O Anel do Rei: O Segredo para Superar QUALQUER Dor",
+      "level": 10,
+      "archived": false,
+      "image": "assets/sabedoriaanimada.jpg",
+      "tasks": []
+    },
+    {
+      "id": "video-sorte",
+      "parentId": "frequencias-sagradas",
+      "name": "SORTE LÍQUIDA — Meditação Guiada para Transformar Sua Realidade",
+      "level": 10,
+      "archived": false,
+      "image": "assets/studio.jpg",
+      "tasks": []
+    },
+    {
+      "id": "video-limpeza",
+      "parentId": "frequencias-sagradas",
+      "name": "Limpeza Total",
+      "level": 5,
+      "archived": false,
+      "image": "assets/studio.jpg",
+      "tasks": []
+    }
+  ]
+}
