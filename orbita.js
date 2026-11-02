@@ -64,7 +64,7 @@ function validate(data){
   const place=placeFrom(p,data.version);
   if(!Number.isInteger(place.level) || place.level<1 || place.level>10 || typeof place.archived!=='boolean') throw Error('Projeto inválido');
   ids.add(p.id);const taskIds=new Set();
-  const tasks=p.tasks.map(t=>{if(!t || typeof t.id!=='string' || taskIds.has(t.id) || typeof t.text!=='string' || !t.text.trim() || t.text.length>500 || typeof t.done!=='boolean')throw Error('Tarefa inválida');taskIds.add(t.id);return {id:t.id,text:t.text,done:t.done};});
+  const tasks=p.tasks.map(t=>{if(!t || typeof t.id!=='string' || taskIds.has(t.id) || typeof t.text!=='string' || !t.text.trim() || t.text.length>500 || typeof t.done!=='boolean')throw Error('Tarefa inválida');taskIds.add(t.id);return {id:t.id,text:t.text,done:t.done,queued:t.queued===true};});
   if(p.parentId!==undefined && p.parentId!==null && typeof p.parentId!=='string')throw Error('Vínculo inválido');
   const f=p.framing;const framing=f && normalizeFraming(f.zoom)!==null && normalizeFraming(f.x)!==null && normalizeFraming(f.y)!==null?{zoom:Math.max(1,Math.min(3,Number(f.zoom))),x:Math.max(0,Math.min(100,Number(f.x))),y:Math.max(0,Math.min(100,Number(f.y)))}:undefined;
   return {framing,parentId:p.parentId || null,id:p.id,name:p.name,image:seed.find(s=>s.image===p.image)?.image || 'assets/becoslab.jpg',level:place.level,archived:place.archived,tasks};
@@ -177,6 +177,26 @@ function renderBoard(){
 }
 window.addEventListener('resize',renderBoard);
 function current(){return projects.find(p=>p.id===selected);}
+// Uma linha de tarefa: ativa (com check e botão para a fila) ou na fila (com botão Ativar).
+function taskRow(p,t){
+ const row=element('div','task'+(t.done?' done':'')+(t.queued?' queued':''));
+ const text=element('input');text.type='text';text.value=t.text;text.maxLength=500;text.setAttribute('aria-label','Editar tarefa');
+ text.onchange=()=>{const value=text.value.trim();if(!value){text.value=t.text;return;}t.text=value;save();renderDetail();};
+ if(t.queued){
+  const mark=element('span','queue-mark','⏳');mark.setAttribute('aria-hidden','true');
+  const activate=element('button','activate','Ativar');activate.type='button';activate.setAttribute('aria-label',`Ativar ${t.text}`);
+  activate.onclick=()=>{t.queued=false;save();renderDetail();renderBoard();};
+  row.append(mark,text,activate);
+ }else{
+  const check=element('input');check.type='checkbox';check.checked=t.done;check.setAttribute('aria-label',`Concluir ${t.text}`);
+  check.onchange=()=>{t.done=check.checked;save();renderDetail();renderBoard();};
+  const queue=element('button','move','⏳');queue.type='button';queue.title='Mandar para a fila';queue.setAttribute('aria-label',`Mandar para a fila: ${t.text}`);
+  queue.onclick=()=>{t.queued=true;save();renderDetail();};
+  row.append(check,text,queue);
+ }
+ const del=element('button','','×');del.setAttribute('aria-label',`Excluir tarefa ${t.text}`);del.onclick=()=>{if(!confirm(`Excluir “${t.text}”?`))return;p.tasks=p.tasks.filter(x=>x.id!==t.id);save();renderDetail();renderBoard();};
+ row.append(del);return row;
+}
 function renderDetail(){
  const p=current();if(!p)return;
  $('detailTitle').textContent=p.name;$('detailImage').src=p.image;applyFraming($('detailImage'),p);$('detailState').textContent=levelText(p);$('projectStage').value=zoneOf(p);
@@ -192,25 +212,27 @@ function renderDetail(){
   button.append(img,element('span','',child.name),element('small','',isDone(child)?'✓ No ar':levelText(child)));
   button.onclick=()=>openProject(child.id);$('children').append(button);
  });
- $('taskCount').textContent=`${p.tasks.filter(t=>t.done).length} / ${p.tasks.length}`;$('emptyTasks').hidden=p.tasks.length>0;$('tasks').replaceChildren();
- p.tasks.forEach(t=>{
-  const row=element('div','task'+(t.done?' done':''));const check=element('input');check.type='checkbox';check.checked=t.done;check.setAttribute('aria-label',`Concluir ${t.text}`);
-  const text=element('input');text.type='text';text.value=t.text;text.maxLength=500;text.setAttribute('aria-label','Editar tarefa');
-  check.onchange=()=>{t.done=check.checked;save();row.classList.toggle('done',t.done);$('taskCount').textContent=`${p.tasks.filter(t=>t.done).length} / ${p.tasks.length}`;renderBoard();};
-  text.onchange=()=>{const value=text.value.trim();if(!value){text.value=t.text;return;}t.text=value;check.setAttribute('aria-label',`Concluir ${value}`);save();};
-  const del=element('button','','×');del.setAttribute('aria-label',`Excluir tarefa ${t.text}`);del.onclick=()=>{if(!confirm(`Excluir “${t.text}”?`))return;p.tasks=p.tasks.filter(x=>x.id!==t.id);save();renderDetail();renderBoard();};row.append(check,text,del);$('tasks').append(row);
- });
+ const active=p.tasks.filter(t=>!t.queued),queued=p.tasks.filter(t=>t.queued);
+ $('taskCount').textContent=`${active.filter(t=>t.done).length} / ${active.length}`;$('emptyTasks').hidden=active.length>0;$('tasks').replaceChildren();
+ active.forEach(t=>$('tasks').append(taskRow(p,t)));
+ $('queueCount').textContent=queued.length?String(queued.length):'';$('queueEmpty').hidden=queued.length>0;$('queue').replaceChildren();
+ queued.forEach(t=>$('queue').append(taskRow(p,t)));
 }
 function openProject(id){selected=id;renderDetail();$('taskInput').value='';if(!$('projectDialog').open)$('projectDialog').showModal();}
 $('closeProject').onclick=()=>$('projectDialog').close();
 $('projectStage').onchange=()=>{const p=current();setZone(p,$('projectStage').value);save();renderBoard();renderDetail();};
-$('taskForm').onsubmit=e=>{e.preventDefault();const text=$('taskInput').value.trim();if(!text)return;current().tasks.push({id:uid(),text,done:false});save();renderDetail();renderBoard();$('taskInput').value='';$('taskInput').focus();};
+function addTask(queued){const text=$('taskInput').value.trim();if(!text)return;current().tasks.push({id:uid(),text,done:false,queued});save();renderDetail();renderBoard();$('taskInput').value='';$('taskInput').focus();}
+$('taskForm').onsubmit=e=>{e.preventDefault();addTask(false);};
+$('queueTask').onclick=()=>addTask(true);
 function openName(mode){nameMode=mode;$('nameTitle').textContent=mode==='new'?'Novo projeto':mode==='child'?'Novo subitem':'Renomear projeto';$('nameInput').value=mode==='rename'?current().name:'';$('nameDialog').showModal();$('nameInput').focus();}
 $('newSubitem').onclick=()=>openName('child');
 $('parentProject').onclick=()=>openProject(current().parentId);
 $('newProject').onclick=()=>openName('new');$('renameProject').onclick=()=>openName('rename');$('cancelName').onclick=()=>$('nameDialog').close();
 $('nameForm').onsubmit=e=>{e.preventDefault();const name=$('nameInput').value.trim();if(!name)return;if(nameMode==='new' || nameMode==='child'){if(projects.length>=1000){alert('Limite de 1000 itens atingido.');return;}projects.push({id:uid(),parentId:nameMode==='child'?current().id:null,name,image:nameMode==='child'?current().image:'assets/becoslab.jpg',level:1,archived:false,tasks:[]});if(nameMode==='child')renderDetail();}else{current().name=name;renderDetail();}save();renderBoard();$('nameDialog').close();};
-$('backup').onclick=()=>{const blob=new Blob([JSON.stringify({version:4,projects},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=element('a');a.href=url;a.download=`becoslab-orbita-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+function download(data,name){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=element('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+$('backup').onclick=()=>download({version:4,projects},`becoslab-orbita-${new Date().toISOString().slice(0,10)}.json`);
+// Versão para publicar: tudo, menos o que está na fila.
+$('publish').onclick=()=>download({version:4,projects:projects.map(p=>({...p,tasks:p.tasks.filter(t=>!t.queued)}))},'orbita-dados.json');
 $('restore').onclick=()=>$('backupFile').click();
 $('backupFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>5000000)throw Error();const imported=validate(JSON.parse(await file.text()));if(!confirm('Importar este backup e substituir os projetos e checklists deste navegador? Exporte o atual antes se quiser preservá-lo.'))return;projects=imported;storageBlocked=false;selected=null;save();renderBoard();}catch{alert('Não foi possível importar. Escolha um backup válido da Órbita. Seus dados foram mantidos.');}finally{e.target.value='';}};
 window.addEventListener('storage',e=>{if(e.key===KEY){$('saveStatus').className='save-error';$('saveStatus').textContent='O painel mudou em outra aba. Recarregue antes de continuar para usar a versão mais recente.';storageBlocked=true;}});
@@ -240,8 +262,9 @@ function startGate(){
   try{await openPublished();}catch{$('gateError').textContent='Não foi possível carregar a versão publicada.';}
  };
 }
+// Tarefas ativas marcadas desde a versão publicada; a fila nunca entra.
 function doneSinceBase(){
- return projects.flatMap(p=>{const name=p.parentId?`${projects.find(x=>x.id===p.parentId)?.name} · ${p.name}`:p.name;return p.tasks.filter(t=>t.done && !baselineDone.has(t.id)).map(t=>`${name}: ${t.text} ✓`);});
+ return projects.flatMap(p=>{const name=p.parentId?`${projects.find(x=>x.id===p.parentId)?.name} · ${p.name}`:p.name;return p.tasks.filter(t=>t.done && !t.queued && !baselineDone.has(t.id)).map(t=>`${name}: ${t.text} ✓`);});
 }
 async function copyDone(){
  const lines=doneSinceBase();
@@ -249,5 +272,6 @@ async function copyDone(){
  const text=lines.join('\n');
  try{await navigator.clipboard.writeText(text);alert('Copiado. Cole e me mande.');}catch{alert(text);}
 }
+$('publish').hidden=PUBLIC;
 if(PUBLIC){$('copyDone').hidden=false;$('copyDone').onclick=copyDone;startGate();}
 else{buildLadder();renderBoard();}

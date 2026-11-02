@@ -49,6 +49,19 @@ main.magnetic-board{padding:78px 4% 24px;gap:16px;grid-template-columns:minmax(0
 .detail-image-frame .detail-image{display:block;width:100%;height:100%;margin:0;border:0;border-radius:0;box-shadow:none;object-fit:cover;object-position:var(--image-x,50%) var(--image-y,50%);transform:scale(var(--image-zoom,1));transform-origin:var(--image-x,50%) var(--image-y,50%)}
 .child-item img{object-position:var(--image-x,50%) var(--image-y,50%);transform:scale(var(--image-zoom,1))}
 
+/* Fila de tarefas: só para você, ativada quando estiver pronta. */
+.queue-heading{margin-top:26px}
+.queue-note{font-size:11px;color:var(--muted);line-height:1.6;margin:6px 0 4px}
+.queue-empty{font-size:12px;color:var(--muted);font-style:italic;margin:8px 0 0}
+.task.queued{border-bottom-style:dashed;border-bottom-color:#dce8ae33}
+.task.queued input[type=text]{color:#c9d2c6}
+.queue-mark{font-size:13px;width:17px;text-align:center;flex-shrink:0;opacity:.8}
+.task .activate{font-size:11px;padding:6px 12px;border-color:#dce8ae88;color:var(--accent);border-radius:14px;flex-shrink:0}
+.task .activate:hover{background:#dce8ae18}
+.task .move{border:0;color:var(--muted);padding:6px 4px;font-size:14px;flex-shrink:0}
+.task .move:hover{color:var(--accent);background:none}
+#taskForm .queue-add{background:none;color:var(--accent);border:1px solid #dce8ae55;padding:6px 12px;font-size:15px;border-radius:12px}
+#taskForm .queue-add:hover{background:#dce8ae14}
 /* Tela de senha do site público. */
 .gate{position:fixed;inset:0;z-index:30;display:grid;place-items:center;background:var(--bg)}
 .gate[hidden]{display:none}

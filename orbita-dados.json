@@ -15,7 +15,14 @@
       "image": "assets/mindpractice.jpg",
       "level": 8,
       "archived": false,
-      "tasks": []
+      "tasks": [
+        {
+          "id": "37361320-beaa-483f-92b6-11735ee50259",
+          "text": "Testar o piloto durante 7 dias — já pode começar",
+          "done": false,
+          "queued": false
+        }
+      ]
     },
     {
       "id": "elite",
@@ -47,7 +54,14 @@
       "image": "assets/sabedoriaanimada.jpg",
       "level": 8,
       "archived": false,
-      "tasks": []
+      "tasks": [
+        {
+          "id": "b3a10942-4879-4c03-9326-838c7144bc2b",
+          "text": "Prospectar influenciadores afiliados — divulgação e parcerias",
+          "done": false,
+          "queued": false
+        }
+      ]
     },
     {
       "id": "frequencias-sagradas",
